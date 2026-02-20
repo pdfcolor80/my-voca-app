@@ -1,6 +1,5 @@
 import streamlit as st
 import os
-import time
 
 # 파일 경로 설정
 DATA_FILE = "sentences.txt"
@@ -41,6 +40,7 @@ st.markdown("""
     .mean-text { color: #1565C0; font-size: 1.8rem; font-weight: bold; }
     .label { color: #adb5bd; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; }
     
+    /* 실제 버튼 스타일 */
     .stButton>button { 
         width: 100%; 
         height: 4.5rem; 
@@ -52,17 +52,12 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 def load_sentences():
-    if not os.path.exists(DATA_FILE):
-        return []
+    if not os.path.exists(DATA_FILE): return []
     valid_sentences = []
     with open(DATA_FILE, "r", encoding="utf-8") as f:
         for line in f:
             parts = line.strip().split("|")
-            # 데이터가 4개 미만인 줄은 무시하거나 빈 값으로 채워 에러 방지
-            if len(parts) >= 4:
-                valid_sentences.append(parts[:4])
-            elif len(parts) == 3: # 혹시 3개만 있다면 마지막을 빈 뜻으로 채움
-                valid_sentences.append(parts + [""])
+            if len(parts) >= 4: valid_sentences.append(parts[:4])
     return valid_sentences
 
 def save_progress(index):
@@ -73,8 +68,7 @@ def load_progress():
     if os.path.exists(SAVE_FILE):
         try:
             with open(SAVE_FILE, "r", encoding="utf-8") as f:
-                content = f.read().strip()
-                return int(content) if content else 0
+                return int(f.read().strip())
         except: return 0
     return 0
 
@@ -85,16 +79,13 @@ if "current_idx" not in st.session_state:
 if "show_answer" not in st.session_state:
     st.session_state.show_answer = False
 
-# --- 메인 로직 ---
-if not sentences:
-    st.error("데이터 파일이 비어있거나 형식이 잘못되었습니다. '종류|영어|발음|뜻' 형식인지 확인하세요.")
-elif st.session_state.current_idx < len(sentences):
-    # 안전하게 데이터 가져오기
-    current_data = sentences[st.session_state.current_idx]
-    kind, eng, sound, mean = current_data
+# --- 메인 학습 화면 ---
+if sentences and st.session_state.current_idx < len(sentences):
+    kind, eng, sound, mean = sentences[st.session_state.current_idx]
     
     st.progress(st.session_state.current_idx / len(sentences))
 
+    # 카드 표시
     if not st.session_state.show_answer:
         st.markdown(f"""
         <div class="study-card">
@@ -107,19 +98,21 @@ elif st.session_state.current_idx < len(sentences):
         </div>
         """, unsafe_allow_html=True)
         
-        if st.button("💡 뜻 확인 (소리 재생)", type="secondary", use_container_width=True):
-            st.session_state.show_answer = True
-            # 소리 재생 스크립트
+        # [뜻 확인] 버튼 클릭 시 JavaScript로 즉시 소리 재생 후 Streamlit에 신호 전달
+        if st.button("💡 뜻 확인 & 소리 재생", type="secondary", use_container_width=True):
+            # 브라우저 TTS 엔진 직접 호출
             st.components.v1.html(f"""
                 <script>
-                window.speechSynthesis.cancel();
-                var msg = new SpeechSynthesisUtterance("{eng.replace('"', '')}");
+                var msg = new SpeechSynthesisUtterance("{eng.replace("'", "")}");
                 msg.lang = 'en-US';
-                msg.rate = 0.8;
+                msg.rate = 0.9;
+                window.speechSynthesis.cancel(); 
                 window.speechSynthesis.speak(msg);
                 </script>
             """, height=0)
+            st.session_state.show_answer = True
             st.rerun()
+            
     else:
         st.markdown(f"""
         <div class="study-card">
@@ -137,6 +130,7 @@ elif st.session_state.current_idx < len(sentences):
             st.session_state.show_answer = False
             save_progress(st.session_state.current_idx)
             st.rerun()
+
 else:
     st.balloons()
     st.success("🎉 모든 문장을 완료했습니다!")
