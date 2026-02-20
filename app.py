@@ -8,38 +8,44 @@ SAVE_FILE = "progress.txt"
 # 모바일 최적화 설정
 st.set_page_config(page_title="영어 패턴 1000", layout="centered")
 
-# CSS: 영어 한 줄 출력 및 디자인 최적화
+# CSS: 단계별 화면 변화 및 글자 최적화
 st.markdown("""
     <style>
     .main { background-color: #f8f9fa; }
     .study-card {
         background-color: #ffffff;
-        padding: 40px 15px;
+        padding: 30px 15px;
         border-radius: 30px;
         border: 1px solid #e9ecef;
         text-align: center;
         box-shadow: 0 8px 20px rgba(0,0,0,0.05);
         margin-bottom: 20px;
-        min-height: 380px;
+        min-height: 400px;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        overflow: hidden; /* 영역 밖으로 나가는 것 방지 */
     }
     
-    /* 영어 한 줄 유지 및 크기 최적화 */
+    /* 영어 텍스트 스타일 */
     .eng-text { 
         color: #D32F2F; 
-        font-size: 2.1rem; /* 한 줄에 최대한 들어가도록 크기 소폭 조정 */
+        font-size: calc(1.6rem + 1.2vw); 
         font-weight: bold; 
-        line-height: 1.1; 
+        line-height: 1.2; 
         margin-bottom: 10px;
-        white-space: nowrap; /* 줄바꿈 방지 */
-        overflow: hidden;
-        text-overflow: ellipsis; /* 너무 길면 끝에 ... 표시 */
+        word-break: keep-all;
+        min-height: 4em; /* 높이 고정으로 화면 흔들림 방지 */
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
-    .sound-text { color: #388E3C; font-size: 1.3rem; margin-top: 5px; font-weight: 500; opacity: 0.8; }
+    /* 3~5회차에서 영어를 숨길 때 사용할 클래스 */
+    .hidden-text {
+        visibility: hidden;
+    }
+    
+    .sound-text { color: #388E3C; font-size: 1.2rem; margin-top: 5px; font-weight: 500; opacity: 0.8; }
     
     .mean-box { 
         padding: 20px; 
@@ -49,7 +55,7 @@ st.markdown("""
         border: 1px solid #BBDEFB;
         width: 100%;
     }
-    .mean-text { color: #1565C0; font-size: 2.0rem; font-weight: bold; }
+    .mean-text { color: #1565C0; font-size: 1.8rem; font-weight: bold; }
     
     .label { color: #adb5bd; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
     
@@ -64,14 +70,15 @@ st.markdown("""
         border: none;
     }
     
-    .shadow-info { 
-        color: #FF6D00; 
+    /* 현재 상태 안내 박스 */
+    .status-info { 
+        color: #FFFFFF; 
         font-weight: bold; 
         margin-top: 15px; 
-        font-size: 1.0rem;
-        background-color: #FFF3E0;
-        padding: 8px;
-        border-radius: 10px;
+        font-size: 1.1rem;
+        background-color: #FF5722;
+        padding: 10px;
+        border-radius: 15px;
     }
     </style>
     """, unsafe_allow_html=True)
@@ -109,24 +116,28 @@ if sentences and st.session_state.current_idx < len(sentences):
     
     st.progress(st.session_state.current_idx / len(sentences))
     
+    # 💡 JavaScript에서 화면의 텍스트를 직접 제어하기 위해 ID를 부여함
     st.markdown(f"""
     <div class="study-card">
         <div class="label">{kind}</div>
-        <div class="eng-text">{eng}</div>
+        <div id="display-eng" class="eng-text">{eng}</div>
         <div class="sound-text">[{sound}]</div>
         <div class="mean-box">
             <div class="mean-text">{mean}</div>
         </div>
-        <div class="shadow-info">📢 0.7배속 연음 듣고 5회 따라하기</div>
+        <div id="status-box" class="status-info">🎧 1단계: 보고 따라하기 (1/5)</div>
     </div>
     """, unsafe_allow_html=True)
 
-    # 🔊 0.7배속 + 5회 반복 + 2초 대기 JavaScript
+    # 🔊 0.7배속 연음 + 5회 반복 + 단계별 가리기 스크립트
     clean_eng = eng.replace('"', '').replace("'", "")
     
     st.components.v1.html(f"""
         <script>
         function shadowSpeaking() {{
+            const engElement = window.parent.document.getElementById('display-eng');
+            const statusElement = window.parent.document.getElementById('status-box');
+            
             window.speechSynthesis.cancel();
             var msg = new SpeechSynthesisUtterance("{clean_eng}");
             msg.lang = 'en-US';
@@ -136,11 +147,27 @@ if sentences and st.session_state.current_idx < len(sentences):
             msg.onend = function() {{
                 count++;
                 if (count < 5) {{
+                    // 단계별 화면 제어 로직
+                    if (count === 2) {{
+                        // 3회차부터 영어 숨김
+                        engElement.classList.add('hidden-text');
+                        statusElement.innerText = "🔇 2단계: 소리만 듣고 맞추기 (" + (count+1) + "/5)";
+                        statusElement.style.backgroundColor = "#9C27B0";
+                    }} else {{
+                        statusElement.innerText = (count < 2 ? "🎧 1단계: 보고 따라하기 (" : "🔇 2단계: 소리만 듣고 맞추기 (") + (count+1) + "/5)";
+                    }}
+                    
                     setTimeout(function() {{
                         window.speechSynthesis.speak(msg);
                     }}, 2000);
+                }} else {{
+                    statusElement.innerText = "✅ 학습 완료! 다음 버튼을 누르세요.";
+                    statusElement.style.backgroundColor = "#4CAF50";
                 }}
             }};
+            
+            // 시작 상태 설정
+            engElement.classList.remove('hidden-text');
             window.speechSynthesis.speak(msg);
         }}
         shadowSpeaking();
