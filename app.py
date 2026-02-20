@@ -8,7 +8,7 @@ DATA_FILE = "sentences.txt"
 
 st.set_page_config(page_title="영어 패턴 1000 AI", layout="centered")
 
-# CSS: 강조 단어와 일반 단어의 차이를 극대화
+# CSS: 알파벳 단위 강조 스타일
 st.markdown("""
     <style>
     .main { background-color: #f8f9fa; }
@@ -19,7 +19,7 @@ st.markdown("""
         text-align: center;
         box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         margin-bottom: 20px;
-        min-height: 480px;
+        min-height: 500px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -29,64 +29,74 @@ st.markdown("""
     .border-step1 { border-color: #FF9800 !important; }
     .border-step2 { border-color: #0288D1 !important; }
     .border-step3 { border-color: #9C27B0 !important; }
-    .border-done { border-color: #4CAF50 !important; }
-
-    /* 전체 문장 컨테이너 */
+    
     .eng-text-container { 
-        min-height: 5em;
+        min-height: 6em;
         display: flex;
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
-        gap: 8px;
+        gap: 12px;
         padding: 10px;
+        font-family: 'Arial', sans-serif;
     }
     
-    /* 일반 단어 (기능어: to, the, is 등) */
-    .word-normal {
-        color: #888;
-        font-size: 1.6rem;
-        font-weight: 400;
+    /* 개별 단어 박스 */
+    .word-box { display: flex; align-items: flex-end; }
+
+    /* 일반 알파벳 */
+    .char-normal {
+        color: #444;
+        font-size: 2rem;
+        font-weight: 500;
     }
     
-    /* ⬆️ 강세 단어 (내용어: 강조해서 높게 읽는 단어) */
-    .word-stress {
+    /* 📍 엑센트 알파벳 강조 (높게 읽는 부분) */
+    .char-accent {
         color: #D32F2F;
-        font-size: 2.2rem;
+        font-size: 2.6rem;
         font-weight: 900;
-        text-decoration: underline; /* 시각적으로 한 번 더 강조 */
+        position: relative;
+        bottom: 5px; /* 시각적으로 위로 띄움 */
+    }
+    .char-accent::after {
+        content: '↑';
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 1rem;
+        font-weight: bold;
     }
 
-    /* 실시간 읽기 강조 (JS용) */
-    .word-active {
-        background-color: yellow;
-        transform: scale(1.2);
-    }
-    
-    .sound-text { color: #388E3C; font-size: 1.3rem; margin-top: 5px; opacity: 0.8; }
+    .sound-text { color: #388E3C; font-size: 1.3rem; margin-top: 10px; opacity: 0.7; }
     .hidden-content { visibility: hidden !important; }
     .mean-box { padding: 20px; border-radius: 20px; margin-top: 25px; background-color: #E3F2FD; }
-    .mean-text { color: #1565C0; font-size: 1.9rem; font-weight: bold; }
+    .mean-text { color: #1565C0; font-size: 2rem; font-weight: bold; }
     .status-info { color: #FFFFFF; font-weight: bold; margin-top: 20px; font-size: 1.1rem; padding: 15px; border-radius: 15px; text-align: center; }
     .stButton>button { width: 100%; height: 5rem; border-radius: 25px; font-weight: bold; font-size: 1.5rem !important; }
     </style>
     """, unsafe_allow_html=True)
 
-# 강세 단어 판별 함수 (간단한 내용어 추출 로직)
-def highlight_stress(text):
-    # 강세를 주지 않는 기능어 목록 (소문자로 유지될 단어들)
-    function_words = {'a', 'an', 'the', 'is', 'am', 'are', 'was', 'were', 'to', 'at', 'in', 'on', 'of', 'for', 'and', 'but', 'or', 'it', 'its', 'my', 'your', 'his', 'her'}
+# 텍스트 내 단어별 엑센트 알파벳 처리 로직
+def get_accented_html(text):
     words = text.split()
+    vowels = "aeiouAEIOU"
     html_output = ""
     
     for word in words:
-        clean_word = re.sub(r'[^\w]', '', word).lower()
-        if clean_word in function_words:
-            html_output += f'<span class="word-normal">{word}</span>'
-        else:
-            # 강세 단어는 대문자로 바꾸고 강조 클래스 적용
-            html_output += f'<span class="word-stress">{word.upper()}</span>'
-            
+        html_output += '<div class="word-box">'
+        # 간단한 강세 규칙: 2음절 이상 단어는 첫 번째 모음에 강세 (학습용 단순화)
+        # 실제 사전 API 연동 없이 규칙 기반으로 시각화
+        accent_done = False
+        for i, char in enumerate(word):
+            if not accent_done and char in vowels and len(word) > 2:
+                html_output += f'<span class="char-accent">{char}</span>'
+                accent_done = True
+            else:
+                html_output += f'<span class="char-normal">{char}</span>'
+        html_output += '</div>'
+        
     return html_output
 
 def load_sentences():
@@ -111,20 +121,20 @@ if sentences:
     idx = st.session_state.current_idx
     kind, eng, sound, mean = sentences[idx]
     
-    # 강세 표시가 적용된 HTML 생성
-    stressed_html = highlight_stress(eng)
+    # 알파벳 단위 강조 HTML 생성
+    accented_html = get_accented_html(eng)
     
     st.markdown(f"""
     <div id="main-card" class="study-card border-step1">
         <div style="color:#adb5bd; font-weight:bold;">{kind}</div>
         <div id="display-eng" class="eng-text-container">
-            {stressed_html}
+            {accented_html}
         </div>
         <div id="display-sound" class="sound-text">[{sound}]</div>
         <div class="mean-box">
             <div class="mean-text">{mean}</div>
         </div>
-        <div id="status-box" class="status-info" style="background-color:#FF9800;">🐌 1단계: 초저속 (표시된 단어 강조!)</div>
+        <div id="status-box" class="status-info" style="background-color:#FF9800;">🐌 1단계: ↑ 표시된 알파벳을 높게! (1/13)</div>
     </div>
     """, unsafe_allow_html=True)
 
@@ -138,7 +148,6 @@ if sentences:
             const engContainer = window.parent.document.getElementById('display-eng');
             const soundEl = window.parent.document.getElementById('display-sound');
             const statusEl = window.parent.document.getElementById('status-box');
-            const wordElements = engContainer.querySelectorAll('span');
             
             engContainer.classList.remove('hidden-content');
             soundEl.classList.remove('hidden-content');
@@ -155,49 +164,31 @@ if sentences:
                 if (count < 5) {{
                     msg.rate = 0.5;
                     card.className = "study-card border-step1";
-                    statusEl.innerText = "🐌 1단계: 강조 단어에 힘주어 읽기 (" + (count+1) + "/13)";
+                    statusEl.innerText = "🐌 1단계: 강세 알파벳 높이기 (" + (count+1) + "/13)";
                     statusEl.style.backgroundColor = "#FF9800";
                 }} else if (count < 10) {{
                     msg.rate = 0.8;
                     card.className = "study-card border-step2";
-                    statusEl.innerText = "🔵 2단계: 리듬 타며 연결하기 (" + (count+1) + "/13)";
+                    statusEl.innerText = "🔵 2단계: 표준 리듬 반복 (" + (count+1) + "/13)";
                     statusEl.style.backgroundColor = "#0288D1";
                 }} else {{
                     msg.rate = 0.8;
                     engContainer.classList.add('hidden-content');
                     soundEl.classList.add('hidden-content');
                     card.className = "study-card border-step3";
-                    statusEl.innerText = "🟣 3단계: 소리만 듣고 복기 (" + (count+1) + "/13)";
+                    statusEl.innerText = "🟣 3단계: 가리고 말하기 (" + (count+1) + "/13)";
                     statusEl.style.backgroundColor = "#9C27B0";
                 }}
 
-                msg.onboundary = function(event) {{
-                    if (event.name === 'word') {{
-                        wordElements.forEach(el => el.classList.remove('word-active'));
-                        const wordIdx = getWordIndex("{clean_eng}", event.charIndex);
-                        if (wordElements[wordIdx]) wordElements[wordIdx].classList.add('word-active');
-                    }}
-                }};
-
                 msg.onend = function() {{
-                    wordElements.forEach(el => el.classList.remove('word-active'));
                     count++;
                     if (count < total) setTimeout(speak, 2000);
                     else {{
-                        card.className = "study-card border-done";
-                        statusEl.innerText = isDrive ? "🚗 자동 이동 중..." : "✅ 완료!";
-                        statusEl.style.backgroundColor = "#43A047";
                         if(isDrive) setTimeout(() => {{ window.parent.document.querySelector('button[kind="primary"]').click(); }}, 3000);
                     }}
                 }};
                 window.speechSynthesis.speak(msg);
             }}
-
-            function getWordIndex(text, offset) {{
-                const beforeText = text.substring(0, offset).trim();
-                return beforeText === "" ? 0 : beforeText.split(/\s+/).length;
-            }}
-
             speak();
         }}
         setTimeout(startShadowing, 500);
