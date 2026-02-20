@@ -1,20 +1,29 @@
 import streamlit as st
 import os
 import time
-import requests
 
 # 파일 경로 설정
 DATA_FILE = "sentences.txt"
 SAVE_FILE = "progress.txt"
 
 # 페이지 설정
-st.set_page_config(page_title="영어 패턴 1000 부수기", page_icon="📖")
+st.set_page_config(page_title="영어 패턴 1000 부수기", page_icon="📖", layout="centered")
 
-# CSS로 UI 깔끔하게 다듬기
+# 스타일 설정
 st.markdown("""
     <style>
-    .stButton>button { width: 100%; }
-    .mean-box { background-color: #f0f2f6; padding: 20px; border-radius: 10px; margin-bottom: 20px; }
+    .main-card {
+        background-color: #ffffff;
+        padding: 25px;
+        border-radius: 15px;
+        border: 2px solid #e1e4e8;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+    }
+    .label { color: #586069; font-size: 0.9rem; margin-bottom: 5px; }
+    .content-mean { color: #1f77b4; font-size: 1.5rem; font-weight: bold; margin-bottom: 15px; }
+    .content-eng { color: #d62728; font-size: 1.3rem; font-weight: bold; }
+    .content-sound { color: #2ca02c; font-size: 1.1rem; }
     </style>
     """, unsafe_allow_html=True)
 
@@ -47,18 +56,16 @@ if "current_idx" not in st.session_state:
     st.session_state.current_idx = load_progress()
 if "count" not in st.session_state:
     st.session_state.count = 0
-if "show_english" not in st.session_state:
-    st.session_state.show_english = False
 
 # --- 사이드바 ---
 with st.sidebar:
-    st.title("⚙️ 학습 설정")
-    goal = st.number_input("🎯 오늘 목표 학습량", min_value=1, value=20)
-    auto_mode = st.toggle("🤖 자동 넘김 모드")
-    auto_delay = st.slider("⏳ 넘김 간격(초)", 2, 10, 4)
+    st.header("⚙️ 설정")
+    goal = st.number_input("🎯 오늘 목표량", min_value=1, value=20)
+    auto_mode = st.toggle("🤖 자동 넘김 모드", value=False)
+    auto_delay = st.slider("⏳ 넘김 간격(초)", 2, 15, 5)
     
     st.divider()
-    if st.button("🔄 처음부터 다시 시작"):
+    if st.button("🔄 처음부터 다시하기"):
         st.session_state.current_idx = 0
         st.session_state.count = 0
         save_progress(0)
@@ -70,59 +77,51 @@ st.title("📖 영어 패턴 1000 부수기")
 if st.session_state.current_idx < len(sentences):
     kind, eng, sound, mean = sentences[st.session_state.current_idx]
     
-    # 진도바
-    progress_val = min(st.session_state.current_idx / len(sentences), 1.0)
-    st.progress(progress_val, text=f"전체 진도: {st.session_state.current_idx}/{len(sentences)}")
-    st.write(f"오늘 학습 목표: {st.session_state.count} / {goal}")
+    # 상단 진도표
+    total_len = len(sentences)
+    st.progress(st.session_state.current_idx / total_len)
+    st.caption(f"진도: {st.session_state.current_idx}/{total_len} | 오늘 학습: {st.session_state.count}/{goal}")
 
-    # 1. 뜻 상시 노출
-    st.markdown(f"<div class='mean-box'><h3>뜻: {mean}</h3></div>", unsafe_allow_html=True)
+    # 학습 카드 레이아웃
+    st.markdown(f"""
+    <div class="main-card">
+        <div class="label">한국어 뜻</div>
+        <div class="content-mean">{mean}</div>
+        <hr>
+        <div class="label">영어 문장</div>
+        <div class="content-eng">{eng}</div>
+        <div class="label">원어민 발음</div>
+        <div class="content-sound">{sound}</div>
+    </div>
+    """, unsafe_allow_html=True)
 
-    # 2. 상황 이미지 (Unsplash 무료 이미지 API 사용)
-    # 문장의 핵심 키워드로 사진 한 장 가져오기
-    search_query = eng.replace("(", "").replace(")", "").replace("I'm", "").replace("I", "")
-    image_url = f"https://loremflickr.com/800/400/{search_query.split()[0]}" 
-    st.image(image_url, caption="상황 예시 이미지", use_container_width=True)
+    # 상황 이미지 출력 (한글 뜻 기반으로 검색하여 정확도 높임)
+    # 이미지 API: 한글 키워드를 지원하는 다이나믹 이미지 소스 사용
+    img_keyword = mean.split('(')[0].strip() # 괄호 안의 설명 제외
+    image_url = f"https://loremflickr.com/800/450/{img_keyword},clipart/all"
+    st.image(image_url, caption=f"상황 예시: {img_keyword}", use_container_width=True)
 
-    st.divider()
-
-    # 3. 학습 로직
+    # 제어 버튼
     if not auto_mode:
-        # 수동 모드
-        if not st.session_state.show_english:
-            if st.button("👉 영어 문장 보기"):
-                st.session_state.show_english = True
-                st.rerun()
-        else:
-            st.success(f"### 영어: {eng}")
-            st.info(f"발음: {sound}")
-            if st.button("✅ 다음 문장으로"):
-                st.session_state.current_idx += 1
-                st.session_state.count += 1
-                st.session_state.show_english = False
-                save_progress(st.session_state.current_idx)
-                st.rerun()
+        if st.button("다음 문장으로 👉", use_container_width=True):
+            st.session_state.current_idx += 1
+            st.session_state.count += 1
+            save_progress(st.session_state.current_idx)
+            st.rerun()
     else:
-        # 자동 모드
         if st.session_state.count < goal:
-            st.success(f"### 영어: {eng}")
-            st.info(f"발음: {sound}")
-            st.caption(f"{auto_delay}초 후 다음 문장으로 넘어갑니다...")
-            
+            st.info(f"💡 {auto_delay}초 후 자동으로 다음 문장으로 넘어갑니다.")
             time.sleep(auto_delay)
-            
             st.session_state.current_idx += 1
             st.session_state.count += 1
             save_progress(st.session_state.current_idx)
             st.rerun()
         else:
+            st.success("🎉 오늘 목표를 달성했습니다! 목표량을 늘려 더 학습해보세요.")
             st.balloons()
-            st.success("🎉 오늘 목표를 달성했습니다! 더 공부하시려면 사이드바에서 목표를 늘려주세요.")
-
 else:
     st.balloons()
     st.header("🏆 1,000문장 정복 완료!")
-    st.write("대단한 끈기입니다! 모든 문장을 마스터하셨습니다.")
+    st.write("모든 과정을 완수하셨습니다. 이제 복습을 시작해보세요!")
 
-# 하단 정보
-st.caption("공부한 진도는 자동으로 저장(progress.txt)되어 언제든 이어서 할 수 있습니다.")
+st.caption("공부한 기록은 자동으로 저장되어 언제든 이어서 할 수 있습니다.")
