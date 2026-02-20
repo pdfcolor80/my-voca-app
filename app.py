@@ -1,93 +1,128 @@
 import streamlit as st
-import random
+import os
+import time
+import requests
 
-# 페이지 설정 (스마트폰 최적화)
-st.set_page_config(page_title="나의 1000문장 단어장", page_icon="📖", layout="centered")
+# 파일 경로 설정
+DATA_FILE = "sentences.txt"
+SAVE_FILE = "progress.txt"
 
-# CSS로 디자인 살짝 입히기
+# 페이지 설정
+st.set_page_config(page_title="영어 패턴 1000 부수기", page_icon="📖")
+
+# CSS로 UI 깔끔하게 다듬기
 st.markdown("""
     <style>
-    .main { background-color: #f5f7f9; }
-    .stButton>button { width: 100%; border-radius: 10px; height: 3em; background-color: #4CAF50; color: white; }
-    .sentence-box { background-color: white; padding: 20px; border-radius: 15px; border: 1px solid #ddd; text-align: center; }
-    .category-tag { color: #888; font-size: 0.8em; }
-    .eng-text { font-size: 1.5em; font-weight: bold; color: #1E1E1E; margin: 10px 0; }
-    .kor-text { font-size: 1.1em; color: #444; }
+    .stButton>button { width: 100%; }
+    .mean-box { background-color: #f0f2f6; padding: 20px; border-radius: 10px; margin-bottom: 20px; }
     </style>
     """, unsafe_allow_html=True)
 
-# 데이터 로드 함수
-@st.cache_data
-def load_data():
-    sentences = []
-    try:
-        with open("sentences.txt", "r", encoding="utf-8") as f:
-            for line in f:
-                parts = line.strip().split("|")
-                if len(parts) == 4:
-                    sentences.append({
-                        "cat": parts[0],
-                        "eng": parts[1],
-                        "pron": parts[2],
-                        "kor": parts[3]
-                    })
-    except FileNotFoundError:
-        st.error("sentences.txt 파일을 찾을 수 없습니다.")
-    return sentences
+def load_sentences():
+    if not os.path.exists(DATA_FILE):
+        st.error(f"'{DATA_FILE}' 파일이 없습니다.")
+        return []
+    with open(DATA_FILE, "r", encoding="utf-8") as f:
+        return [line.strip().split("|") for line in f if "|" in line]
 
-data = load_data()
+def save_progress(index):
+    with open(SAVE_FILE, "w", encoding="utf-8") as f:
+        f.write(str(index))
 
-# 세션 상태 초기화 (현재 인덱스 관리)
-if 'idx' not in st.session_state:
-    st.session_state.idx = 0
+def load_progress():
+    if os.path.exists(SAVE_FILE):
+        try:
+            with open(SAVE_FILE, "r", encoding="utf-8") as f:
+                content = f.read().strip()
+                return int(content) if content else 0
+        except:
+            return 0
+    return 0
 
-# 상단 타이틀
-st.title("📖 나의 단어장")
-st.write(f"현재 등록된 문장: {len(data)}개")
+# 데이터 로드
+sentences = load_sentences()
 
-# 필터 및 검색
-search_query = st.text_input("🔍 카테고리 또는 단어 검색", "")
-filtered_data = [s for s in data if search_query.lower() in s['cat'].lower() or search_query.lower() in s['eng'].lower()]
+# 세션 상태 초기화
+if "current_idx" not in st.session_state:
+    st.session_state.current_idx = load_progress()
+if "count" not in st.session_state:
+    st.session_state.count = 0
+if "show_english" not in st.session_state:
+    st.session_state.show_english = False
 
-if filtered_data:
-    # 인덱스 범위 조절
-    if st.session_state.idx >= len(filtered_data):
-        st.session_state.idx = 0
-
-    item = filtered_data[st.session_state.idx]
-
-    # 문장 표시 카드
-    st.markdown(f"""
-        <div class="sentence-box">
-            <div class="category-tag">[{item['cat']}]</div>
-            <div class="eng-text">{item['eng']}</div>
-            <div class="kor-text">{item['pron']}</div>
-        </div>
-    """, unsafe_allow_html=True)
+# --- 사이드바 ---
+with st.sidebar:
+    st.title("⚙️ 학습 설정")
+    goal = st.number_input("🎯 오늘 목표 학습량", min_value=1, value=20)
+    auto_mode = st.toggle("🤖 자동 넘김 모드")
+    auto_delay = st.slider("⏳ 넘김 간격(초)", 2, 10, 4)
     
-    # 뜻 확인 버튼 (토글 방식)
-    if st.button("뜻 확인하기"):
-        st.success(f"📍 {item['kor']}")
+    st.divider()
+    if st.button("🔄 처음부터 다시 시작"):
+        st.session_state.current_idx = 0
+        st.session_state.count = 0
+        save_progress(0)
+        st.rerun()
 
-    # 이동 버튼 (좌우 배치)
-    col1, col2, col3 = st.columns([1, 2, 1])
-    with col1:
-        if st.button("⬅️"):
-            st.session_state.idx = (st.session_state.idx - 1) % len(filtered_data)
+# --- 메인 화면 ---
+st.title("📖 영어 패턴 1000 부수기")
+
+if st.session_state.current_idx < len(sentences):
+    kind, eng, sound, mean = sentences[st.session_state.current_idx]
+    
+    # 진도바
+    progress_val = min(st.session_state.current_idx / len(sentences), 1.0)
+    st.progress(progress_val, text=f"전체 진도: {st.session_state.current_idx}/{len(sentences)}")
+    st.write(f"오늘 학습 목표: {st.session_state.count} / {goal}")
+
+    # 1. 뜻 상시 노출
+    st.markdown(f"<div class='mean-box'><h3>뜻: {mean}</h3></div>", unsafe_allow_html=True)
+
+    # 2. 상황 이미지 (Unsplash 무료 이미지 API 사용)
+    # 문장의 핵심 키워드로 사진 한 장 가져오기
+    search_query = eng.replace("(", "").replace(")", "").replace("I'm", "").replace("I", "")
+    image_url = f"https://loremflickr.com/800/400/{search_query.split()[0]}" 
+    st.image(image_url, caption="상황 예시 이미지", use_container_width=True)
+
+    st.divider()
+
+    # 3. 학습 로직
+    if not auto_mode:
+        # 수동 모드
+        if not st.session_state.show_english:
+            if st.button("👉 영어 문장 보기"):
+                st.session_state.show_english = True
+                st.rerun()
+        else:
+            st.success(f"### 영어: {eng}")
+            st.info(f"발음: {sound}")
+            if st.button("✅ 다음 문장으로"):
+                st.session_state.current_idx += 1
+                st.session_state.count += 1
+                st.session_state.show_english = False
+                save_progress(st.session_state.current_idx)
+                st.rerun()
+    else:
+        # 자동 모드
+        if st.session_state.count < goal:
+            st.success(f"### 영어: {eng}")
+            st.info(f"발음: {sound}")
+            st.caption(f"{auto_delay}초 후 다음 문장으로 넘어갑니다...")
+            
+            time.sleep(auto_delay)
+            
+            st.session_state.current_idx += 1
+            st.session_state.count += 1
+            save_progress(st.session_state.current_idx)
             st.rerun()
-    with col2:
-        if st.button("랜덤 섞기 🎲"):
-            st.session_state.idx = random.randint(0, len(filtered_data) - 1)
-            st.rerun()
-    with col3:
-        if st.button("➡️"):
-            st.session_state.idx = (st.session_state.idx + 1) % len(filtered_data)
-            st.rerun()
+        else:
+            st.balloons()
+            st.success("🎉 오늘 목표를 달성했습니다! 더 공부하시려면 사이드바에서 목표를 늘려주세요.")
 
 else:
-    st.warning("검색 결과가 없습니다.")
+    st.balloons()
+    st.header("🏆 1,000문장 정복 완료!")
+    st.write("대단한 끈기입니다! 모든 문장을 마스터하셨습니다.")
 
-# 하단 진행률
-if filtered_data:
-    st.progress((st.session_state.idx + 1) / len(filtered_data))
-    st.write(f"진행도: {st.session_state.idx + 1} / {len(filtered_data)}")
+# 하단 정보
+st.caption("공부한 진도는 자동으로 저장(progress.txt)되어 언제든 이어서 할 수 있습니다.")
