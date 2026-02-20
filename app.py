@@ -6,29 +6,43 @@ import time
 DATA_FILE = "sentences.txt"
 SAVE_FILE = "progress.txt"
 
-# 페이지 설정
-st.set_page_config(page_title="영어 패턴 1000 부수기", page_icon="💡", layout="centered")
+# 페이지 설정 (모바일 최적화: 레이아웃을 centered로 고정)
+st.set_page_config(page_title="영어 1000", page_icon="🚀", layout="centered")
 
-# 핵심 단어별 아이콘 매칭 사전
-ICON_MAP = {
-    "happy": "😊", "sad": "😢", "think": "🤔", "go": "🏃", "eat": "🍴",
-    "drink": "☕", "call": "📞", "see": "👁️", "dance": "💃", "sing": "🎤",
-    "time": "⏰", "money": "💰", "car": "🚗", "home": "🏠", "work": "💼",
-    "sorry": "🙏", "thank": "💖", "question": "❓", "idea": "💡", "love": "😍",
-    "expensive": "💎", "cheap": "🏷️", "fast": "⚡", "slow": "🐢", "hot": "🔥",
-    "cold": "❄️", "help": "🤝", "look": "👀", "listen": "🎧", "speak": "🗣️"
-}
-
-def get_context_icon(eng, mean):
-    combined = (eng + " " + mean).lower()
-    for word, icon in ICON_MAP.items():
-        if word in combined:
-            return icon
-    return "📖"
+# CSS: 모바일 화면에서 텍스트가 잘 보이고 여백을 줄이도록 설정
+st.markdown("""
+    <style>
+    /* 전체 배경 및 폰트 설정 */
+    .main { background-color: #f9f9f9; }
+    
+    /* 카드 디자인: 여백 최소화 */
+    .mobile-card {
+        background-color: #ffffff;
+        padding: 15px;
+        border-radius: 15px;
+        border: 1px solid #eee;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    
+    /* 영어를 가장 크고 위에 배치 */
+    .eng-title { color: #d32f2f; font-size: 1.8rem; font-weight: bold; margin-bottom: 2px; line-height: 1.2; }
+    .sound-sub { color: #388e3c; font-size: 1.1rem; margin-bottom: 10px; }
+    
+    /* 뜻은 아래에 중간 크기로 */
+    .mean-box { background-color: #f1f3f4; padding: 10px; border-radius: 10px; }
+    .mean-text { color: #1976d2; font-size: 1.4rem; font-weight: bold; }
+    
+    .label { font-size: 0.7rem; color: #aaa; text-transform: uppercase; margin-bottom: 2px; }
+    
+    /* 구글 이미지 iframe 크기 조절 */
+    .img-container { width: 100%; height: 350px; border-radius: 10px; overflow: hidden; border: 1px solid #ddd; }
+    </style>
+    """, unsafe_allow_html=True)
 
 def load_sentences():
     if not os.path.exists(DATA_FILE):
-        st.error(f"'{DATA_FILE}' 파일이 없습니다.")
+        st.error("파일 없음")
         return []
     with open(DATA_FILE, "r", encoding="utf-8") as f:
         return [line.strip().split("|") for line in f if "|" in line]
@@ -41,32 +55,9 @@ def load_progress():
     if os.path.exists(SAVE_FILE):
         try:
             with open(SAVE_FILE, "r", encoding="utf-8") as f:
-                content = f.read().strip()
-                return int(content) if content else 0
-        except:
-            return 0
+                return int(f.read().strip())
+        except: return 0
     return 0
-
-# 스타일 설정: 영어를 가장 크고 위로 배치
-st.markdown("""
-    <style>
-    .main-card {
-        background-color: #ffffff;
-        padding: 35px;
-        border-radius: 25px;
-        border: 2px solid #f0f2f6;
-        text-align: center;
-        box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-        margin-top: 20px;
-    }
-    .icon-box { font-size: 80px; margin-bottom: 15px; }
-    .eng-text { color: #E53935; font-size: 2.5rem; font-weight: bold; margin-bottom: 5px; line-height: 1.2; }
-    .sound-text { color: #43A047; font-size: 1.3rem; margin-bottom: 25px; }
-    .mean-text { color: #1E88E5; font-size: 1.8rem; font-weight: bold; margin-top: 10px; }
-    .info-label { color: #bdbdbd; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
-    hr { border: 0; border-top: 1px solid #eee; margin: 20px 0; }
-    </style>
-    """, unsafe_allow_html=True)
 
 sentences = load_sentences()
 if "current_idx" not in st.session_state:
@@ -74,60 +65,62 @@ if "current_idx" not in st.session_state:
 if "count" not in st.session_state:
     st.session_state.count = 0
 
-# --- 사이드바 ---
+# --- 사이드바 (모바일에서는 메뉴 아이콘으로 숨겨짐) ---
 with st.sidebar:
-    st.header("⚙️ 학습 설정")
+    st.header("⚙️ 설정")
     goal = st.number_input("🎯 오늘 목표", min_value=1, value=20)
-    auto_mode = st.toggle("🤖 자동 넘김 모드", value=False)
-    auto_delay = st.slider("⏳ 넘김 간격(초)", 2, 15, 5)
-    if st.button("🔄 처음부터 다시 시작"):
+    auto_mode = st.toggle("🤖 자동 넘김")
+    auto_delay = st.slider("⏳ 시간(초)", 3, 15, 5)
+    if st.button("🔄 리셋"):
         st.session_state.current_idx = 0
-        st.session_state.count = 0
         save_progress(0)
         st.rerun()
 
-# --- 메인 학습화면 ---
+# --- 메인 학습 화면 ---
 if st.session_state.current_idx < len(sentences):
     kind, eng, sound, mean = sentences[st.session_state.current_idx]
-    current_icon = get_context_icon(eng, mean)
     
-    # 상단 진도표
-    st.progress(st.session_state.current_idx / len(sentences))
-    st.write(f"📊 진도: {st.session_state.current_idx}/1000 | 오늘 학습: {st.session_state.count}/{goal}")
-
-    # 중앙 카드: 영어(위/크게) -> 발음 -> 뜻(아래)
+    # 1. 텍스트 영역 (카드)
     st.markdown(f"""
-    <div class="main-card">
-        <div class="icon-box">{current_icon}</div>
-        <div class="info-label">English</div>
-        <div class="eng-text">{eng}</div>
-        <div class="sound-text">[{sound}]</div>
-        <hr>
-        <div class="info-label">Meaning</div>
-        <div class="mean-text">{mean}</div>
+    <div class="mobile-card">
+        <div class="label">English</div>
+        <div class="eng-title">{eng}</div>
+        <div class="sound-sub">[{sound}]</div>
+        <div class="mean-box">
+            <div class="mean-text">{mean}</div>
+        </div>
     </div>
     """, unsafe_allow_html=True)
-
-    st.write("") 
-
-    # 제어 버튼
+    
+    # 2. 제어 버튼 (크게 배치)
     if not auto_mode:
-        if st.button("다음 문장으로 넘어가기 👉", use_container_width=True):
+        if st.button("다음 문장 👉", use_container_width=True):
             st.session_state.current_idx += 1
             st.session_state.count += 1
             save_progress(st.session_state.current_idx)
             st.rerun()
     else:
-        if st.session_state.count < goal:
-            st.info(f"⏳ {auto_delay}초 후 자동으로 다음으로 넘어갑니다.")
-            time.sleep(auto_delay)
-            st.session_state.current_idx += 1
-            st.session_state.count += 1
-            save_progress(st.session_state.current_idx)
-            st.rerun()
-        else:
-            st.success("🎉 오늘 목표 달성! 수고하셨습니다.")
-            st.balloons()
+        st.caption(f"⏱ {auto_delay}초 후 자동 넘김...")
+        time.sleep(auto_delay)
+        st.session_state.current_idx += 1
+        st.session_state.count += 1
+        save_progress(st.session_state.current_idx)
+        st.rerun()
+
+    # 3. 이미지 영역 (하단 배치, 모바일 최적화 높이)
+    search_query = eng.replace("(", "").replace(")", "").strip()
+    google_img_url = f"https://www.google.com/search?q={search_query}+meaning&tbm=isch&safe=active"
+    
+    st.markdown(f"""
+        <div class="img-container">
+            <iframe src="{google_img_url}" width="100%" height="350" style="border:none;"></iframe>
+        </div>
+    """, unsafe_allow_html=True)
+    
+    # 하단 진행률
+    st.progress(st.session_state.current_idx / len(sentences))
+    st.caption(f"진도: {st.session_state.current_idx}/1000 | 오늘: {st.session_state.count}/{goal}")
+
 else:
     st.balloons()
-    st.header("🏆 1,000문장 마스터 완료!")
+    st.success("1,000문장 정복!")
