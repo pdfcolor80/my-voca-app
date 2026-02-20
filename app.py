@@ -1,6 +1,7 @@
 import streamlit as st
 import os
 import time
+import random
 
 # 파일 경로 설정
 DATA_FILE = "sentences.txt"
@@ -20,10 +21,10 @@ st.markdown("""
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         margin-bottom: 20px;
     }
-    .label { color: #586069; font-size: 0.9rem; margin-bottom: 5px; }
-    .content-mean { color: #1f77b4; font-size: 1.5rem; font-weight: bold; margin-bottom: 15px; }
-    .content-eng { color: #d62728; font-size: 1.3rem; font-weight: bold; }
-    .content-sound { color: #2ca02c; font-size: 1.1rem; }
+    .label { color: #586069; font-size: 0.9rem; margin-top: 10px; }
+    .content-mean { color: #1f77b4; font-size: 1.5rem; font-weight: bold; }
+    .content-eng { color: #d62728; font-size: 1.3rem; font-weight: bold; margin-top: 5px; }
+    .content-sound { color: #2ca02c; font-size: 1.1rem; margin-top: 5px; }
     </style>
     """, unsafe_allow_html=True)
 
@@ -82,26 +83,31 @@ if st.session_state.current_idx < len(sentences):
     st.progress(st.session_state.current_idx / total_len)
     st.caption(f"진도: {st.session_state.current_idx}/{total_len} | 오늘 학습: {st.session_state.count}/{goal}")
 
-    # 학습 카드 레이아웃
+    # 1. 정보 상시 노출 카드
     st.markdown(f"""
     <div class="main-card">
-        <div class="label">한국어 뜻</div>
+        <div class="label">뜻 (Meaning)</div>
         <div class="content-mean">{mean}</div>
-        <hr>
-        <div class="label">영어 문장</div>
+        <div class="label">영어 문장 (English)</div>
         <div class="content-eng">{eng}</div>
-        <div class="label">원어민 발음</div>
+        <div class="label">발음 (Pronunciation)</div>
         <div class="content-sound">{sound}</div>
     </div>
     """, unsafe_allow_html=True)
 
-    # 상황 이미지 출력 (한글 뜻 기반으로 검색하여 정확도 높임)
-    # 이미지 API: 한글 키워드를 지원하는 다이나믹 이미지 소스 사용
-    img_keyword = mean.split('(')[0].strip() # 괄호 안의 설명 제외
-    image_url = f"https://loremflickr.com/800/450/{img_keyword},clipart/all"
-    st.image(image_url, caption=f"상황 예시: {img_keyword}", use_container_width=True)
+    # 2. 이미지 출력 로직 개선
+    # 한글 뜻에서 핵심 명사만 추출 (조사 제거 등 간단한 전처리)
+    clean_keyword = mean.split('(')[0].replace("해요", "").replace("있어요", "").strip()
+    
+    # 캐시 방지를 위해 랜덤 쿼리 파라미터(lock) 추가
+    # 검색어를 영어 키워드와 한글 키워드 조합으로 시도
+    img_url = f"https://loremflickr.com/800/450/{clean_keyword},people/all?lock={st.session_state.current_idx}"
+    
+    st.image(img_url, caption=f"상황 연상: {clean_keyword}", use_container_width=True)
 
-    # 제어 버튼
+    st.divider()
+
+    # 3. 제어 로직
     if not auto_mode:
         if st.button("다음 문장으로 👉", use_container_width=True):
             st.session_state.current_idx += 1
@@ -117,11 +123,11 @@ if st.session_state.current_idx < len(sentences):
             save_progress(st.session_state.current_idx)
             st.rerun()
         else:
-            st.success("🎉 오늘 목표를 달성했습니다! 목표량을 늘려 더 학습해보세요.")
+            st.success("🎉 오늘 목표를 달성했습니다! 목표를 늘려 더 학습해보세요.")
             st.balloons()
 else:
     st.balloons()
     st.header("🏆 1,000문장 정복 완료!")
-    st.write("모든 과정을 완수하셨습니다. 이제 복습을 시작해보세요!")
+    st.write("축하합니다! 모든 문장을 완수하셨습니다.")
 
-st.caption("공부한 기록은 자동으로 저장되어 언제든 이어서 할 수 있습니다.")
+st.caption("진도는 자동으로 저장되어 브라우저를 껐다 켜도 유지됩니다.")
