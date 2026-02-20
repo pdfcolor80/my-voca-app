@@ -1,0 +1,1004 @@
+인사|How are you?|하우 아 유?|어떻게 지내세요?
+인사|Nice to meet you.|나이스 투 미츄.|만나서 반가워요.
+인사|Good morning.|굿 모닝.|좋은 아침이에요.
+인사|Long time no see.|롱 타임 노 씨.|오랜만이에요.
+인사|See you later.|씨 유 레이터.|나중에 봐요.
+쇼핑|How much is it?|하우 머치 이즈 잇?|이거 얼마예요?
+쇼핑|Can I get a discount?|캔 아이 겟 어 디스카운트?|할인 좀 해주세요.
+쇼핑|I'll take it.|아일 테이크 잇.|이걸로 살게요.
+쇼핑|Refund, please.|리펀드, 플리즈.|환불해 주세요.
+식당|Table for two, please.|테이블 포 투, 플리즈.|두 명 자리 주세요.
+식당|Check, please.|체크, 플리즈.|계산서 주세요.
+식당|It's very delicious.|잇츠 베리 딜리셔스.|정말 맛있어요.
+공항|Passport, please.|패스포트, 플리즈.|여권 좀 보여주세요.
+공항|Where is the gate?|웨어 이즈 더 게이트?|게이트가 어디죠?
+호텔|I have a reservation.|아이 해브 어 레저베이션.|예약했습니다.
+교통|Where is the station?|웨어 이즈 더 스테이션?|역이 어디인가요?
+교통|Go straight.|고 스트레이트.|직진하세요.
+교통|Turn right.|턴 라이트.|우회전하세요.
+교통|Mind the gap.|마인드 더 갭.|틈새를 조심하세요.
+건강|I have a cold.|아이 해브 어 콜드.|감기 걸렸어요.
+건강|I need a doctor.|아이 니드 어 닥터.|의사가 필요해요.
+업무|Let's start the meeting.|렛츠 스타트 더 미팅.|회의 시작합시다.
+업무|Let's call it a day.|렛츠 콜 잇 어 데이.|오늘은 이만 하죠.
+기기|Charge my phone, please.|차지 마이 폰, 플리즈.|폰 충전 좀 해주세요.
+기기|The wifi is slow.|더 와이파이 이즈 슬로우.|와이파이가 느려요.
+날씨|It's raining outside.|잇츠 레이닝 아웃사이드.|밖에 비가 와요.
+날씨|It's freezing cold.|잇츠 프리징 콜드.|얼어 죽을 만큼 추워요.
+가족|How is your family?|하우 이즈 유어 패밀리?|가족들은 잘 지내요?
+친구|Don't be so serious.|돈 비 쏘 시리어스.|너무 진지하게 굴지 마.
+친구|Just kidding.|저스트 키딩.|그냥 농담이야.
+돈|Split the bill.|스플릿 더 빌.|더치페이 해요.
+의견|I totally agree.|아이 토탈리 어그리.|전적으로 동의해요.
+상태|I'm exhausted.|아임 이그조스티드.|기진맥진해요.
+미용|Cut it short, please.|컷 잇 쇼트, 플리즈.|짧게 잘라주세요.
+격려|Don't give up.|돈 기브 업.|포기하지 마세요.
+격려|You can do it.|유 캔 두 잇.|당신은 할 수 있어요.
+약속|I'm running late.|아임 러닝 레이트.|조금 늦고 있어요.
+은행|Exchange some money.|익스체인지 썸 머니.|환전 좀 해주세요.
+음식|It's too salty.|잇츠 투 쏠티.|너무 짜요.
+명언|Time is money.|타임 이즈 머니.|시간은 금이다.
+명언|Knowledge is power.|날리지 이즈 파워.|아는 것이 힘이다.
+IT|Update the app.|업데이트 디 앱.|앱을 업데이트하세요.
+운전|Buckle your seatbelt.|버클 유어 씻벨트.|안전벨트 매세요.
+감정|I am impressed.|아이 엠 임프레스드.|감동받았습니다.
+일상|Sweet dreams.|스윗 드림즈.|좋은 꿈 꾸세요.
+쇼핑|Is this on sale?|이즈 디스 온 세일?|이거 할인 중인가요?
+쇼핑|I'm just looking.|아임 저스트 루킹.|그냥 구경하는 중이에요.
+쇼핑|Can I pay by card?|캔 아이 페이 바이 카드?|카드로 계산 가능해요?
+쇼핑|Where is the fitting room?|웨어 이즈 더 피팅 룸?|탈의실이 어디죠?
+식당|I'd like to order.|아이드 라이크 투 오더.|주문하고 싶어요.
+식당|Can I have some water?|캔 아이 해브 썸 워터?|물 좀 주실래요?
+식당|Not too spicy, please.|낫 투 스파이시, 플리즈.|너무 맵지 않게 해주세요.
+식당|The food is cold.|더 푸드 이즈 콜드.|음식이 식었어요.
+호텔|Check-out time, please.|체크아웃 타임, 플리즈.|체크아웃 시간이 언제죠?
+호텔|I need more towels.|아이 니드 모어 타월즈.|수건이 더 필요해요.
+교통|How long does it take?|하우 롱 더즈 잇 테이크?|얼마나 걸리나요?
+교통|Stop here, please.|스탑 히어, 플리즈.|여기서 세워주세요.
+교통|Is this the right bus?|이즈 디스 더 라이트 버스?|이 버스 맞나요?
+감정|I'm so excited.|아임 쏘 익사이티드.|정말 신나요.
+감정|Don't be disappointed.|돈 비 디스어포인티드.|실망하지 마세요.
+감정|I'm proud of you.|아임 프라우드 오브 유.|네가 자랑스러워.
+의견|That makes sense.|댓 메이크스 센스.|말이 되네요(이해가 가네요).
+의견|I don't think so.|아이 돈 씽크 쏘.|전 그렇게 생각 안 해요.
+의견|It's up to you.|잇츠 업 투 유.|당신 결정에 달렸어요.
+상태|I'm in a hurry.|아임 인 어 허리.|서두르는 중이에요.
+상태|I'm starving.|아임 스타빙.|배고파 죽겠어요.
+상태|Take your time.|테이크 유어 타임.|천천히 하세요.
+미용|Trim the bangs, please.|트림 더 뱅즈, 플리즈.|앞머리 좀 다듬어주세요.
+가전|Turn off the light.|턴 오프 더 라이트.|불 좀 꺼줘.
+가전|Lower the volume.|로워 더 볼륨.|소리 좀 낮춰줘.
+약속|Let's meet at seven.|렛츠 미트 앳 세븐.|7시에 만나요.
+약속|Can we reschedule?|캔 위 리스케줄?|일정을 조정할 수 있을까요?
+격려|Keep up the good work.|킵 업 더 굿 워크.|계속 수고하세요.
+격려|Everything will be fine.|에브리씽 윌 비 파인.|다 잘 될 거야.
+은행|I lost my card.|아이 로스트 마이 카드.|카드를 분실했어요.
+은행|Check my balance.|체크 마이 밸런스.|잔액 확인해 주세요.
+우체국|Is it fragile?|이즈 잇 프래절?|깨지기 쉬운 건가요?
+도서관|I'll borrow this.|아일 보로우 디스.|이거 빌릴게요.
+음식|It's a bit oily.|잇츠 어 빗 오일리.|약간 기름지네요.
+자연|The air is clean.|더 에어 이즈 클린.|공기가 깨끗해요.
+비상|I need help.|아이 니드 헬프.|도움이 필요해요.
+비상|Stop that thief!|스탑 댓 띠프!|저 도둑 잡아!
+전화|Who's calling, please?|후즈 콜링, 플리즈?|전화 거신 분 누구시죠?
+전화|Call me back later.|콜 미 백 레이터.|나중에 다시 전화해 줘.
+예의|Pardon me?|파든 미?|다시 말씀해 주실래요?
+예의|It's my treat.|잇츠 마이 트리트.|제가 살게요.
+반려동물|Feed the cat.|피드 더 캣.|고양이 밥 줘라.
+취업|Tell me your strength.|텔 미 유어 스트렝스.|당신의 강점을 말해주세요.
+시간|Once a week.|원스 어 위크.|일주일에 한 번요.
+경고|Danger! Keep out.|데인저! 킵 아웃.|위험! 출입 금지.
+IT|Check your email.|체크 유어 이메일.|이메일 확인해봐.
+IT|Log in first.|로그 인 퍼스트.|먼저 로그인하세요.
+IT|The site is slow.|더 사이트 이즈 슬로우.|사이트가 느려요.
+IT|Upload the photo.|업로드 더 포토.|사진을 업로드하세요.
+운전|Park over there.|파크 오버 데어.|저기에 주차하세요.
+운전|Gas is empty.|가스 이즈 엠티.|기름이 떨어졌어요.
+운전|Drive safely now.|드라이브 세이플리 나우.|안전 운전하세요.
+운전|Watch the speed.|왓치 더 스피드.|속도 조심하세요.
+건강|Eat more veggies.|이트 모어 베지스.|야채를 더 드세요.
+건강|Drink much water.|드링크 머치 워터.|물을 많이 마셔요.
+건강|Wash your face.|와시 유어 페이스.|세수하세요.
+명언|Love is blind.|러브 이즈 블라인드.|사랑은 눈을 멀게 해.
+명언|Practice makes perfect.|프랙티스 메이크 퍼펙트.|연습이 완벽을 만든다.
+명언|No pain no gain.|노 페인 노 게인.|고통 없이는 얻는 것도 없다.
+사회|Mind your business.|마인드 유어 비즈니스.|너나 잘하세요.
+사회|Keep the promise.|킵 더 프라미스.|약속 지키세요.
+사회|Wait your turn.|웨이트 유어 턴.|차례를 기다리세요.
+여행|Pack your bags.|팩 유어 백즈.|짐을 싸세요.
+여행|I'm back now.|아임 백 나우.|저 돌아왔어요.
+경고|Don't touch that.|돈 터치 댓.|그거 만지지 마.
+경고|Watch your head.|왓치 유어 헤드.|머리 조심하세요.
+감정|I feel relieved.|아이 필 릴리브드.|안심이 되네요.
+감정|I am impressed.|아이 엠 임프레스드.|감동받았습니다.
+격려|Don't give up.|돈 기브 업.|포기하지 마세요.
+격려|Keep it up.|킵 잇 업.|계속 힘내세요.
+격려|Almost there.|올모스트 데어.|다 왔어요.
+일상|Time to go home.|타임 투 고 홈.|집에 갈 시간이에요.
+일상|Rest well now.|레스트 웰 나우.|이제 푹 쉬세요.
+일상|Lock the door.|락 더 도어.|문을 잠그세요.
+조언|Be honest.|비 어니스트.|정직해지세요.
+조언|Save your money.|세이브 유어 머니.|돈을 아끼세요.
+조언|Don't be shy.|돈 비 샤이.|부끄러워 마세요.
+대화|Any questions?|애니 퀘스천즈?|질문 있나요?
+대화|That's all.|댓츠 올.|그게 전부예요.
+대화|I got it.|아이 갓 잇.|이해했어요.
+인사|Have a nice day.|해브 어 나이스 데이.|좋은 하루 되세요.
+인사|Take care, bye.|테이크 케어, 바이.|몸조심해요, 안녕.
+인사|Keep in touch.|킵 인 터치.|연락하고 지내요.
+스포츠|Score is tied.|스코어 이즈 타이드.|점수가 비겼어요.
+문화|Two tickets, please.|투 티켓츠, 플리즈.|표 두 장 주세요.
+문화|Is it subtitled?|이즈 잇 섭타이틀드?|자막이 있나요?
+비상|Stay calm, please.|스테이 캄, 플리즈.|진정하세요.
+전화|Wrong number.|롱 넘버.|전화 잘못 거셨어요.
+감각|It smells good.|잇 스멜즈 굿.|좋은 냄새가 나요.
+일상|Just a second.|저스트 어 세컨드.|잠시만요.
+생활|Sweep the floor.|스윕 더 플로어.|바닥 좀 쓸어라.
+생활|Mop the floor.|몹 더 플로어.|바닥 좀 닦아라.
+생활|Take out the trash.|테이크 아웃 더 트래쉬.|쓰레기 좀 버려줘.
+생활|Do the dishes.|두 더 디쉬즈.|설거지해라.
+생활|Make the bed.|메이크 더 베드.|침대 정리해라.
+생활|Empty the bin.|엠티 더 빈.|휴지통 비워라.
+생활|Water the plants.|워터 더 플랜츠.|화분에 물 줘라.
+생활|Dust the furniture.|더스트 더 퍼니쳐.|가구 먼지 좀 털어라.
+생활|Laundry is done.|론드리 이즈 던.|빨래 다 됐어.
+생활|Hung the laundry.|헝 더 론드리.|빨래 널었어.
+쇼핑|I'm looking for a gift.|아임 루킹 포 어 기프트.|선물을 찾고 있어요.
+쇼핑|Is this the final price?|이즈 디스 더 파이널 프라이스?|이게 최종 가격인가요?
+쇼핑|Can you wrap this?|캔 유 랩 디스?|이거 포장해 주실래요?
+쇼핑|I'll pay in cash.|아일 페이 인 캐시.|현금으로 낼게요.
+쇼핑|Keep the receipt.|킵 더 리씨트.|영수증 보관하세요.
+쇼핑|Where is the cart?|웨어 이즈 더 카트?|카트가 어디 있죠?
+쇼핑|It's on the third floor.|잇츠 온 더 써드 플로어.|3층에 있어요.
+쇼핑|Is it made in Korea?|이즈 잇 메이드 인 코리아?|한국산인가요?
+식당|Check the bill again.|체크 더 빌 어게인.|계산서 다시 확인해 주세요.
+식당|I have a food allergy.|아이 해브 어 푸드 앨러지.|음식 알레르기가 있어요.
+식당|Can I change my order?|캔 아이 체인지 마이 오더?|주문 변경할 수 있나요?
+식당|This is not what I ordered.|디스 이즈 낫 왓 아이 오더드.|이건 제가 주문한 게 아니에요.
+식당|Do you have a high chair?|두 유 해브 어 하이 체어?|아기용 의자 있나요?
+식당|How long is the wait?|하우 롱 이즈 더 웨이트?|얼마나 기다려야 하죠?
+식당|Is service charge included?|이즈 서비스 차지 인클루디드?|봉사료 포함인가요?
+식당|Can I have a refill?|캔 아이 해브 어 리필?|리필 가능할까요?
+식당|Everything was perfect.|에브리씽 워즈 퍼펙트.|모든 게 완벽했어요.
+공항|Is the flight on time?|이즈 더 플라이트 온 타임?|비행기가 정시에 출발하나요?
+공항|I missed my flight.|아이 미스드 마이 플라이트.|비행기를 놓쳤어요.
+공항|Where is baggage claim?|웨어 이즈 배기지 클레임?|수하물 찾는 곳이 어디죠?
+공항|Carry-on bag only.|캐리 온 백 온리.|기내용 가방뿐이에요.
+공항|Window seat, please.|윈도우 씻, 플리즈.|창가 자리로 주세요.
+공항|Aisle seat, please.|아일 씻, 플리즈.|통로 자리로 주세요.
+호텔|Is breakfast included?|이즈 브렉퍼스트 인클루디드?|조식 포함인가요?
+호텔|The room is too cold.|더 룸 이즈 투 콜드.|방이 너무 추워요.
+호텔|Can I leave my luggage?|캔 아이 리브 마이 러기지?|짐을 좀 맡길 수 있을까요?
+호텔|Need a taxi, please.|니드 어 택시, 플리즈.|택시가 필요해요.
+병원|I have a headache.|아이 해브 어 헤드에이크.|머리가 아파요.
+병원|I have a stomachache.|아이 해브 어 스토먹에이크.|배가 아파요.
+병원|My throat is sore.|마이 쓰로트 이즈 소어.|목이 따끔거려요.
+병원|I feel dizzy.|아이 필 디지.|어지러워요.
+병원|I have a runny nose.|아이 해브 어 러니 노즈.|콧물이 나요.
+병원|I can't stop coughing.|아이 캔트 스탑 커핑.|기침이 멈추지 않아요.
+병원|Is it contagious?|이즈 잇 컨테이져스?|전염성이 있나요?
+병원|I need a prescription.|아이 니드 어 프리스크립션.|처방전이 필요해요.
+약국|How many times a day?|하우 매니 타임즈 어 데이?|하루에 몇 번 먹나요?
+약국|Take it after meals.|테이크 잇 애프터 밀즈.|식후에 드세요.
+약국|I need some painkillers.|아이 니드 썸 페인킬러즈.|진통제가 필요해요.
+약국|Does it have side effects?|더즈 잇 해브 사이드 이펙츠?|부작용이 있나요?
+감정|I'm so touched.|아임 쏘 터치드.|정말 감동받았어요.
+감정|I'm a bit depressed.|아임 어 빗 디프레스드.|약간 우울해요.
+감정|Don't be jealous.|돈 비 젤러스.|질투하지 마세요.
+감정|I'm so embarrassed.|아임 쏘 임배러스트.|정말 창피해요.
+감정|I'm really annoyed.|아임 리얼리 어노이드.|정말 짜증 나요.
+감정|It's frustrating.|잇츠 프러스트레이팅.|답답해요.
+감정|I feel energetic.|아이 필 에너제틱.|기운이 넘쳐요.
+관계|We are close friends.|위 아 클로즈 프렌즈.|우리는 친한 친구예요.
+관계|I lost touch with him.|아이 로스트 터치 위드 힘.|그와 연락이 끊겼어요.
+관계|He is very reliable.|히 이즈 베리 릴라이어블.|그는 정말 믿음직해요.
+관계|Stop nagging me.|스탑 내깅 미.|잔소리 좀 그만하세요.
+관계|We have much in common.|위 해브 머치 인 커먼.|우리는 공통점이 많아요.
+관계|I'll introduce you.|아일 인트로듀스 유.|소개해 드릴게요.
+학교|I'm majoring in math.|아임 메이저링 인 매쓰.|수학을 전공하고 있어요.
+학교|I have an exam today.|아이 해브 언 이그잼 투데이.|오늘 시험이 있어요.
+학교|The assignment is hard.|디 어싸인먼트 이즈 하드.|과제가 어려워요.
+학교|I'm in my senior year.|아임 인 마이 시니어 이어.|저는 4학년이에요.
+교통|Is there a parking fee?|이즈 데어 어 파킹 피?|주차비가 있나요?
+교통|The traffic is heavy.|더 트래픽 이즈 헤비.|차가 많이 막혀요.
+교통|Where can I get a taxi?|웨어 캔 아이 겟 어 택시?|택시 어디서 타나요?
+교통|Drop me off here.|드롭 미 오프 히어.|여기서 내려주세요.
+생활|The sink is clogged.|더 싱크 이즈 클로그드.|싱크대가 막혔어요.
+생활|The light bulb burned out.|더 라이트 벌브 번드 아웃.|전구가 나갔어요.
+생활|The power is out.|더 파워 이즈 아웃.|정전됐어요.
+생활|I locked myself out.|아이 락트 마이셀프 아웃.|열쇠를 안에 두고 잠갔어요.
+업무|I'm working overtime.|아임 워킹 오버타임.|야근하고 있어요.
+업무|The deadline is tomorrow.|더 데드라인 이즈 투모로우.|마감 기한이 내일이에요.
+업무|I'll send the report.|아일 샌드 더 리포트.|보고서를 보낼게요.
+업무|Let's have a brief meeting.|렛츠 해브 어 브리프 미팅.|잠깐 회의 좀 합시다.
+업무|I'm out of the office.|아임 아웃 오브 디 오피스.|지금 사무실 밖(외근/휴가)이에요.
+업무|Please cc me on that.|플리즈 씨씨 미 온 댓.|저도 참조(CC)에 넣어주세요.
+업무|I'll get back to you.|아일 겟 백 투 유.|나중에 다시 연락드릴게요(답변 줄게요).
+업무|Can you handle this?|캔 유 핸들 디스?|이거 처리해 줄 수 있어요?
+업무|I'm on a business trip.|아임 온 어 비즈니스 트립.|지금 출장 중이에요.
+비즈니스|Nice to do business with you.|나이스 투 두 비즈니스 위드 유.|거래하게 되어 반갑습니다.
+비즈니스|We need a signature here.|위 니드 어 시그니처 히어.|여기에 서명이 필요합니다.
+비즈니스|The contract is signed.|더 컨트랙트 이즈 싸인드.|계약이 체결되었습니다.
+비즈니스|Let's discuss the details.|렛츠 디스커스 더 디테일즈.|상세 내용을 논의해 봅시다.
+비즈니스|Your offer is interesting.|유어 오퍼 이즈 인트레스팅.|제안이 흥미롭네요.
+비즈니스|We need a compromise.|위 니드 어 컴프라마이즈.|타협안이 필요합니다.
+취미|I enjoy taking photos.|아이 인조이 테이킹 포토즈.|사진 찍는 걸 즐겨요.
+취미|I'm a big fan of jazz.|아임 어 빅 팬 오브 재즈.|재즈를 정말 좋아해요.
+취미|I go hiking every weekend.|아이 고 하이킹 에브리 위켄드.|주말마다 등산 가요.
+취미|Do you play any instruments?|두 유 플레이 애니 인스트루먼츠?|악기 연주하는 거 있어요?
+취미|I'm learning how to cook.|아임 러닝 하우 투 쿡.|요리하는 걸 배우고 있어요.
+문화|Is the museum open today?|이즈 더 뮤지엄 오픈 투데이?|박물관 오늘 여나요?
+문화|Can I take pictures here?|캔 아이 테이크 픽쳐스 히어?|여기서 사진 찍어도 되나요?
+문화|Where is the ticket booth?|웨어 이즈 더 티켓 부쓰?|매표소가 어디죠?
+문화|The performance was amazing.|더 퍼포먼스 워즈 어메이징.|공연이 정말 멋졌어요.
+문화|I'd like to book a seat.|아이드 라이크 투 북 어 씻.|좌석을 예약하고 싶어요.
+일상|I'm looking for a job.|아임 루킹 포 어 잡.|구직 중이에요.
+일상|What's your major?|왓츠 유어 메이저?|전공이 뭐예요?
+일상|I live alone.|아이 리브 얼론.|혼자 살아요.
+일상|I moved last week.|아이 무브드 래스트 위크.|지난주에 이사했어요.
+전화|The signal is weak here.|더 시그널 이즈 위크 히어.|여기 신호가 약해요.
+전화|My battery is dying.|마이 배터리 이즈 다잉.|배터리가 거의 없어요.
+전화|Put it on speaker.|풋 잇 온 스피커.|스피커폰으로 해줘.
+전화|I'll text you later.|아일 텍스트 유 레이터.|나중에 문자 할게.
+전화|Can you hear me now?|캔 유 히어 미 나우?|지금 내 목소리 들려요?
+전화|Sorry, I missed your call.|쏘리, 아이 미스드 유어 콜.|미안해요, 전화를 못 받았어요.
+교통|Does this bus go to downtown?|더즈 디스 버스 고 투 다운타운?|이 버스 시내로 가나요?
+교통|I'll get off at the next stop.|아일 겟 오프 앳 더 넥스트 스탑.|다음 정거장에서 내릴게요.
+사회|It's a small world.|잇츠 어 스몰 월드.|세상 참 좁네요.
+사회|Nice talking to you.|나이스 토킹 투 유.|대화 즐거웠습니다.
+사회|Give me a hand.|기브 미 어 핸드.|좀 도와주세요.
+사회|I'm on your side.|아임 온 유어 사이드.|난 네 편이야.
+사회|Don't take it personally.|돈 테이크 잇 퍼스널리.|개인적으로 받아들이지 마(기분 나빠하지 마).
+사회|Let's keep in touch.|렛츠 킵 인 터치.|계속 연락하고 지내요.
+친구|What's up?|왓츠 업?|별일 없어?
+친구|Not much.|낫 머치.|그저 그래(별일 없어).
+친구|How have you been?|하우 해브 유 빈?|그동안 어떻게 지냈어?
+친구|I'm so happy for you.|아임 쏘 해피 포 유.|정말 잘됐다.
+친구|You're the best!|유어 더 베스트!|네가 최고야!
+친구|Whatever you want.|왓에버 유 원트.|네가 원하는 건 뭐든지.
+친구|That's what friends are for.|댓츠 왓 프렌즈 아 포.|친구 좋다는 게 뭐야.
+친구|Don't be a stranger.|돈 비 어 스트레인저.|연락 좀 하고 지내자.
+일상|I'm going to the gym.|아임 고잉 투 더 짐.|헬스장 가는 중이야.
+일상|I need to lose weight.|아이 니드 투 루즈 웨이트.|살 좀 빼야 해.
+일상|I'm on a diet.|아임 온 어 다이어트.|나 다이어트 중이야.
+일상|I stayed up all night.|아이 스테이드 업 올 나이트.|어젯밤에 밤샜어.
+일상|I'm a morning person.|아임 어 모닝 퍼슨.|난 아침형 인간이야.
+일상|I overlept today.|아이 오버슬렙트 투데이.|오늘 늦잠 잤어.
+일상|The alarm didn't go off.|디 알람 디든 고 오프.|알람이 안 울렸어.
+식당|Can I have a doggy bag?|캔 아이 해브 어 도기 백?|남은 음식 좀 싸 주실래요?
+식당|Is there a vegetarian option?|이즈 데어 어 베지테리언 옵션?|채식 메뉴가 있나요?
+식당|I'll have the same.|아일 해브 더 세임.|저도 같은 걸로 할게요.
+식당|Make it two, please.|메이크 잇 투, 플리즈.|두 개 주세요.
+쇼핑|Do you have this in stock?|두 유 해브 디스 인 스탁?|이거 재고 있나요?
+쇼핑|When will it be back in stock?|웬 윌 잇 비 백 인 스탁?|언제 재입고 되나요?
+쇼핑|Can I get a gift receipt?|캔 아이 겟 어 기프트 리씨트.|선물용 영수증 주실래요?
+교통|How often does the bus run?|하우 오픈 더즈 더 버스 런?|버스가 얼마나 자주 오나요?
+교통|Which exit should I take?|위치 엑시트 슈드 아이 테이크?|몇 번 출구로 나가야 하죠?
+교통|I missed my stop.|아이 미스드 마이 스탑.|내릴 곳을 지나쳤어요.
+비상|I've been robbed.|아이브 빈 랍드.|강도를 당했어요.
+비상|My car broke down.|마이 카 브로크 다운.|차 고장 났어요.
+비상|Is everyone okay?|이즈 에브리원 오케이?|모두 괜찮나요?
+비상|Watch out for the fire!|왓치 아웃 포 더 파이어!|불 조심하세요!
+비상|I need an ambulance!|아이 니드 언 앰뷸런스!|구급차가 필요해요!
+가전|The washing machine is broken.|더 와싱 머신 이즈 브로큰.|세탁기가 고장 났어요.
+가전|Turn the volume down.|턴 더 볼륨 다운.|소리 좀 줄여주세요.
+가전|Is the microwave working?|이즈 더 마이크로웨이브 워킹?|전자레인지 작동하나요?
+가전|The vacuum has low suction.|더 배컴 해즈 로우 석션.|청소기 흡입력이 약해요.
+가전|Unplug the toaster.|언플러그 더 토스터.|토스터기 코드를 뽑으세요.
+시설|The toilet is leaking.|더 토일렛 이즈 리킹.|변기에서 물이 새요.
+시설|The faucet is dripping.|더 파싯 이즈 드리핑.|수도꼭지에서 물이 떨어져요.
+시설|The door handle is loose.|더 도어 핸들 이즈 루즈.|문손잡이가 헐거워요.
+시설|I need to fix the lock.|아이 니드 투 픽스 더 락.|잠금장치를 고쳐야 해요.
+시설|The window won't open.|더 윈도우 원트 오픈.|창문이 안 열려요.
+날씨|It's humid today.|잇츠 휴미드 투데이.|오늘 습하네요.
+날씨|The fog is very thick.|더 포그 이즈 베리 틱.|안개가 매우 짙어요.
+날씨|It looks like it will rain.|잇 룩스 라이크 잇 윌 레인.|비가 올 것 같아요.
+날씨|The wind is blowing hard.|더 윈드 이즈 블로잉 하드.|바람이 세게 불어요.
+날씨|It's chilling outside.|잇츠 칠링 아웃사이드.|밖이 쌀쌀해요.
+날씨|The sun is scorching.|더 썬 이즈 스코칭.|햇볕이 쨍쨍 내리쬐요.
+여행|I'd like a city map.|아이드 라이크 어 시티 맵.|시내 지도를 갖고 싶어요.
+여행|Where can I rent a car?|웨어 캔 아이 렌트 어 카?|차를 어디서 빌릴 수 있나요?
+여행|Is the entrance fee free?|이즈 더 엔트런스 피 프리?|입장료가 무료인가요?
+여행|I'd like a guided tour.|아이드 라이크 어 가이디드 투어.|가이드 투어를 원해요.
+여행|How long is the delay?|하우 롱 이즈 더 딜레이?|얼마나 지연되나요?
+여행|Can you take a photo of me?|캔 유 테이크 어 포토 오브 미?|제 사진 좀 찍어주실래요?
+여행|I'm here for sightseeing.|아임 히어 포 사이트씨잉.|관광하러 왔어요.
+여행|Is it safe around here?|이즈 잇 세이프 어라운드 히어?|이 근처는 안전한가요?
+일상|I'm running an errand.|아임 러닝 언 에런드.|심부름 가는 길이에요.
+일상|I'll be right back.|아일 비 라이트 백.|금방 돌아올게요.
+일상|Don't wait up for me.|돈 웨이트 업 포 미.|나 기다리지 말고 먼저 자요.
+일상|I'm exhausted from work.|아임 이그조스티드 프롬 워크.|일 때문에 너무 지쳐요.
+일상|What's for dinner tonight?|왓츠 포 디너 투나잇?|오늘 저녁 메뉴가 뭐예요?
+일상|I have a lot on my mind.|아이 해브 어 랏 온 마이 마인드.|생각이 너무 많아요.
+공항|Where is the duty-free shop?|웨어 이즈 더 듀티 프리 샵?|면세점이 어디인가요?
+공항|Do I need to check this in?|두 아이 니드 투 체크 디스 인?|이것도 부쳐야 하나요?
+공항|I have nothing to declare.|아이 해브 나씽 투 디클레어.|신고할 게 없습니다.
+공항|My luggage is missing.|마이 러기지 이즈 미싱.|제 짐이 없어졌어요.
+교통|Is there a shuttle bus?|이즈 데어 어 셔틀 버스?|셔틀버스가 있나요?
+교통|Does this train stop at Seoul?|더즈 디스 트레인 스탑 앳 서울?|이 기차 서울역에 서나요?
+명언|Action speaks louder than words.|액션 스피크스 라우더 댄 워즈.|말보다 행동이 중요하다.
+명언|Every cloud has a silver lining.|에브리 클라우드 해즈 어 실버 라이닝.|하늘이 무너져도 솟아날 구멍은 있다.
+명언|Don't judge a book by its cover.|돈 저지 어 북 바이 잇츠 커버.|겉모습만 보고 판단하지 마라.
+명언|Honesty is the best policy.|어니스트 이즈 더 베스트 팔리시.|정직이 최선의 방책이다.
+명언|Stay hungry, stay foolish.|스테이 헝그리, 스테이 풀리시.|끊임없이 갈구하고 바보처럼 도전하라.
+감정|I'm over the moon.|아임 오버 더 문.|너무 기뻐서 세상을 다 얻은 것 같아.
+감정|I feel a bit under the weather.|아이 필 어 빗 언더 더 웨더.|몸 컨디션이 좀 안 좋아.
+감정|I'm on pins and needles.|아임 온 핀즈 앤 니들즈.|안절부절못하고 있어(가시방석이야).
+감정|It's a bitter pill to swallow.|잇츠 어 비터 필 투 스왈로.|받아들이기 힘든 시련이야.
+감정|I'm so relieved to hear that.|아임 쏘 릴리브드 투 히어 댓.|그 말을 들으니 정말 다행이야.
+대화|To be honest with you...|투 비 어니스트 위드 유...|솔직히 말하자면...
+대화|As far as I know...|애즈 파 애즈 아이 노...|내가 아는 바로는...
+대화|That's a good point.|댓츠 어 굿 포인트.|좋은 지적이야.
+대화|Let's get straight to the point.|렛츠 겟 스트레이트 투 더 포인트.|본론으로 바로 들어갑시다.
+대화|I see what you mean.|아이 씨 왓 유 민.|무슨 뜻인지 알겠어.
+대화|Could you repeat that?|쿠쥬 리피트 댓?|다시 말씀해 주시겠어요?
+대화|I'll keep that in mind.|아일 킵 댓 인 마인드.|그 점 명심할게요.
+사회|Please accept my apology.|플리즈 어셉트 마이 어팔러지.|제 사과를 받아주세요.
+사회|I didn't mean it.|아이 디든 민 잇.|그럴 의도는 아니었어요.
+사회|Can I take a rain check?|캔 아이 테이크 어 레인 체크?|다음 기회로 미룰 수 있을까요?
+사회|It's not a big deal.|잇츠 낫 어 빅 딜.|별일 아니에요.
+일상|I'm looking forward to it.|아임 루킹 포워드 투 잇.|정말 기대돼요.
+일상|Better safe than sorry.|베터 세이프 댄 쏘리.|나중에 후회하는 것보다 조심하는 게 낫다.
+일상|It's just a matter of time.|잇츠 저스트 어 매터 오브 타임.|단지 시간문제일 뿐이야.
+일상|It's worth a try.|잇츠 워스 어 트라이.|해볼 만한 가치가 있어.
+일상|I'm in the middle of something.|아임 인 더 미들 오브 썸씽.|나 지금 뭐 좀 하는 중이야.
+일상|I'll make it up to you.|아일 메이크 잇 업 투 유.|내가 나중에 꼭 보답할게.
+인사|Wishing you all the best.|위싱 유 올 더 베스트.|행운을 빌어요.
+인사|Take it easy.|테이크 잇 이지.|편하게 생각하세요/잘 가요.
+인사|Have a safe trip.|해브 어 세이프 트립.|안전한 여행 되세요.
+인사|See you in a bit.|씨 유 인 어 빗.|금방 봐요.
+완성|Mission accomplished!|미션 어컴플리쉬드!|임무 완료!
+완성|You are now a master!|유 아 나우 어 마스터!|당신은 이제 마스터입니다!
+완성|The end of 1000 sentences.|디 엔드 오브 싸우전드 센텐시즈.|1,000문장의 끝.
+완성|Keep practicing every day.|킵 프랙티싱 에브리 데이.|매일 연습하세요.
+쇼핑|I'm looking for a souvenir.|아임 루킹 포 어 수베니어.|기념품을 찾고 있어요.
+쇼핑|Is this the best price?|이즈 디스 더 베스트 프라이스?|이게 최선인가요(더 안 깎아주나요)?
+쇼핑|Can I get a tax refund?|캔 아이 겟 어 택스 리펀드?|세금 환급받을 수 있나요?
+쇼핑|I'll pay with a credit card.|아일 페이 위드 어 크레딧 카드.|신용카드로 결제할게요.
+식당|Do you have any recommendations?|두 유 해브 애니 레코멘데이션즈?|추천 메뉴 있나요?
+식당|I'd like my steak medium-rare.|아이드 라이크 마이 스테이크 미디엄 레어.|스테이크는 미디엄 레어로 해주세요.
+식당|Can we have separate checks?|캔 위 해브 세퍼레이트 체크?|따로 계산할 수 있을까요?
+식당|This food is a bit spicy for me.|디스 푸드 이즈 어 빗 스파이시 포 미.|이 음식은 제게 좀 맵네요.
+식당|Could you bring some more napkins?|쿠쥬 브링 썸 모어 냅킨즈?|냅킨 좀 더 가져다주시겠어요?
+공항|I have a connecting flight.|아이 해브 어 커넥팅 플라이트.|연결편이 있어요.
+공항|Where is the information desk?|웨어 이즈 더 인포메이션 데스크?|안내 데스크가 어디죠?
+공항|My flight was canceled.|마이 플라이트 워즈 캔슬드.|제 비행기가 취소됐어요.
+공항|Is there a lounge nearby?|이즈 데어 어 라운지 니어바이?|근처에 라운지가 있나요?
+호텔|Can I check in early?|캔 아이 체크 인 얼리?|일찍 체크인 할 수 있을까요?
+호텔|The air conditioner is noisy.|디 에어 컨디셔너 이즈 노이지.|에어컨 소리가 시끄러워요.
+호텔|Is there a gym in the hotel?|이즈 데어 어 짐 인 더 호텔?|호텔 내에 헬스장이 있나요?
+호텔|I'd like to extend my stay.|아이드 라이크 투 익스텐드 마이 스테이.|숙박을 연장하고 싶어요.
+교통|How much is the fare?|하우 머치 이즈 더 페어?|요금이 얼마인가요?
+교통|Is there a map of the city?|이즈 데어 어 맵 오브 더 시티?|시내 지도가 있나요?
+교통|Does this train go to London?|더즈 디스 트레인 고 투 런던?|이 기차 런던 가나요?
+교통|Where can I rent a bicycle?|웨어 캔 아이 렌트 어 바이시클?|자전거 어디서 빌리나요?
+건강|I'm allergic to peanuts.|아임 앨러직 투 피너츠.|땅콩 알레르기가 있어요.
+건강|I have a bad backache.|아이 해브 어 배드 백에이크.|허리가 몹시 아파요.
+건강|I need to see a dentist.|아이 니드 투 씨 어 덴티스트.|치과에 가야 해요.
+건강|I feel much better now.|아이 필 머치 베터 나우.|이제 몸이 훨씬 나아졌어요.
+업무|I'll be in a meeting all day.|아일 비 인 어 미팅 올 데이.|하루 종일 회의가 있어요.
+업무|Let's wrap this up.|렛츠 랩 디스 업.|이거 마무리합시다.
+업무|I need your feedback on this.|아이 니드 유어 피드백 온 디스.|이것에 대한 당신의 의견이 필요해요.
+업무|Please send me the file.|플리즈 샌드 미 더 파일.|그 파일을 저에게 보내주세요.
+가족|He looks like his father.|히 룩스 라이크 히즈 파더.|그는 아빠를 닮았어요.
+가족|I have two siblings.|아이 해브 투 시블링즈.|저는 형제가 두 명이에요.
+취미|I enjoy playing mobile games.|아이 인조이 플레잉 모바일 게임즈.|모바일 게임 하는 걸 즐겨요.
+취미|I'm into K-pop lately.|아임 인투 케이팝 레이틀리.|요즘 케이팝에 빠져 있어요.
+날씨|It's very windy today.|잇츠 베리 윈디 투데이.|오늘 바람이 아주 많이 불어요.
+날씨|The weather is perfect today.|더 웨더 이즈 퍼펙트 투데이.|오늘 날씨가 완벽하네요.
+일상|I'm so tired today.|아임 쏘 타이어드 투데이.|오늘 너무 피곤해요.
+일상|What are you doing tonight?|왓 아 유 두잉 투나잇?|오늘 밤에 뭐 해요?
+일상|I need to go grocery shopping.|아이 니드 투 고 그로서리 쇼핑.|장 보러 가야 해요.
+일상|I'll call you when I arrive.|아일 콜 유 웬 아이 어라이브.|도착하면 전화할게요.
+일상|Don't forget to lock the door.|돈 포겟 투 락 더 도어.|문 잠그는 거 잊지 마세요.
+격려|You're doing a great job.|유어 두잉 어 그레이트 잡.|아주 잘하고 있어요.
+격려|Don't worry about it.|돈 워리 어바웃 잇.|그것에 대해 걱정하지 마세요.
+친구|Can I borrow your pen?|캔 아이 보로우 유어 펜?|펜 좀 빌려줄 수 있어?
+친구|Let's hang out sometime.|렛츠 행 아웃 썸타임.|언제 한번 놀자.
+비상|I need a policeman.|아이 니드 어 폴리스맨.|경찰이 필요해요.
+비상|There is a car accident.|데어 이즈 어 카 액시던트.|교통사고가 났어요.
+성격|He is very outgoing.|히 이즈 베리 아웃고잉.|그는 매우 외향적이에요.
+성격|She is quite shy.|쉬 이즈 콰이트 샤이.|그녀는 꽤 수줍음이 많아요.
+성격|I am an optimist.|아이 엠 언 옵티미스트.|나는 낙천주의자예요.
+성격|Don't be so stubborn.|돈 비 쏘 스터번.|너무 고집 피우지 마세요.
+성격|He has a good sense of humor.|히 해즈 어 굿 센스 오브 휴머.|그는 유머 감각이 좋아요.
+성격|She is very considerate.|쉬 이즈 베리 컨시더레잇.|그녀는 매우 사려 깊어요.
+연애|I have a crush on her.|아이 해브 어 크러쉬 온 허.|나 그녀에게 반했어.
+연애|Are you seeing anyone?|아 유 씨잉 애니원?|만나는 사람 있어요?
+연애|We are just friends.|위 아 저스트 프렌즈.|우린 그냥 친구예요.
+연애|It was love at first sight.|잇 워즈 러브 앳 퍼스트 사이트.|첫눈에 반했어요.
+연애|Will you go out with me?|윌 유 고 아웃 위드 미?|나랑 사귈래요?
+연애|We broke up last week.|위 브로크 업 래스트 위크.|우리 지난주에 헤어졌어요.
+감정|I'm feeling blue today.|아임 필링 블루 투데이.|오늘 기분이 우울해요.
+감정|I'm on cloud nine.|아임 온 클라우드 나인.|날아갈 듯이 기뻐요.
+감정|That's very annoying.|댓츠 베리 어노잉.|그거 정말 짜증 나네요.
+감정|I'm scared of heights.|아임 스케어드 오브 하이츠.|나는 고소공포증이 있어요.
+감정|I'm curious about that.|아임 큐리어스 어바웃 댓.|그게 궁금하네요.
+감정|I'm confused now.|아임 컨퓨즈드 나우.|지금 혼란스러워요.
+태도|Be patient for a while.|비 페이셔트 포 어 와일.|잠시만 인내심을 가져보세요.
+태도|Don't be so rude.|돈 비 쏘 루드.|그렇게 무례하게 굴지 마세요.
+태도|You are very brave.|유 아 베리 브레이브.|당신은 정말 용감하네요.
+대화|What do you mean by that?|왓 두 유 민 바이 댓?|그게 무슨 뜻인가요?
+대화|I didn't catch your name.|아이 디든 캐치 유어 네임.|성함을 잘 못 들었어요.
+대화|Could you speak more slowly?|쿠쥬 스피크 모어 슬로우리?|좀 더 천천히 말씀해 주실래요?
+대화|Long story short...|롱 스토리 쇼트...|요점만 말하자면...
+대화|Let's talk about something else.|렛츠 톡 어바웃 썸씽 엘스.|다른 이야기 좀 해봐요.
+일상|I'm used to it.|아임 유즈드 투 잇.|익숙해요.
+일상|It's better than nothing.|잇츠 베터 댄 나씽.|없는 것보다 낫죠.
+일상|I'm in a good mood.|아임 인 어 굿 무드.|나 기분 좋아.
+일상|I have a lot of work to do.|아이 해브 어 랏 오브 워크 투 두.|할 일이 태산이에요.
+일상|Can you keep a secret?|캔 유 킵 어 씨크릿?|비밀 지킬 수 있어?
+가전|The battery is empty.|더 배터리 이즈 엠티.|배터리가 다 됐어요.
+가전|Is the heater on?|이즈 더 히터 온?|히터 켜져 있나요?
+가전|My laptop is frozen.|마이 랩탑 이즈 프로즌.|노트북이 멈췄어요.
+날씨|It's pouring outside.|잇츠 포어링 아웃사이드.|밖에 비가 퍼부어요.
+날씨|It's a bit humid.|잇츠 어 빗 휴미드.|좀 습하네요.
+금융|Can I open a savings account?|캔 아이 오픈 어 세이빙스 어카운트?|적금 계좌를 만들 수 있나요?
+금융|What is the interest rate?|왓 이즈 더 인트레스트 레이트?|이자율이 어떻게 되나요?
+금융|I need to withdraw some cash.|아이 니드 투 위드드로우 썸 캐시.|현금을 좀 찾고 싶어요.
+금융|My card was declined.|마이 카드 워즈 디클라인드.|카드가 거절되었어요.
+금융|Is there an ATM nearby?|이즈 데어 언 에이티엠 니어바이?|근처에 현금인출기 있나요?
+주택|I'm looking for a studio.|아임 루킹 포 어 스튜디오.|원룸을 찾고 있어요.
+주택|The rent is too expensive.|더 렌트 이즈 투 익스펜시브.|월세가 너무 비싸요.
+주택|When can I move in?|웬 캔 아이 무브 인?|언제 이사 들어올 수 있나요?
+주택|The deposit is ten million won.|더 디파짓 이즈 텐 밀리언 원.|보증금은 천만 원입니다.
+주택|Does this room have a balcony?|더즈 디스 룸 해브 어 발코니?|이 방에 발코니가 있나요?
+교육|I have to study for an exam.|아이 해브 투 스터디 포 언 이그잼.|시험 공부를 해야 해요.
+교육|I passed the test!|아이 패스트 더 테스트!|시험에 합격했어요!
+교육|I failed my math exam.|아이 페일드 마이 매쓰 이그잼.|수학 시험에서 떨어졌어요.
+교육|Is the library open on Sundays?|이즈 더 라이브러리 오픈 온 선데이즈?|일요일에도 도서관 열어요?
+교육|I need a tutor for English.|아이 니드 어 튜터 포 잉글리쉬.|영어 과외 선생님이 필요해요.
+자기계발|I'm taking an online course.|아임 테이킹 언 온라인 코스.|온라인 강의를 듣고 있어요.
+자기계발|I want to improve my skills.|아이 원트 투 임프루브 마이 스킬즈.|제 기술을 향상시키고 싶어요.
+자기계발|I read books every night.|아이 리드 북스 에브리 나이트.|매일 밤 책을 읽어요.
+일상|I'm on my way home.|아임 온 마이 웨이 홈.|집에 가는 길이에요.
+일상|What's the plan for today?|왓츠 더 플랜 포 투데이?|오늘 계획이 뭐예요?
+일상|I'm bored to death.|아임 보어드 투 데쓰.|심심해서 죽겠어요.
+일상|It takes about 30 minutes.|잇 테이크스 어바웃 써티 미닛츠.|30분 정도 걸려요.
+일상|Can you do me a favor?|캔 유 두 미 어 페이버?|부탁 하나만 들어줄래요?
+약속|I'll be there in five minutes.|아일 비 데어 인 파이브 미닛츠.|5분 뒤에 도착해요.
+약속|Sorry for being late.|쏘리 포 빙 레이트.|늦어서 미안해요.
+약속|Let's meet in front of the mall.|렛츠 미트 인 프런트 오브 더 몰.|쇼핑몰 앞에서 봐요.
+식당|Is it spicy?|이즈 잇 스파이시?|이거 매워요?
+식당|I'm a vegetarian.|아임 어 베지테리언.|저는 채식주의자예요.
+식당|Can I have the menu, please?|캔 아이 해브 더 메뉴, 플리즈?|메뉴판 좀 주시겠어요?
+상태|I have a bad headache.|아이 해브 어 배드 헤드에이크.|머리가 너무 아파요.
+상태|I'm getting a cold.|아임 게팅 어 콜드.|감기 기운이 있어요.
+상태|I feel much better.|아이 필 머치 베터.|기분이/몸이 훨씬 나아요.
+길찾기|How do I get to the city center?|하우 두 아이 겟 투 더 시티 센터?|시내까지 어떻게 가나요?
+길찾기|Is it within walking distance?|이즈 잇 위딘 워킹 디스턴스?|걸어갈 수 있는 거리인가요?
+길찾기|Where is the nearest subway station?|웨어 이즈 더 니어리스트 서브웨이 스테이션?|가장 가까운 지하철역이 어디죠?
+길찾기|You are going the wrong way.|유 아 고잉 더 롱 웨이.|길을 잘못 가고 계세요.
+길찾기|It's just around the corner.|잇츠 저스트 어라운드 더 코너.|바로 모퉁이만 돌면 있어요.
+길찾기|Can you show me on the map?|캔 유 쇼 미 온 더 맵?|지도에서 좀 보여주실래요?
+여행|What time does the tour start?|왓 타임 더즈 더 투어 스타트?|투어가 몇 시에 시작하나요?
+여행|I'd like to book a day trip.|아이드 라이크 투 북 어 데이 트립.|일일 투어를 예약하고 싶어요.
+여행|Where is the tourist office?|웨어 이즈 더 투어리스트 오피스?|관광 안내소가 어디인가요?
+여행|Is it okay to take a photo?|이즈 잇 오케이 투 테이크 어 포토?|사진 찍어도 괜찮을까요?
+여행|I'm lost. Can you help me?|아임 로스트. 캔 유 헬프 미?|길을 잃었어요. 도와주실래요?
+여행|How much is the admission fee?|하우 머치 이즈 디 어드미션 피?|입장료가 얼마인가요?
+긴급|I lost my passport.|아이 로스트 마이 패스포트.|여권을 잃어버렸어요.
+긴급|Where is the police station?|웨어 이즈 더 폴리스 스테이션?|경찰서가 어디에 있나요?
+긴급|Please call an ambulance.|플리즈 콜 언 앰뷸런스.|구급차를 불러주세요.
+긴급|I need to go to the hospital.|아이 니드 투 고 투 더 하스피털.|병원에 가야 해요.
+긴급|My bag was stolen.|마이 백 워즈 스톨른.|가방을 도둑맞았어요.
+긴급|Someone is following me.|썸원 이즈 팔로잉 미.|누군가 저를 따라와요.
+숙소|Can you wake me up at 7 AM?|캔 유 웨이크 미 업 앳 세븐 에이엠?|아침 7시에 깨워주실 수 있나요?
+숙소|The room is not clean.|더 룸 이즈 낫 클린.|방이 깨끗하지 않아요.
+숙소|I'd like to change my room.|아이드 라이크 투 체인지 마이 룸.|방을 바꾸고 싶어요.
+숙소|Is there a laundry service?|이즈 데어 어 론드리 서비스?|세탁 서비스가 있나요?
+일상|I'm looking for a pharmacy.|아임 루킹 포 어 파마시.|약국을 찾고 있어요.
+일상|Could you take a picture for us?|쿠쥬 테이크 어 픽쳐 포 어스?|저희 사진 좀 찍어주실래요?
+일상|Where is the restroom?|웨어 이즈 더 레스트룸?|화장실이 어디인가요?
+일상|It's on the second floor.|잇츠 온 더 세컨드 플로어.|2층에 있어요.
+일상|Go up the stairs.|고 업 더 스테어즈.|계단으로 올라가세요.
+일상|Take the elevator.|테이크 디 엘리베이터.|엘리베이터를 타세요.
+교통|Is there a bus to the airport?|이즈 데어 어 버스 투 디 에어포트?|공항 가는 버스가 있나요?
+교통|Where can I buy a ticket?|웨어 캔 아이 바이 어 티켓?|표를 어디서 살 수 있나요?
+교통|The train is running late.|더 트레인 이즈 러닝 레이트.|기차가 지연되고 있어요.
+교통|How many stops to get there?|하우 매니 스탑스 투 겟 데어?|거기까지 몇 정거장 가야 하나요?
+외모|He is tall and slim.|히 이즈 톨 앤 슬림.|그는 키가 크고 날씬해요.
+외모|She has long curly hair.|쉬 해즈 롱 컬리 헤어.|그녀는 긴 곱슬머리를 가졌어요.
+외모|You look great today.|유 룩 그레이트 투데이.|오늘 정말 멋져 보이시네요.
+외모|He looks younger than his age.|히 룩스 영거 댄 히즈 에이지.|그는 나이보다 젊어 보여요.
+외모|She takes after her mother.|쉬 테이크스 애프터 허 마더.|그녀는 엄마를 닮았어요.
+성격|I'm a bit of a perfectionist.|아임 어 빗 오브 어 퍼펙셔니스트.|저는 약간 완벽주의자예요.
+성격|He is very easy-going.|히 이즈 베리 이지 고잉.|그는 성격이 아주 원만해요.
+성격|She is a bit hot-tempered.|쉬 이즈 어 빗 핫 템퍼드.|그녀는 성격이 좀 급해요(다혈질이에요).
+성격|I'm a people person.|아임 어 피플 퍼슨.|저는 사람들과 어울리는 걸 좋아해요.
+성격|Don't be so selfish.|돈 비 쏘 셀피쉬.|너무 이기적으로 굴지 마세요.
+취미|I'm a big fan of baseball.|아임 어 빅 팬 오브 베이스볼.|저는 야구 광팬이에요.
+취미|I spend my time gardening.|아이 스펜드 마이 타임 가드닝.|원예를 하며 시간을 보내요.
+취미|Do you like collecting things?|두 유 라이크 콜렉팅 씽즈?|무언가 수집하는 걸 좋아하시나요?
+취미|I'm into photography lately.|아임 인투 포토그래피 레이틀리.|요즘 사진 촬영에 빠져 있어요.
+취미|I like to play online games.|아이 라이크 투 플레이 온라인 게임즈.|저는 온라인 게임 하는 걸 좋아해요.
+생활|I need to get a haircut.|아이 니드 투 겟 어 헤어컷.|머리를 잘라야겠어요.
+생활|Can you recommend a good movie?|캔 유 레코멘드 어 굿 무비?|좋은 영화 한 편 추천해 줄래요?
+생활|I'm addicted to coffee.|아임 어디딕티드 투 커피.|전 커피 중독이에요.
+생활|What's your favorite food?|왓츠 유어 페이보릿 푸드?|가장 좋아하는 음식이 뭐예요?
+생활|I usually get up at 6 AM.|아이 유절리 겟 업 앳 식스 에이엠?|전 보통 아침 6시에 일어나요.
+대화|It's on the tip of my tongue.|잇츠 온 더 팁 오브 마이 텅.|말이 입가에서 맴도네요.
+대화|How do you spell that?|하우 두 유 스펠 댓?|철자가 어떻게 되나요?
+대화|What is this called in English?|왓 이즈 디스 콜드 인 잉글리쉬?|이것을 영어로 뭐라고 하나요?
+대화|I'll keep my fingers crossed.|아일 킵 마이 핑거스 크로스트.|행운을 빌어 줄게요.
+대화|That's a relief to hear.|댓츠 어 릴리프 투 히어.|그 말을 들으니 다행이네요.
+일상|I have a lot on my plate.|아이 해브 어 랏 온 마이 플레이트.|할 일이 아주 많아요.
+일상|Could you give me a ride?|쿠쥬 기브 미 어 라이드?|저 좀 태워다 줄 수 있나요?
+일상|I'm sorry to keep you waiting.|쏘리 투 킵 유 웨이팅.|기다리게 해서 죄송해요.
+일상|It's none of your business.|잇츠 논 오브 유어 비즈니스.|참견하지 마세요(당신 상관할 바 아니에요).
+일상|I'll do my best.|아일 두 마이 베스트.|최선을 다하겠습니다.
+기기|The screen is cracked.|더 스크린 이즈 크랙트.|화면이 깨졌어요.
+기기|I can't connect to the Wi-Fi.|아이 캔트 커넥트 투 더 와이파이.|와이파이 연결이 안 돼요.
+기기|My phone is out of juice.|마이 폰 이즈 아웃 오브 쥬스.|핸드폰 배터리가 나갔어요.
+감정|I'm so jealous of you.|아임 쏘 젤러스 오브 유.|네가 정말 부러워.
+감정|I feel so lonely today.|아이 필 쏘 론리 투데이.|오늘 너무 외롭네요.
+감정|Don't be so grumpy.|돈 비 쏘 그럼피.|너무 심술부리지 마세요.
+감정|I'm so relieved now.|아임 쏘 릴리브드 나우.|이제야 마음이 놓이네요.
+감정|It's quite frustrating.|잇츠 콰이트 프러스트레이팅.|참 답답한 노릇이네요.
+감정|I'm fascinated by this.|아임 패시네이티드 바이 디스.|이것에 완전히 매료되었어요.
+사회|I owe you one.|아이 오 유 원.|너한테 신세 하나 졌다.
+사회|Please forgive me.|플리즈 포기브 미.|저를 용서해 주세요.
+사회|I'll make it up to you.|아일 메이크 잇 업 투 유.|제가 보답(사과)하겠습니다.
+사회|Don't mention it.|돈 멘션 잇.|별말씀을요(천만에요).
+사회|You're more than welcome.|유어 모어 댄 웰컴.|언제든지 환영입니다.
+사회|I didn't mean to offend you.|아이 디든 민 투 어펜드 유.|기분 나쁘게 하려던 건 아니었어요.
+시간|Time flies so fast.|타임 플라이즈 쏘 패스트.|시간 정말 빠르네요.
+시간|I'm in a bit of a rush.|아임 인 어 빗 오브 어 러쉬.|제가 좀 서두르는 중이라서요.
+시간|Better late than never.|베터 레이트 댄 네버.|늦더라도 안 하는 것보다 낫죠.
+시간|I'll be there in no time.|아일 비 데어 인 노 타임.|금방 갈게요.
+시간|At the same time.|앳 더 세임 타임.|동시에요.
+시간|I have all day.|아이 해브 올 데이.|시간 많아요(하루 종일 시간 있어요).
+직장|I'm buried in work.|아임 베리드 인 워크.|일에 파묻혀 살아요.
+직장|Let's take a break.|렛츠 테이크 어 브레이크.|잠시 쉽시다.
+직장|I'm going on a vacation.|아임 고잉 온 어 버케이션.|휴가 가요.
+직장|My boss is very strict.|마이 보스 이즈 베리 스트릭트.|제 상사는 매우 엄격해요.
+직장|I got a promotion!|아이 갓 어 프로모션!|저 승진했어요!
+생활|Can I have a receipt?|캔 아이 해브 어 리씨트?|영수증 주시겠어요?
+생활|Keep the change, please.|킵 더 체인지, 플리즈.|잔돈은 가지세요.
+생활|Is this seat taken?|이즈 디스 씻 테이큰?|이 자리 임자 있나요?
+생활|I'm full. I can't eat more.|아임 풀. 아이 캔트 이트 모어.|배불러요. 더 못 먹겠어요.
+생활|What's the Wi-Fi password?|왓츠 더 와이파이 패스워드?|와이파이 비밀번호가 뭐예요?
+일상|I need to go on a diet.|아이 니드 투 고 온 어 다이어트.|나 다이어트 해야 돼.
+일상|Don't push me.|돈 푸쉬 미.|강요하지 마세요.
+일상|I'm looking for my glasses.|아임 루킹 포 마이 글래시즈.|안경을 찾고 있어요.
+일상|It's worth a try.|잇츠 워스 어 트라이.|시도해 볼 만해요.
+음식|This food is a bit bland.|디스 푸드 이즈 어 빗 블랜드.|이 음식은 좀 싱겁네요.
+음식|It's crispy on the outside.|잇츠 크리스피 온 디 아웃사이드.|겉은 바삭해요.
+음식|It has a strong aftertaste.|잇 해즈 어 스트롱 애프터테이스트.|뒷맛이 강하게 남네요.
+음식|This soup is too salty.|디스 수프 이즈 투 쏠티.|이 국은 너무 짜요.
+음식|I love the texture of this.|아이 러브 더 텍스처 오브 디스.|이것의 식감이 정말 좋아요.
+음식|It's mouth-watering.|잇츠 마우스 워터링.|군침이 돌게 하네요.
+건강|I need to work out more.|아이 니드 투 워크 아웃 모어.|운동을 더 해야겠어요.
+건강|I'm feeling stiff today.|아임 필링 스티프 투데이.|오늘 몸이 뻐근하네요.
+건강|Take a deep breath.|테이크 어 딥 브레스.|숨을 깊게 들이마셔 보세요.
+건강|I have a sore throat.|아이 해브 어 소어 쓰로트.|목이 따끔거려요.
+건강|I'm on a low-sugar diet.|아임 온 어 로우 슈거 다이어트.|저당 식단을 하고 있어요.
+건강|I feel energized after a nap.|아이 필 에너자이즈드 애프터 어 냅.|낮잠을 자고 나니 기운이 나요.
+쇼핑|Does this come in other colors?|더즈 디스 컴 인 아더 컬러즈?|이거 다른 색상도 있나요?
+쇼핑|Can I try this on?|캔 아이 트라이 디스 온?|이거 입어봐도 될까요?
+쇼핑|It's a bit tight for me.|잇츠 어 빗 타이트 포 미.|저한테 좀 끼네요.
+쇼핑|Do you have a larger size?|두 유 해브 어 라저 사이즈?|더 큰 사이즈 있나요?
+쇼핑|Is this on sale?|이즈 디스 온 세일?|이거 할인 중인가요?
+쇼핑|I'd like to return this.|아이드 라이크 투 리턴 디스.|이거 반품하고 싶어요.
+생활|The battery lasts a long time.|더 배터리 래스트 어 롱 타임.|배터리가 오래 가요.
+생활|Can you turn up the heat?|캔 유 턴 업 더 히트?|온도 좀 높여줄 수 있나요?
+생활|I'm looking for the exit.|아임 루킹 포 디 엑시트.|출구를 찾고 있어요.
+생활|Wait for me at the lobby.|웨이트 포 미 앳 더 로비.|로비에서 기다려 줘.
+일상|I'll handle it myself.|아일 핸들 잇 마이셀프.|제가 직접 처리할게요.
+일상|It's a piece of cake.|잇츠 어 피스 오브 케이크.|누워 떡 먹기죠.
+일상|Keep up the good work.|킵 업 더 굿 워크.|계속 수고하세요.
+일상|I'm proud of you.|아임 프라우드 오브 유.|네가 정말 자랑스러워.
+일상|I have no idea.|아이 해브 노 아이디어.|전혀 모르겠어요.
+일상|Let me think about it.|렛 미 씽크 어바웃 잇.|생각 좀 해볼게요.
+일상|Don't let me down.|돈 렛 미 다운.|나를 실망시키지 마세요.
+교통|Is there a direct bus?|이즈 데어 어 다이렉트 버스?|직행버스가 있나요?
+교통|The subway is very crowded.|더 서브웨이 이즈 베리 크라우디드.|지하철이 매우 붐비네요.
+교통|I'll take a rain check.|아일 테이크 어 레인 체크.|다음 기회로 미룰게요.
+기술|My computer is lagging.|마이 컴퓨터 이즈 래깅.|컴퓨터가 버벅거려요.
+기술|I forgot my password.|아이 포갓 마이 패스워드.|비밀번호를 까먹었어요.
+기술|The internet connection is unstable.|디 인터넷 커넥션 이즈 언스테이블.|인터넷 연결이 불안정해요.
+기술|I need to charge my phone.|아이 니드 투 차지 마이 폰.|핸드폰 충전해야 해요.
+기술|Did you save the file?|디쥬 세이브 더 파일?|파일 저장했나요?
+기술|I'll send you the link.|아일 샌드 유 더 링크.|링크 보내줄게요.
+가사|I need to do the laundry.|아이 니드 투 두 더 론드리.|빨래해야 해요.
+가사|The trash can is full.|더 트래쉬 캔 이즈 풀.|휴지통이 꽉 찼어요.
+가사|I have to iron my shirt.|아이 해브 투 아이언 마이 셔츠.|셔츠를 다려야 해요.
+가사|Please set the table.|플리즈 셋 더 테이블.|상 좀 차려주세요.
+가사|I'm cleaning my room.|아임 클리닝 마이 룸.|방 청소 중이에요.
+가사|We are out of milk.|위 아 아웃 오브 밀크.|우유가 다 떨어졌어요.
+자연|The scenery is beautiful.|더 씨너리 이즈 뷰티풀.|풍경이 아름다워요.
+자연|I love watching the sunset.|아이 러브 왓칭 더 썬셋.|노을 보는 걸 좋아해요.
+자연|It's a starry night.|잇츠 어 스타리 나이트.|별이 빛나는 밤이네요.
+자연|We should protect the environment.|위 슈드 프로텍트 디 인바이런먼트.|우리는 환경을 보호해야 해요.
+자연|Recycle the plastic bottles.|리싸이클 더 플라스틱 바틀즈.|플라스틱 병을 재활용하세요.
+사회|Smoking is not allowed here.|스모킹 이즈 낫 얼라우드 히어.|여기는 금연 구역입니다.
+사회|Please keep it quiet.|플리즈 킵 잇 콰이어트.|조용히 좀 해주세요.
+사회|Is there a lost and found?|이즈 데어 어 로스트 앤 파운드?|분실물 센터가 있나요?
+일상|I'm sorry, I'm busy right now.|쏘리, 아임 비지 라이트 나우.|미안하지만 지금 좀 바빠요.
+일상|Can you turn on the light?|캔 유 턴 온 더 라이트?|불 좀 켜줄래요?
+일상|It's too dark in here.|잇츠 투 다크 인 히어.|여기는 너무 어둡네요.
+일상|I'll think about it.|아일 씽크 어바웃 잇.|생각해 볼게요.
+일상|Don't be afraid.|돈 비 어프레이드.|두려워하지 마세요.
+일상|I'm so impressed.|아임 쏘 임프레스드.|정말 감동받았어요.
+일상|It's time to go.|잇츠 타임 투 고.|갈 시간이에요.
+일상|Wait for a second.|웨이트 포 어 세컨드.|잠시만 기다려 주세요.
+일상|You look tired today.|유 룩 타이어드 투데이.|오늘 피곤해 보이네요.
+일상|Take your time.|테이크 유어 타임.|천천히 하세요.
+일상|I'm on your side.|아임 온 유어 사이드.|난 네 편이야.
+일상|Believe in yourself.|빌리브 인 유어셀프.|자신을 믿으세요.
+비즈니스|I'll look into it right away.|아일 룩 인투 잇 라이트 어웨이.|바로 확인해 보겠습니다.
+비즈니스|We need to cut costs.|위 니드 투 컷 코스트.|비용을 절감해야 합니다.
+비즈니스|Can we reschedule the meeting?|캔 위 리스케줄 더 미팅?|회의 일정을 조정할 수 있을까요?
+비즈니스|I agree with your opinion.|아이 어그리 위드 유어 어피니언.|당신의 의견에 동의합니다.
+비즈니스|Let's brainstorm some ideas.|렛츠 브레인스토름 썸 아이디어즈.|아이디어를 좀 짜봅시다.
+비즈니스|It's a win-win situation.|잇츠 어 윈윈 시츄에이션.|모두에게 이득인 상황입니다.
+격언|Time is gold.|타임 이즈 골드.|시간은 금이다.
+격언|Knowledge is power.|날리지 이즈 파워.|아는 것이 힘이다.
+격언|Rome was not built in a day.|롬 워즈 낫 빌트 인 어 데이.|로마는 하루아침에 이루어지지 않았다.
+격언|Better late than never.|베터 레이트 댄 네버.|늦더라도 하는 것이 아예 안 하는 것보다 낫다.
+격언|Easy come, easy go.|이지 컴, 이지 고.|쉽게 얻은 것은 쉽게 잃는다.
+태도|Stay positive no matter what.|스테이 파저티브 노 매터 왓.|어떤 상황에서도 긍정적으로 생각하세요.
+태도|Never give up on your dreams.|네버 기브 업 온 유어 드림즈.|당신의 꿈을 절대 포기하지 마세요.
+태도|Be kind to everyone.|비 카인드 투 에브리원.|모든 이에게 친절하세요.
+태도|Learn from your mistakes.|런 프롬 유어 미스테이크스.|실수로부터 배우세요.
+대화|That makes sense.|댓 메이크스 센스.|말이 되네요(이해가 가네요).
+대화|I'm afraid I can't.|아임 어프레이드 아이 캔트.|유감스럽지만 안 되겠어요.
+대화|It depends on the situation.|잇 디펜즈 온 더 시츄에이션.|상황에 따라 다릅니다.
+대화|To make a long story short...|투 메이크 어 롱 스토리 쇼트...|짧게 말하자면...
+일상|I'm so proud of you.|아임 쏘 프라우드 오브 유.|네가 정말 자랑스러워.
+일상|You can do it!|유 캔 두 잇!|넌 할 수 있어!
+일상|Everything will be fine.|에브리씽 윌 비 파인.|모두 다 잘 될 거야.
+일상|The choice is yours.|더 초이스 이즈 유어즈.|선택은 당신의 몫입니다.
+일상|Life is full of surprises.|라이프 이즈 풀 오브 서프라이즈.|인생은 놀라운 일들로 가득합니다.
+마무리|I've reached 1000 sentences!|아이브 리치드 싸우전드 센텐시즈!|드디어 1,000문장에 도달했어요!
+마무리|Learning never stops.|러닝 네버 스탑스.|배움에는 끝이 없습니다.
+마무리|You've done a great job.|유브 던 어 그레이트 잡.|정말 수고 많으셨습니다.
+마무리|Now, practice makes perfect.|나우, 프랙티스 메이크스 퍼펙트.|이제 연습만이 완벽을 만듭니다.
+마무리|Keep going forward.|킵 고잉 포워드.|계속 나아가세요.
+마무리|Congratulations on finishing!|컨그레츄레이션즈 온 피니싱!|완주를 축하합니다!
+마무리|The beginning of a new journey.|더 비기닝 오브 어 뉴 저니.|새로운 여정의 시작입니다.
+마무리|Success is yours.|석세스 이즈 유어즈.|성공은 당신의 것입니다.
+비즈니스|Let's get down to business.|렛츠 겟 다운 투 비즈니스.|본론으로 들어갑시다.
+비즈니스|I'll keep you posted.|아일 킵 유 포스티드.|진행 상황을 계속 알려드릴게요.
+비즈니스|It's a tie-up situation.|잇츠 어 타이업 시츄에이션.|일이 꽉 막힌 상황이에요.
+비즈니스|We need to think outside the box.|위 니드 투 씽크 아웃사이드 더 박스.|고정관념에서 벗어나 생각해야 해요.
+비즈니스|The meeting was productive.|더 미팅 워즈 프로덕티브.|회의가 생산적이었어요.
+비즈니스|I'll double check the figures.|아일 더블 체크 더 피겨스.|수치들을 재확인해 보겠습니다.
+비즈니스|Can you give me a ballpark figure?|캔 유 기브 미 어 볼파크 피겨?|대략적인 수치를 알려주실 수 있나요?
+비즈니스|We are on the same page.|위 아 온 더 세임 페이지.|우리는 같은 생각을 하고 있군요.
+여행|Is there a direct flight?|이즈 데어 어 다이렉트 플라이트?|직항편이 있나요?
+여행|I'd like to rent a mid-size car.|아이드 라이크 투 렌트 어 미드사이즈 카.|중형차를 빌리고 싶어요.
+여행|Where can I exchange money?|웨어 캔 아이 익스체인지 머니?|환전은 어디서 하나요?
+여행|Is the tap water drinkable?|이즈 더 탭 워터 드링크어블?|수돗물 마셔도 되나요?
+여행|I want to see the night view.|아이 원트 투 씨 더 나이트 뷰.|야경을 보고 싶어요.
+여행|How far is it on foot?|하우 파 이즈 잇 온 풋?|걸어서 얼마나 걸리나요?
+요리|Add a pinch of salt.|애드 어 핀치 오브 쏠트.|소금 한 꼬집 넣어주세요.
+요리|Stir it constantly.|스터 잇 칸스턴틀리.|계속 저어주세요.
+요리|Chop the onions finely.|찹 디 어니언즈 파인리.|양파를 잘게 다져주세요.
+요리|Preheat the oven to 180 degrees.|프리히트 디 오븐 투 원에이티 디그리즈.|오븐을 180도로 예열하세요.
+요리|Boil the water first.|보일 더 워터 퍼스트.|물부터 끓이세요.
+요리|It tastes a bit sour.|잇 테이스츠 어 빗 사워.|맛이 좀 시큼해요.
+요리|The meat is very tender.|더 미트 이즈 베리 텐더.|고기가 아주 연해요.
+감정|I'm exhausted from the trip.|아임 이그조스티드 프롬 더 트립.|여행으로 기진맥진했어요.
+감정|I'm so touched by your kindness.|아임 쏘 터치드 바이 유어 카인드니스.|당신의 친절에 정말 감동했어요.
+감정|Don't be so grumpy.|돈 비 쏘 그럼피.|너무 심술부리지 마세요.
+감정|I'm feeling much better today.|아이 필링 머치 베터 투데이.|오늘은 몸이 훨씬 나아요.
+감정|It's embarrassing for me.|잇츠 임배러싱 포 미.|저에게는 좀 당황스러운 일이에요.
+성격|He is a man of his word.|히 이즈 어 맨 오브 히즈 워드.|그는 약속을 잘 지키는 사람이에요.
+성격|She has a heart of gold.|쉬 해즈 어 하트 오브 골드.|그녀는 마음씨가 아주 착해요.
+성격|Don't be so narrow-minded.|돈 비 쏘 내로우 마인디드.|너무 마음을 좁게 쓰지 마세요.
+성격|He is very modest about his success.|히 이즈 베리 마디스트 어바웃 히즈 석세스.|그는 자신의 성공에 대해 아주 겸손해요.
+일상|I'm stuck in traffic.|아임 스턱 인 트래픽.|차 속에 갇혀 있어요(차가 막혀요).
+일상|Let's grab a bite to eat.|렛츠 그랩 어 바이트 투 이트.|뭐 좀 간단히 먹으러 가요.
+일상|It's on me today.|잇츠 온 미 투데이.|오늘은 내가 쏠게요.
+일상|Can you give me a hand?|캔 유 기브 미 어 핸드?|손 좀 빌려줄래(도와줄래)?
+일상|Keep the change.|킵 더 체인지.|잔돈은 가지세요.
+일상|I'm running a bit late.|아임 러닝 어 빗 레이트.|조금 늦어지고 있어요.
+일상|Better safe than sorry.|베터 세이프 댄 쏘리.|나중에 후회하는 것보다 조심하는 게 낫다.
+일상|It's not a big deal.|잇츠 낫 어 빅 딜.|큰일 아니에요(별일 아니에요).
+일상|I'll take your word for it.|아일 테이크 유어 워드 포 잇.|네 말을 믿을게.
+일상|Don't take it personally.|돈 테이크 잇 퍼스널리.|너무 개인적으로 받아들이지 마(기분 나빠하지 마).
+기술|The system is down.|더 시스템 이즈 다운.|시스템이 다운되었어요.
+기술|Restart your computer.|리스tart 유어 컴퓨터.|컴퓨터를 다시 시작하세요.
+기술|The battery is low.|더 배터리 이즈 로우.|배터리가 부족합니다.
+기술|Update the software.|업데이트 더 소프트웨어.|소프트웨어를 업데이트하세요.
+기술|I'll back up the files.|아일 백 업 더 파일즈.|파일을 백업할게요.
+기술|The Wi-Fi is fast here.|더 와이파이 이즈 패스트 히어.|여기 와이파이는 빠르네요.
+기술|Scan the QR code.|스캔 더 큐알 코드.|QR 코드를 스캔하세요.
+기술|Install the application.|인스톨 디 애플리케이션.|앱을 설치하세요.
+운동|I'm going to the gym.|아임 고잉 투 더 짐.|헬스장에 가요.
+운동|Do ten push-ups.|두 텐 푸쉬업스.|팔굽혀펴기 10번 하세요.
+운동|Stretch your arms.|스트레칭 유어 암즈.|팔을 스트레칭하세요.
+운동|I'm out of breath.|아임 아웃 오브 브레스.|숨이 차요.
+운동|Keep a steady pace.|킵 어 스테디 페이스.|일정한 속도를 유지하세요.
+운동|Warm up first.|웜 업 퍼스트.|먼저 준비 운동을 하세요.
+가정|Turn off the faucet.|턴 오프 더 파싯.|수도꼭지를 잠그세요.
+가정|The light is flickering.|더 라이트 이즈 플리커링.|불이 깜빡거려요.
+가정|Clean up your mess.|클린 업 유어 메스.|어지러운 것 좀 치워라.
+가정|Do the laundry now.|두 더 론드리 나우.|지금 빨래해라.
+가정|The floor is slippery.|더 플로어 이즈 슬리퍼리.|바닥이 미끄러워요.
+가정|Lock the windows.|락 더 윈도우즈.|창문을 잠그세요.
+사회|Mind the gap.|마인드 더 갭.|틈새를 조심하세요.
+사회|Stand behind the line.|스탠드 비하인드 더 라인.|선 뒤로 물러나세요.
+사회|No littering here.|노 리터링 히어.|여기에 쓰레기를 버리지 마세요.
+사회|Keep the noise down.|킵 더 노이즈 다운.|소음을 줄여주세요.
+사회|Respect the elderly.|리스펙트 디 엘덜리.|어르신들을 공경하세요.
+태도|Stay humble.|스테이 험블.|겸손함을 유지하세요.
+태도|Be proud of yourself.|비 프라우드 오브 유어셀프.|자신을 자랑스러워하세요.
+태도|Don't be afraid to fail.|돈 비 어프레이드 투 페일.|실패를 두려워 마세요.
+태도|Think twice before acting.|씽크 트와이스 비포 액팅.|행동하기 전에 두 번 생각하세요.
+태도|Be consistent.|비 컨시스턴트.|일관성을 가지세요.
+표현|It's on the tip of my tongue.|잇츠 온 더 팁 오브 마이 텅.|입가에서 맴도네요.
+표현|The more, the better.|더 모어 더 베터.|다다익선(많을수록 좋아요).
+표현|It costs an arm and a leg.|잇 코스트 언 암 앤 어 렉.|정말 비싸네요.
+표현|Break a leg!|브레이크 어 렉!|행운을 빌어!
+표현|Under the weather.|언더 더 웨더.|몸 상태가 안 좋은.
+표현|Piece of cake.|피스 오브 케이크.|식은 죽 먹기.
+표현|Once in a blue moon.|원스 인 어 블루 문.|아주 가끔.
+상태|The milk went sour.|더 밀크 웬트 사워.|우유가 상했어요.
+상태|My phone screen is cracked.|마이 폰 스크린 이즈 크랙트.|폰 화면이 깨졌어요.
+상태|The car won't start.|더 카 원트 스타트.|차가 시동이 안 걸려요.
+상태|It's out of order.|잇츠 아웃 오브 오더.|고장 났어요.
+직장|I'm on a coffee break.|아임 온 어 커피 브레이크.|커피 타임 중이에요.
+직장|Get me a copy of this.|겟 미 어 카피 오브 디스.|이것 좀 복사해 주세요.
+직장|The boss is in a meeting.|더 보스 이즈 인 어 미팅.|사장님은 회의 중이십니다.
+직장|Submit the report by noon.|서브밋 더 리포트 바이 눈.|정오까지 보고서를 제출하세요.
+직장|I'm leaving for the day.|아임 리빙 포 더 데이.|저 퇴근합니다.
+직장|Great teamwork, everyone!|그레이트 팀워크 에브리원!|모두 팀워크가 훌륭했어요!
+비즈니스|I appreciate your cooperation.|아이 어프리시에이트 유어 코오퍼레이션.|협조에 감사드립니다.
+비즈니스|Let's wrap up the meeting.|렛츠 랩 업 더 미팅.|회의를 마칩시다.
+비즈니스|Could you clarify that?|쿠쥬 클래리파이 댓?|그 부분을 명확히 설명해 주시겠어요?
+비즈니스|I'll look into the matter.|아일 룩 인투 더 매터.|그 문제를 조사해 보겠습니다.
+비즈니스|We are ahead of schedule.|위 아 어헤드 오브 스케줄.|일정보다 앞서가고 있습니다.
+비즈니스|Thank you for your patience.|탱큐 포 유어 페이션스.|기다려 주셔서 감사합니다.
+비즈니스|I'm in charge of this project.|아임 인 차지 오브 디스 프로젝트.|제가 이 프로젝트 책임자입니다.
+명언|Action speaks louder than words.|액션 스피크스 라우더 댄 워즈.|말보다 행동이 중요하다.
+명언|Every cloud has a silver lining.|에브리 클라우드 해즈 어 실버 라이닝.|고생 끝에 낙이 온다.
+명언|Knowledge is power.|날리지 이즈 파워.|아는 것이 힘이다.
+명언|Honesty is the best policy.|어니스트 이즈 더 베스트 팔리시.|정직이 최선의 방책이다.
+명언|A friend in need is a friend indeed.|어 프렌드 인 니드 이즈 어 프렌드 인디드.|어려울 때 친구가 진짜 친구다.
+여행|I'd like to check out, please.|아이드 라이크 투 체크 아웃 플리즈.|체크아웃하고 싶습니다.
+여행|Can you call a taxi for me?|캔 유 콜 어 택시 포 미?|택시 좀 불러주실래요?
+여행|I had a wonderful stay.|아이 해드 어 원더풀 스테이.|정말 잘 머물다 갑니다.
+여행|Where is the departure gate?|웨어 이즈 더 디파처 게이트?|출국 게이트가 어디인가요?
+여행|Safe travels back home!|세이프 트래블즈 백 홈!|집까지 조심히 가세요!
+일상|It was nice meeting you.|잇 워즈 나이스 미팅 유.|만나서 반가웠습니다.
+일상|Don't forget to smile.|돈 포겟 투 스마일.|웃는 것을 잊지 마세요.
+일상|The sky is so clear today.|더 스카이 이즈 쏘 클리어 투데이.|오늘 하늘이 정말 맑네요.
+일상|I'm looking forward to it.|아임 루킹 포워드 투 잇.|정말 기대돼요.
+일상|Make yourself at home.|메이크 유어셀프 앳 홈.|편하게 계세요.
+일상|What a coincidence!|왓 어 코인시던스!|이런 우연이 있나!
+일상|It's now or never.|잇츠 나우 오어 네버.|지금 아니면 기회가 없어요.
+일상|You've come a long way.|유브 컴 어 롱 웨이.|여기까지 오느라 수고 많았어요.
+달성|I finally made it!|아이 파이널리 메이드 잇!|드디어 해냈어요!
+달성|One thousand sentences done.|원 싸우전드 센텐시즈 던.|1,000문장 완료.
+달성|Practice makes perfect.|프랙티스 메이크스 퍼펙트.|연습이 완벽을 만듭니다.
+달성|Never stop learning.|네버 스탑 러닝.|배움을 멈추지 마세요.
+달성|You are a master now!|유 아 어 마스터 나우!|당신은 이제 마스터입니다!
+달성|Keep up the great work.|킵 업 더 그레이트 워크.|계속 정진하세요.
+달성|Challenge yourself every day.|챌린지 유어셀프 에브리 데이.|매일 자신에게 도전하세요.
+달성|Success is yours.|석세스 이즈 유어즈.|성공은 당신의 것입니다.
+달성|Cheers to your hard work!|치어즈 투 유어 하드 워크!|당신의 노력에 건배!
+달성|End of the journey.|엔드 오브 더 저니.|여정의 끝.
+달성|Mission accomplished.|미션 어컴플리쉬드.|임무 완료.
+감정|I'm feeling a bit overwhelmed.|아임 필링 어 빗 오버웰름드.|할 일이 너무 많아 벅차네요.
+감정|It's such a relief to hear that.|잇츠 서치 어 릴리프 투 히어 댓.|그 소식을 들으니 정말 다행이에요.
+감정|I'm so grateful for your help.|아임 쏘 그레이트풀 포 유어 헬프.|당신의 도움에 정말 감사해요.
+감정|I feel motivated today.|아이 필 모티베이티드 투데이.|오늘은 의욕이 넘치네요.
+감정|Don't be so discouraged.|돈 비 쏘 디스커리지드.|너무 낙담하지 마세요.
+감정|I'm nervous about the interview.|아임 너버스 어바웃 디 인터뷰.|면접 때문에 긴장돼요.
+쇼핑|I'd like to get a refund.|아이드 라이크 투 겟 어 리펀드.|환불받고 싶어요.
+쇼핑|This is out of stock.|디스 이즈 아웃 오브 스톡.|이것은 품절되었습니다.
+쇼핑|Can I exchange this for a smaller size?|캔 아이 익스체인지 디스 포 어 스몰러 사이즈?|이거 작은 사이즈로 교환할 수 있나요?
+쇼핑|It's a bargain!|잇츠 어 바겐!|정말 싸게 샀네요!
+쇼핑|Can you gift wrap this?|캔 유 기프트 랩 디스?|선물 포장해 주실 수 있나요?
+쇼핑|Where is the fitting room?|웨어 이즈 더 피팅 룸?|탈의실이 어디죠?
+습관|I go for a jog every morning.|아이 고 포 어 조그 에브리 모닝.|매일 아침 조깅을 해요.
+습관|I'm trying to quit smoking.|아임 트라이잉 투 퀴트 스모킹.|담배를 끊으려고 노력 중이에요.
+습관|I tend to oversleep on weekends.|아이 텐드 투 오버스리프 온 위켄즈.|주말에는 늦잠을 자는 편이에요.
+습관|I check my phone first thing in the morning.|아이 체크 마이 폰 퍼스트 씽 인 더 모닝.|아침에 일어나자마자 폰을 확인해요.
+습관|I drink at least two liters of water.|아이 드링크 앳 리스트 투 리터즈 오브 워터.|적어도 물 2리터는 마셔요.
+일상|I'm in the middle of a project.|아임 인 더 미들 오브 어 프로젝트.|프로젝트를 수행 중이에요.
+일상|Can you turn down the music?|캔 유 턴 다운 더 뮤직?|음악 소리 좀 줄여줄래?
+일상|It's on the tip of my tongue.|잇츠 온 더 팁 오브 마이 텅.|입가에서 맴도는데 기억이 안 나요.
+일상|I didn't see that coming.|아이 디든 씨 댓 커밍.|그건 예상하지 못했어.
+일상|What's the catch?|왓츠 더 캐치?|조건이 뭐예요? (무슨 꿍꿍이에요?)
+일상|You've got a point there.|유브 갓 어 포인트 데어.|네 말이 일리가 있네.
+일상|I'll take a rain check.|아일 테이크 어 레인 체크.|다음 기회로 미룰게요.
+일상|It's worth the wait.|잇츠 워스 더 웨이트.|기다릴 가치가 있어요.
+직장|I'm working overtime today.|아임 워킹 오버타임 투데이.|오늘 야근해요.
+직장|I need your signature here.|아이 니드 유어 시그니처 히어.|여기에 서명이 필요합니다.
+직장|Let's schedule a follow-up meeting.|렛츠 스케줄 어 팔로우업 미팅.|추후 회의 일정을 잡아봅시다.
+직장|The deadline is approaching.|더 데드라인 이즈 어프로칭.|마감 기한이 다가오고 있어요.
+직장|I'll get back to you soon.|아일 겟 백 투 유 쑨.|곧 다시 연락드릴게요.
+가전|The printer is out of paper.|더 프린터 이즈 아웃 오브 페이퍼.|프린터 용지가 다 떨어졌어요.
+가전|The remote is not working.|더 리모트 이즈 낫 워킹.|리모컨이 안 돼요.
+가전|Change the light bulb.|체인지 더 라이트 벌브.|전구를 가세요.
+건강|I have a stomachache.|아이 해브 어 스터먹에이크.|배가 아파요.
+건강|My legs are swollen.|마이 렉스 아 스월른.|다리가 부었어요.
+건강|I need to see a specialist.|아이 니드 투 씨 어 스페셜리스트.|전문의를 만나봐야겠어요.
+건강|Are you taking any medication?|아 유 테이킹 애니 메디케이션?|복용 중인 약이 있나요?
+관용|Break the ice.|브레이크 더 아이스.|어색한 분위기를 깨다.
+관용|Call it a day.|콜 잇 어 데이.|오늘 일을 이만 마치다.
+관용|Cut to the chase.|컷 투 더 체이스.|본론만 말하다.
+관용|Hit the hay.|히트 더 헤이.|잠자리에 들다.
+관용|Let the cat out of the bag.|렛 더 캣 아웃 오브 더 백.|비밀을 누설하다.
+관용|Make a long story short.|메이크 어 롱 스토리 쇼트.|요약해서 말하자면.
+관용|Miss the boat.|미스 더 보트.|기회를 놓치다.
+관용|On the fence.|온 더 펜스.|결정을 못 내린(애매한 상태).
+관용|Pull yourself together.|풀 유어셀프 투게더.|정신 차려.
+관용|So far so good.|쏘 파 쏘 굿.|지금까지는 아주 좋아.
+관용|The best of both worlds.|더 베스트 오브 보스 월즈.|일거양득.
+관용|Wrap your head around something.|랩 유어 헤드 어라운드 썸씽.|무언가를 이해하다.
+철학|Life is what happens when you're busy making other plans.|라이프 이즈 왓 해픈즈 웬 유어 비지 메이킹 아더 플랜즈.|인생이란 다른 계획을 세우느라 바쁠 때 일어나는 것이다.
+철학|The only way to have a friend is to be one.|디 온리 웨이 투 해브 어 프렌드 이즈 투 비 원.|친구를 얻는 유일한 방법은 스스로 친구가 되는 것이다.
+철학|To be, or not to be, that is the question.|투 비 오어 낫 투 비, 댓 이즈 더 퀘스천.|사느냐 죽느냐, 그것이 문제로다.
+철학|This too shall pass.|디스 투 샬 패스.|이 또한 지나가리라.
+철학|Seize the day.|씨즈 더 데이.|오늘을 즐겨라(카르페 디엠).
+대화|I'll take that as a compliment.|아일 테이크 댓 애즈 어 컴플리먼트.|칭찬으로 받아들일게요.
+대화|That's music to my ears.|댓츠 뮤직 투 마이 이어즈.|정말 듣기 좋은 소리네요.
+대화|I'm all ears.|아임 올 이어즈.|경청하고 있어요.
+대화|Suit yourself.|슈트 유어셀프.|마음대로 하세요.
+대화|It’s up to you.|잇츠 업 투 유.|당신에게 달렸어요.
+대화|I beg your pardon?|아이 백 유어 파든?|다시 말씀해 주시겠어요?
+대화|How have you been?|하우 해브 유 빈?|그동안 어떻게 지냈어요?
+대화|Keep in touch.|킵 인 터치.|연락하고 지내요.
+대화|I’m not in the mood.|아임 낫 인 더 무드.|그럴 기분이 아니에요.
+일상|I'm tied up at the moment.|아임 타이드 업 앳 더 모먼트.|지금 제가 좀 꼼짝 못 하는 상황(바쁜 상황)이에요.
+일상|Better luck next time.|베터 럭 넥스트 타임.|다음번엔 운이 따르길 빌어요.
+일상|I'll sleep on it.|아일 슬립 온 잇.|하룻밤 자면서 생각해 볼게요.
+일상|Don't sweat it.|돈 스웻 잇.|걱정 마세요.
+일상|It’s out of my hands.|잇츠 아웃 오브 마이 핸즈.|내 소관이 아니에요.
+일상|I can’t afford it.|아이 캔트 어포드 잇.|그걸 살 형편이 안 돼요.
+일상|It's a small world.|잇츠 어 스몰 월드.|세상 참 좁네요.
+일상|What's the occasion?|왓츠 디 어케이전?|무슨 특별한 일이라도 있나요?
+공부|I'm burning the midnight oil.|아임 버닝 더 미드나잇 오일.|밤샘 공부(업무) 중이에요.
+공부|I learned it by heart.|아이 런드 잇 바이 하트.|그걸 통째로 외웠어요.
+공부|It’s a steep learning curve.|잇츠 어 스티프 러닝 커브.|배우기 꽤 까다롭네요.
+마무리|We finally reached 1000!|위 파이널리 리치드 싸우전드!|드디어 1,000개에 도달했습니다!
+마무리|You are amazing.|유 아 어메이징.|당신은 정말 대단해요.
+마무리|Never give up on your goal.|네버 기브 업 온 유어 골.|목표를 절대 포기하지 마세요.
+마무리|Consistency is the key.|컨시스턴시 이즈 더 키.|꾸준함이 핵심입니다.
+마무리|Enjoy your learning journey.|인조이 유어 러닝 저니.|학습의 여정을 즐기세요.
+마무리|The sky is the limit.|더 스카이 이즈 더 리밋.|한계는 없습니다.
+마무리|I'm so proud of your progress.|아임 쏘 프라우드 오브 유어 프로그레스.|당신의 발전에 정말 자부심을 느껴요.
+마무리|Goodbye and good luck!|굿바이 앤 굿 럭!|안녕히 가세요, 행운을 빕니다!
+감정|I'm feeling a bit restless.|아임 필링 어 빗 레스트리스.|마음이 좀 들뜨고 산만해요.
+감정|I'm so relieved to hear that.|아임 쏘 릴리브드 투 히어 댓.|그 말을 들으니 정말 안심이 되네요.
+감정|Don't be so hard on yourself.|돈 비 쏘 하드 온 유어셀프.|자신에게 너무 엄격하게 굴지 마세요.
+감정|I'm over the moon.|아임 오버 더 문.|정말 세상을 다 얻은 기분이에요.
+감정|I was stunned by the news.|아이 워즈 스턴드 바이 더 뉴스.|그 소식을 듣고 멍해졌어요.
+감정|I'm in a bit of a slump.|아임 인 어 빗 오브 어 슬럼프.|요즘 좀 슬럼프에 빠졌어요.
+여행|Where is the duty-free shop?|웨어 이즈 더 듀티 프리 샵?|면세점이 어디인가요?
+여행|I'd like a window seat, please.|아이드 라이크 어 윈도우 씻 플리즈.|창가 쪽 좌석으로 부탁해요.
+여행|Is there a shuttle bus to the hotel?|이즈 데어 어 셔틀 버스 투 더 호텔?|호텔행 셔틀버스가 있나요?
+여행|I missed my connecting flight.|아이 미스트 마이 커넥팅 플라이트.|연결편을 놓쳤어요.
+여행|Can I store my luggage here?|캔 아이 스토어 마이 러기지 히어?|여기에 짐을 맡길 수 있나요?
+여행|How long is the layover?|하우 롱 이즈 더 레이오버?|경유 시간이 얼마나 되나요?
+쇼핑|I'm just looking around.|아임 저스트 루킹 어라운드.|그냥 둘러보는 중이에요.
+쇼핑|Do you have this in a different color?|두 유 해브 디스 인 어 디퍼런트 컬러?|이거 다른 색상도 있나요?
+쇼핑|Can I get a discount if I buy two?|캔 아이 겟 어 디스카운트 이프 아이 바이 투?|두 개 사면 할인해 주시나요?
+쇼핑|I'll take this one.|아일 테이크 디스 원.|이걸로 살게요.
+쇼핑|Can you put this on hold for me?|캔 유 풋 디스 온 홀드 포 미?|이거 저를 위해 보관해 주실 수 있나요?
+쇼핑|Is this the final price?|이즈 디스 더 파이널 프라이스?|이게 최종 가격인가요?
+식당|Can we have a table for four?|캔 위 해브 어 테이블 포 포어?|4명 자리가 있을까요?
+식당|I'm allergic to seafood.|아임 앨러직 투 씨푸드.|전 해산물 알레르기가 있어요.
+식당|Could you bring us more napkins?|쿠쥬 브링 어스 모어 냅킨즈?|냅킨 좀 더 가져다주시겠어요?
+식당|Is service charge included?|이즈 서비스 차지 인클루디드?|봉사료가 포함되어 있나요?
+식당|The food is cold. Can you warm it?|더 푸드 이즈 콜드. 캔 유 웜 잇?|음식이 식었는데 데워주실래요?
+식당|Can I have a doggy bag, please?|캔 아이 해브 어 도기 백 플리즈?|남은 음식을 포장해 주시겠어요?
+일상|I'm a bit busy at the moment.|아임 어 빗 비지 앳 더 모먼트.|제가 지금 좀 바쁘네요.
+일상|Let me check my schedule.|렛 미 체크 마이 스케줄.|제 일정을 확인해 볼게요.
+일상|I'll be right back.|아일 비 라이트 백.|금방 돌아올게요.
+일상|Don't wait up for me.|돈 웨이트 업 포 미.|나 기다리지 말고 먼저 자요.
+일상|I'm going to take a nap.|아임 고잉 투 테이크 어 냅.|낮잠 좀 자려고요.
+일상|What's the weather like tomorrow?|왓츠 더 웨더 라이크 투모로우?|내일 날씨가 어때요?
+대화|I don't follow you.|아이 돈 팔로우 유.|네 말을 못 알아듣겠어(이해가 안 가).
+대화|That's exactly what I mean.|댓츠 이그잭틀리 왓 아이 민.|내 말이 바로 그 말이야.
+대화|Let's get back to the point.|렛츠 겟 백 투 더 포인트.|다시 본론으로 돌아갑시다.
+대화|Can you give me an example?|캔 유 기브 미 언 이그잼플?|예를 들어 주실 수 있나요?
+대화|I'm not sure about that.|아임 낫 슈어 어바웃 댓.|그건 잘 모르겠네요.
+대화|It slipped my mind.|잇 슬립트 마이 마인드.|깜빡 잊어버렸어요.
+비즈니스|We need to reach a consensus.|위 니드 투 리치 어 컨센서스.|우리는 합의점에 도달해야 합니다.
+비즈니스|Let's move on to the next item.|렛츠 무브 온 투 더 넥스트 아이템.|다음 안건으로 넘어갑시다.
+비즈니스|I'll take responsibility for this.|아일 테이크 리스판서빌리티 포 디스.|이 일은 제가 책임지겠습니다.
+비즈니스|Can you provide more details?|캔 유 프로바이드 모어 디테일즈?|더 자세한 내용을 알려주시겠어요?
+비즈니스|It's a high priority task.|잇츠 어 하이 프라이오리티 태스크.|이것은 우선순위가 높은 업무입니다.
+비즈니스|We are running out of time.|위 아 러닝 아웃 오브 타임.|시간이 다 되어 가네요.
+비즈니스|I'll forward the email to you.|아일 포워드 디 이메일 투 유.|이메일을 전달해 드릴게요.
+사회|May I cut in line?|메이 아이 컷 인 라인?|먼저 지나가도 될까요? (새치기X, 양해구함)
+사회|I'm sorry for the inconvenience.|아임 쏘리 포 디 인컨비니언스.|불편을 드려 죄송합니다.
+사회|Please give me a moment.|플리즈 기브 미 어 모먼트.|잠시만 시간을 주세요.
+사회|It was an honor to meet you.|잇 워즈 언 아너 투 미트 유.|만나 뵙게 되어 영광이었습니다.
+사회|I'm looking forward to our next meeting.|아임 루킹 포워드 투 아워 넥스트 미팅.|다음 만남을 고대하고 있습니다.
+일상|I'm in a good mood today.|아임 인 어 굿 무드 투데이.|오늘 기분이 좋아요.
+일상|It happens to the best of us.|잇 해픈즈 투 더 베스트 오브 어스.|누구나 그럴 수 있어요.
+일상|Don't push your luck.|돈 푸쉬 유어 럭.|너무 운만 믿고 까불지 마세요(자중하세요).
+일상|I have a lot on my mind.|아이 해브 어 랏 온 마이 마인드.|생각이 너무 많아요.
+일상|You're on the right track.|유어 온 더 라이트 트랙.|잘하고 있어요(제대로 된 길을 가고 있어요).
+일상|I'll keep my fingers crossed.|아일 킵 마이 핑거스 크로스트.|행운을 빌게요.
+일상|It's not as easy as it looks.|잇츠 낫 애즈 이지 애즈 잇 룩스.|보기만큼 쉽지 않아요.
+일상|Let's call it a day.|렛츠 콜 잇 어 데이.|오늘은 여기까지 하죠.
+일상|I'm exhausted from work.|아임 이그조스티드 프롬 워크.|일 때문에 기진맥진했어요.
+일상|Can I get you anything?|캔 아이 겟 유 애니씽?|뭐 좀 갖다 줄까요?
+일상|I'm starving to death.|아임 스타빙 투 데쓰.|배고파 죽겠어요.
+일상|It's a small world.|잇츠 어 스몰 월드.|세상 참 좁네요.
+일상|Time will tell.|타임 윌 텔.|시간이 해결해 줄 거예요.
+일상|I'm just browsing.|아임 저스트 브라우징.|그냥 구경 중이에요.
+일상|What do you do for a living?|왓 두 유 두 포 어 리빙?|직업이 무엇인가요?
+일상|I'm not interested.|아임 낫 인트레스티드.|관심 없어요.
+일상|It's a long story.|잇츠 어 롱 스토리.|말하자면 길어요.
+일상|Better late than never.|베터 레이트 댄 네버.|늦더라도 안 하는 것보다 나아요.
+일상|Don't take it to heart.|돈 테이크 잇 투 하트.|너무 마음에 담아두지 마세요.
+일상|I'll make it up to you.|아일 메이크 잇 업 투 유.|내가 나중에 꼭 보답할게요.
+일상|Keep up the good work.|킵 업 더 굿 워크.|계속 수고하세요.
+일상|I'm so proud of you.|아임 쏘 프라우드 오브 유.|네가 정말 자랑스러워.
+일상|It's worth a try.|잇츠 워스 어 트라이.|해볼 만한 가치가 있어요.
+일상|Count me in.|카운트 미 인.|나도 끼워줘요.
+일상|I'm in a hurry.|아임 인 어 허리.|서두르는 중이에요.
+일상|Wait and see.|웨이트 앤 씨.|두고 보자고요.
+일상|Make yourself at home.|메이크 유어셀프 앳 홈.|편히 쉬세요.
+일상|I'm short on cash.|아임 쇼트 온 캐시.|현금이 좀 부족해요.
+일상|It's out of the question.|잇츠 아웃 오브 더 퀘스천.|그건 불가능해요(논외예요).
+일상|I'm on your side.|아임 온 유어 사이드.|난 네 편이야.
+일상|Speak of the devil.|스피크 오브 더 데빌.|호랑이도 제 말 하면 온다더니.
+일상|I can't help it.|아이 캔트 헬프 잇.|어쩔 수 없어요.
+일상|Let's give it a shot.|렛츠 기브 잇 어 샷.|한번 시도해 봅시다.
+일상|That's a relief.|댓츠 어 릴리프.|다행이네요.
+일상|I'm lost for words.|아임 로스트 포 워즈.|할 말을 잃었어요.
+일상|Everything is under control.|에브리씽 이즈 언더 컨트롤.|모든 게 잘 통제되고 있어요.
+일상|Don't let me down.|돈 렛 미 다운.|나를 실망시키지 마세요.
+일상|I'll be there for you.|아일 비 데어 포 유.|내가 네 곁에 있을게.
+마무리|Mission accomplished!|미션 어컴플리쉬드!|임무 완료!
+마무리|You've done an incredible job.|유브 던 언 인크레더블 잡.|당신은 정말 대단한 일을 해냈습니다.
+마무리|1000 sentences are now yours.|원 싸우전드 센텐시즈 아 나우 유어즈.|이제 1,000문장은 당신의 것입니다.
+마무리|Keep practicing every day.|킵 프랙티싱 에브리 데이.|매일 계속 연습하세요.
+마무리|Your English will improve soon.|유어 잉글리쉬 윌 임프루브 쑨.|당신의 영어는 곧 향상될 거예요.
+마무리|Never stop learning.|네버 스탑 러닝.|배움을 멈추지 마세요.
+마무리|The journey of a thousand miles begins with a single step.|더 저니 오브 어 싸우전드 마일즈 비긴즈 위드 어 싱글 스텝.|천 리 길도 한 걸음부터.
+마무리|Congratulations on your achievement!|컨그레츄레이션즈 온 유어 어치브먼트!|당신의 성취를 축하합니다!
+지혜|Life is a journey, not a destination.|라이프 이즈 어 저니, 낫 어 데스티네이션.|인생은 목적지가 아니라 과정이다.
+지혜|The best is yet to come.|더 베스트 이즈 옛 투 컴.|최고의 순간은 아직 오지 않았다.
+지혜|Believe you can and you're halfway there.|빌리브 유 캔 앤 유어 하프웨이 데어.|할 수 있다고 믿으면 이미 절반은 온 것이다.
+지혜|Small steps lead to big changes.|스몰 스텝스 리드 투 빅 체인지스.|작은 발걸음이 큰 변화를 만든다.
+지혜|Everything happens for a reason.|에브리씽 해픈즈 포 어 리즌.|모든 일에는 이유가 있다.
+여유|Take a deep breath and relax.|테이크 어 딥 브레스 앤 릴랙스.|숨을 크게 들이마시고 긴장을 푸세요.
+여유|Enjoy the little things in life.|인조이 더 리틀 씽즈 인 라이프.|인생의 작은 행복들을 즐기세요.
+여유|It's okay to take a break.|잇츠 오케이 투 테이크 어 브레이크.|잠시 쉬어가도 괜찮아요.
+여유|Slow down and look around.|슬로우 다운 앤 룩 어라운드.|속도를 줄이고 주위를 둘러보세요.
+여유|Peace begins with a smile.|피스 비긴즈 위드 어 스마일.|평화는 미소와 함께 시작된다.
+습관|Early bird catches the worm.|얼리 버드 캐치스 더 웜.|부지런한 새가 벌레를 잡는다.
+습관|Practice makes perfect.|프랙티스 메이크스 퍼펙트.|연습이 완벽을 만든다.
+습관|Consistency is key to success.|컨시스턴시 이즈 키 투 석세스.|꾸준함이 성공의 열쇠다.
+일상|Better late than never.|베터 레이트 댄 네버.|늦더라도 안 하는 것보다 낫다.
+일상|No pain, no gain.|노 페인, 노 게인.|고통 없이는 얻는 것도 없다.
+일상|Keep your head up.|킵 유어 헤드 업.|고개를 높이 드세요(자신감을 가져요).
+일상|Everything will be alright.|에브리씽 윌 비 올라이트.|모든 것이 다 잘 될 거예요.
+일상|Don't give up on your dreams.|돈 기브 업 온 유어 드림즈.|꿈을 포기하지 마세요.
+대화|I see what you're saying.|아이 씨 왓 유어 세잉.|무슨 말씀인지 알겠습니다.
+대화|That's a good point.|댓츠 어 굿 포인트.|좋은 지적이네요.
+대화|I'll keep that in mind.|아일 킵 댓 인 마인드.|그 점 명심하겠습니다.
+대화|Thanks for the heads up.|탱크스 포 더 헤즈 업.|미리 알려줘서 고마워요.
+직장|Let's get down to business.|렛츠 겟 다운 투 비즈니스.|본론으로 들어갑시다.
+직장|We are on the same page.|위 아 온 더 세임 페이지.|우리 같은 생각을 하고 있군요.
+직장|Think outside the box.|씽크 아웃사이드 더 박스.|고정관념에서 벗어나 생각하세요.
+기술|My phone battery is dead.|마이 폰 배터리 이즈 데드.|핸드폰 배터리가 나갔어요.
+기술|The internet is down again.|디 인터넷 이즈 다운 어게인.|인터넷이 또 안 되네요.
+날씨|The sky is clearing up.|더 스카이 이즈 클리어링 업.|날씨가 개고 있어요.
+날씨|It's freezing cold outside.|잇츠 프리징 콜드 아웃사이드.|밖이 얼어붙을 정도로 추워요.
+건강|Health is wealth.|헬스 이즈 웰스.|건강이 재산이다.
+건강|I'm feeling refreshed.|아임 필링 리프레쉬드.|몸이 상쾌하네요.
+축하|You finally made it!|유 파이널리 메이드 잇!|당신이 결국 해냈군요!
+축하|I'm so proud of your effort.|아임 쏘 프라우드 오브 유어 에포트.|당신의 노력에 자부심을 느낍니다.
+축하|One thousand steps to success.|원 싸우전드 스텝스 투 석세스.|성공을 향한 1,000걸음.
+축하|The end of the beginning.|디 엔드 오브 더 비기닝.|시작의 끝(새로운 시작).
+축하|You are a master of 1000 sentences.|유 아 어 마스터 오브 싸우전드 센텐시즈.|당신은 이제 1,000문장의 마스터입니다.
+축하|Never stop growing.|네버 스탑 그로잉.|성장을 멈추지 마세요.
+축하|Success belongs to you.|석세스 빌롱즈 투 유.|성공은 당신의 것입니다.
+마무리|Mission accomplished.|미션 어컴플리쉬드.|임무 완료.
+마무리|Final sentence achieved.|파이널 센텐스 어치브드.|마지막 문장 달성.
+마무리|Keep going forward.|킵 고잉 포워드.|계속 전진하세요.
+마무리|Goodbye for now.|굿바이 포 나우.|잠시만 안녕.
+마무리|See you at the top.|씨 유 앳 더 탑.|정상에서 만납시다.
+완성|You did it!|유 디드 잇!|당신이 해냈어요!
+완성|1000 sentences!|싸우전드 센텐시즈!|1,000문장 완성!
