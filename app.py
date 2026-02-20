@@ -8,50 +8,60 @@ SAVE_FILE = "progress.txt"
 # 모바일 최적화 설정
 st.set_page_config(page_title="영어 패턴 1000", layout="centered")
 
-# CSS: 가독성 및 디자인 최적화
+# CSS: 연음 학습에 집중할 수 있는 깔끔한 디자인
 st.markdown("""
     <style>
     .main { background-color: #f8f9fa; }
     .study-card {
         background-color: #ffffff;
-        padding: 30px 20px;
-        border-radius: 25px;
-        border: 1px solid #dee2e6;
+        padding: 40px 20px;
+        border-radius: 30px;
+        border: 2px solid #e9ecef;
         text-align: center;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        margin-bottom: 15px;
-        min-height: 350px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        margin-bottom: 20px;
+        min-height: 380px;
         display: flex;
         flex-direction: column;
         justify-content: center;
     }
-    .eng-text { color: #D32F2F; font-size: 2.4rem; font-weight: bold; line-height: 1.2; }
-    .sound-text { color: #2E7D32; font-size: 1.2rem; margin-top: 8px; font-weight: 500; }
+    .eng-text { color: #D32F2F; font-size: 2.6rem; font-weight: bold; line-height: 1.3; margin-bottom: 10px; }
+    .sound-text { color: #388E3C; font-size: 1.5rem; margin-top: 5px; font-weight: 500; opacity: 0.8; }
     
     .mean-box { 
-        padding: 15px; 
-        border-radius: 15px; 
-        margin-top: 20px;
+        padding: 20px; 
+        border-radius: 20px; 
+        margin-top: 25px;
         background-color: #E3F2FD; 
-        border: 2px solid #2196F3;
+        border: 1px solid #BBDEFB;
         width: 100%;
     }
-    .mean-text { color: #1565C0; font-size: 2rem; font-weight: bold; }
-    .label { color: #adb5bd; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; margin-bottom: 5px; }
+    .mean-text { color: #1565C0; font-size: 2.2rem; font-weight: bold; }
     
-    /* 버튼 스타일 */
+    .label { color: #adb5bd; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+    
+    /* 하단 고정 버튼 스타일 */
     .stButton>button { 
         width: 100%; 
-        height: 4.5rem; 
+        height: 4.8rem; 
         font-size: 1.5rem !important; 
-        border-radius: 20px; 
+        border-radius: 25px; 
         font-weight: bold;
-        background-color: #212121;
+        background: linear-gradient(135deg, #424242 0%, #212121 100%);
         color: white;
+        border: none;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
     
-    /* 안내 메시지 스타일 */
-    .info-text { color: #FF9800; font-weight: bold; margin-top: 10px; font-size: 1.1rem; }
+    .shadow-info { 
+        color: #FF6D00; 
+        font-weight: bold; 
+        margin-top: 15px; 
+        font-size: 1.1rem;
+        background-color: #FFF3E0;
+        padding: 10px;
+        border-radius: 10px;
+    }
     </style>
     """, unsafe_allow_html=True)
 
@@ -87,22 +97,20 @@ if sentences and st.session_state.current_idx < len(sentences):
     kind, eng, sound, mean = sentences[st.session_state.current_idx]
     
     st.progress(st.session_state.current_idx / len(sentences))
-    st.caption(f"Progress: {st.session_state.current_idx}/1000")
-
-    # 카드 표시
+    
     st.markdown(f"""
     <div class="study-card">
-        <div class="label">{kind}</div>
+        <div class="label">Pattern: {kind}</div>
         <div class="eng-text">{eng}</div>
         <div class="sound-text">[{sound}]</div>
         <div class="mean-box">
             <div class="mean-text">{mean}</div>
         </div>
-        <div class="info-text">🔊 원어민 소리 후 따라 읽으세요 (5회)</div>
+        <div class="shadow-info">📢 천천히 듣고 (0.7배속) 5회 따라하세요</div>
     </div>
     """, unsafe_allow_html=True)
 
-    # 🔊 쉐도잉 학습용 자바스크립트
+    # 🔊 연음 학습용 자바스크립트 (속도 낮춤, 대기 시간 늘림)
     clean_eng = eng.replace('"', '').replace("'", "")
     
     st.components.v1.html(f"""
@@ -111,16 +119,17 @@ if sentences and st.session_state.current_idx < len(sentences):
             window.speechSynthesis.cancel();
             var msg = new SpeechSynthesisUtterance("{clean_eng}");
             msg.lang = 'en-US';
-            msg.rate = 0.85; // 따라하기 편하게 살짝 천천히
+            msg.rate = 0.7; // 연음이 잘 들리도록 느리게 설정
+            msg.pitch = 1.0;
             
             var count = 0;
             msg.onend = function() {{
                 count++;
                 if (count < 5) {{
-                    // 1.5초(1500ms) 대기 후 다음 소리 재생 (내가 말할 시간)
+                    // 내가 충분히 말할 수 있도록 2초(2000ms) 대기
                     setTimeout(function() {{
                         window.speechSynthesis.speak(msg);
-                    }}, 1500);
+                    }}, 2000);
                 }}
             }};
             window.speechSynthesis.speak(msg);
@@ -129,7 +138,6 @@ if sentences and st.session_state.current_idx < len(sentences):
         </script>
     """, height=0)
 
-    # 다음 문장 버튼
     if st.button("다음 문장으로 👉"):
         st.session_state.current_idx += 1
         save_progress(st.session_state.current_idx)
@@ -144,6 +152,7 @@ else:
         st.rerun()
 
 with st.sidebar:
+    st.write(f"현재 위치: {st.session_state.current_idx + 1} / {len(sentences)}")
     if st.button("🔄 기록 초기화"):
         st.session_state.current_idx = 0
         save_progress(0)
