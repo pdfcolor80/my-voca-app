@@ -5,10 +5,10 @@ import os
 DATA_FILE = "sentences.txt"
 SAVE_FILE = "progress.txt"
 
-# 모바일 및 PC 최적화 레이아웃
+# 모바일 최적화 설정
 st.set_page_config(page_title="영어 패턴 1000", layout="centered")
 
-# CSS: 모바일 최적화 및 디자인
+# CSS: 가독성 및 디자인 최적화
 st.markdown("""
     <style>
     .main { background-color: #f8f9fa; }
@@ -28,7 +28,6 @@ st.markdown("""
     .eng-text { color: #D32F2F; font-size: 2.4rem; font-weight: bold; line-height: 1.2; }
     .sound-text { color: #2E7D32; font-size: 1.2rem; margin-top: 8px; font-weight: 500; }
     
-    /* 뜻 영역: 즉시 보이도록 설정 */
     .mean-box { 
         padding: 15px; 
         border-radius: 15px; 
@@ -36,13 +35,8 @@ st.markdown("""
         background-color: #E3F2FD; 
         border: 2px solid #2196F3;
         width: 100%;
-        min-height: 80px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
     }
     .mean-text { color: #1565C0; font-size: 2rem; font-weight: bold; }
-    
     .label { color: #adb5bd; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; margin-bottom: 5px; }
     
     /* 버튼 스타일 */
@@ -55,6 +49,9 @@ st.markdown("""
         background-color: #212121;
         color: white;
     }
+    
+    /* 안내 메시지 스타일 */
+    .info-text { color: #FF9800; font-weight: bold; margin-top: 10px; font-size: 1.1rem; }
     </style>
     """, unsafe_allow_html=True)
 
@@ -89,11 +86,10 @@ if "current_idx" not in st.session_state:
 if sentences and st.session_state.current_idx < len(sentences):
     kind, eng, sound, mean = sentences[st.session_state.current_idx]
     
-    # 진행바
     st.progress(st.session_state.current_idx / len(sentences))
     st.caption(f"Progress: {st.session_state.current_idx}/1000")
 
-    # 카드 표시 (뜻이 바로 나옴)
+    # 카드 표시
     st.markdown(f"""
     <div class="study-card">
         <div class="label">{kind}</div>
@@ -102,32 +98,34 @@ if sentences and st.session_state.current_idx < len(sentences):
         <div class="mean-box">
             <div class="mean-text">{mean}</div>
         </div>
+        <div class="info-text">🔊 원어민 소리 후 따라 읽으세요 (5회)</div>
     </div>
     """, unsafe_allow_html=True)
 
-    # 🔊 5번 반복 재생을 위한 JavaScript
-    # 따옴표 에러 방지를 위해 replace 처리
+    # 🔊 쉐도잉 학습용 자바스크립트
     clean_eng = eng.replace('"', '').replace("'", "")
     
     st.components.v1.html(f"""
         <script>
-        function speakFiveTimes() {{
-            window.speechSynthesis.cancel(); // 기존 소리 중단
+        function shadowSpeaking() {{
+            window.speechSynthesis.cancel();
             var msg = new SpeechSynthesisUtterance("{clean_eng}");
             msg.lang = 'en-US';
-            msg.rate = 0.9;
+            msg.rate = 0.85; // 따라하기 편하게 살짝 천천히
             
             var count = 0;
             msg.onend = function() {{
                 count++;
                 if (count < 5) {{
-                    window.speechSynthesis.speak(msg);
+                    // 1.5초(1500ms) 대기 후 다음 소리 재생 (내가 말할 시간)
+                    setTimeout(function() {{
+                        window.speechSynthesis.speak(msg);
+                    }}, 1500);
                 }}
             }};
             window.speechSynthesis.speak(msg);
         }}
-        // 페이지 로드 시(다음 문장 버튼 클릭 시) 즉시 실행
-        speakFiveTimes();
+        shadowSpeaking();
         </script>
     """, height=0)
 
@@ -145,7 +143,6 @@ else:
         save_progress(0)
         st.rerun()
 
-# 사이드바 리셋
 with st.sidebar:
     if st.button("🔄 기록 초기화"):
         st.session_state.current_idx = 0
