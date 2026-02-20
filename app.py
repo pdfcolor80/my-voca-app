@@ -5,7 +5,7 @@ import os
 DATA_FILE = "sentences.txt"
 SAVE_FILE = "progress.txt"
 
-# 모바일 및 PC 최적화 레이아웃
+# 모바일 최적화 레이아웃
 st.set_page_config(page_title="영어 패턴 1000", layout="centered")
 
 # CSS: 탭 위치 고정 및 디자인
@@ -39,14 +39,20 @@ st.markdown("""
     .mean-visible { background-color: #E3F2FD; border: 2px solid #2196F3; width: 100%; }
     .mean-text { color: #1565C0; font-size: 1.8rem; font-weight: bold; }
     
-    /* 공통 버튼 스타일 */
-    .stButton>button { 
-        width: 100%; 
-        height: 4.5rem; 
-        font-size: 1.4rem !important; 
-        border-radius: 20px; 
+    /* 소리 재생 버튼 스타일 */
+    .speak-btn {
+        width: 100%;
+        height: 4.5rem;
+        background-color: #4A90E2;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        font-size: 1.4rem;
         font-weight: bold;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
+    .speak-btn:active { transform: scale(0.98); }
     </style>
     """, unsafe_allow_html=True)
 
@@ -67,7 +73,8 @@ def load_progress():
     if os.path.exists(SAVE_FILE):
         try:
             with open(SAVE_FILE, "r", encoding="utf-8") as f:
-                return int(f.read().strip())
+                content = f.read().strip()
+                return int(content) if content else 0
         except: return 0
     return 0
 
@@ -78,7 +85,7 @@ if "current_idx" not in st.session_state:
 if "show_answer" not in st.session_state:
     st.session_state.show_answer = False
 
-# --- 메인 화면 로직 ---
+# --- 메인 학습 화면 ---
 if sentences and st.session_state.current_idx < len(sentences):
     kind, eng, sound, mean = sentences[st.session_state.current_idx]
     
@@ -97,24 +104,29 @@ if sentences and st.session_state.current_idx < len(sentences):
         </div>
         """, unsafe_allow_html=True)
         
-        # 버튼을 누르면 '소리를 먼저 재생하고' 화면을 바꿉니다.
-        if st.button("💡 뜻 확인 & 소리 듣기"):
-            # 자바스크립트를 사용해 소리를 직접 실행
-            js = f"""
+        # 💡 핵심: JavaScript를 내장한 직접 재생 버튼
+        # 이 버튼을 누르면 브라우저가 즉시 소리를 내고, Streamlit에 신호를 보냅니다.
+        btn_html = f"""
+            <button class="speak-btn" onclick="speakAndNext()">💡 뜻 확인 & 소리 듣기</button>
             <script>
-                function speak() {{
+                function speakAndNext() {{
                     window.speechSynthesis.cancel();
                     var msg = new SpeechSynthesisUtterance("{eng.replace('"', '').replace("'", "")}");
                     msg.lang = 'en-US';
-                    msg.rate = 0.9;
+                    msg.rate = 0.8;
                     window.speechSynthesis.speak(msg);
+                    
+                    // 0.1초 뒤에 Streamlit 세션 상태를 변경하기 위해 보이지 않는 버튼 클릭
+                    setTimeout(function() {{
+                        window.parent.document.querySelector('button[kind="secondary"]').click();
+                    }}, 100);
                 }}
-                speak();
             </script>
-            """
-            st.components.v1.html(js, height=0)
-            
-            # 상태 변경
+        """
+        st.components.v1.html(btn_html, height=100)
+        
+        # 실제 상태 변경을 위한 숨겨진 버튼
+        if st.button("Hidden State Trigger", type="secondary", key="hide"):
             st.session_state.show_answer = True
             st.rerun()
             
@@ -130,7 +142,7 @@ if sentences and st.session_state.current_idx < len(sentences):
         </div>
         """, unsafe_allow_html=True)
         
-        if st.button("다음 문장으로 👉"):
+        if st.button("다음 문장으로 👉", type="primary"):
             st.session_state.current_idx += 1
             st.session_state.show_answer = False
             save_progress(st.session_state.current_idx)
@@ -139,7 +151,3 @@ if sentences and st.session_state.current_idx < len(sentences):
 else:
     st.balloons()
     st.success("🎉 모든 문장을 완료했습니다!")
-    if st.button("처음부터 다시 시작"):
-        st.session_state.current_idx = 0
-        save_progress(0)
-        st.rerun()
