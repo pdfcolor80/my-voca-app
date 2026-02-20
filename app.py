@@ -6,44 +6,43 @@ import time
 DATA_FILE = "sentences.txt"
 SAVE_FILE = "progress.txt"
 
-# 페이지 설정 (모바일 최적화: 레이아웃을 centered로 고정)
-st.set_page_config(page_title="영어 1000", page_icon="🚀", layout="centered")
+# 모바일 최적화 설정
+st.set_page_config(page_title="영어 패턴 1000", layout="centered")
 
-# CSS: 모바일 화면에서 텍스트가 잘 보이고 여백을 줄이도록 설정
+# CSS: 모바일 전용 스타일 (영어를 가장 크고 위로)
 st.markdown("""
     <style>
-    /* 전체 배경 및 폰트 설정 */
-    .main { background-color: #f9f9f9; }
+    .reportview-container .main .block-container { padding-top: 1rem; }
+    .stProgress { height: 10px; }
     
-    /* 카드 디자인: 여백 최소화 */
+    /* 학습 카드 디자인 */
     .mobile-card {
         background-color: #ffffff;
-        padding: 15px;
-        border-radius: 15px;
-        border: 1px solid #eee;
+        padding: 20px 15px;
+        border-radius: 20px;
+        border: 2px solid #f0f2f6;
         text-align: center;
-        margin-bottom: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        margin-bottom: 15px;
     }
     
-    /* 영어를 가장 크고 위에 배치 */
-    .eng-title { color: #d32f2f; font-size: 1.8rem; font-weight: bold; margin-bottom: 2px; line-height: 1.2; }
-    .sound-sub { color: #388e3c; font-size: 1.1rem; margin-bottom: 10px; }
+    /* 영어를 가장 크게, 최상단에 배치 */
+    .eng-text { color: #E53935; font-size: 2.2rem; font-weight: bold; line-height: 1.2; margin-bottom: 5px; }
+    .sound-text { color: #43A047; font-size: 1.2rem; margin-bottom: 20px; }
     
-    /* 뜻은 아래에 중간 크기로 */
-    .mean-box { background-color: #f1f3f4; padding: 10px; border-radius: 10px; }
-    .mean-text { color: #1976d2; font-size: 1.4rem; font-weight: bold; }
+    /* 뜻은 가독성 좋게 중간 크기로 */
+    .mean-box { background-color: #E3F2FD; padding: 12px; border-radius: 12px; margin-top: 10px; }
+    .mean-text { color: #1565C0; font-size: 1.6rem; font-weight: bold; }
     
-    .label { font-size: 0.7rem; color: #aaa; text-transform: uppercase; margin-bottom: 2px; }
+    .label { color: #bdbdbd; font-size: 0.7rem; font-weight: bold; text-transform: uppercase; }
     
-    /* 구글 이미지 iframe 크기 조절 */
-    .img-container { width: 100%; height: 350px; border-radius: 10px; overflow: hidden; border: 1px solid #ddd; }
+    /* 버튼 크기 키우기 */
+    .stButton>button { height: 3em; font-size: 1.1rem !important; border-radius: 12px; }
     </style>
     """, unsafe_allow_html=True)
 
 def load_sentences():
-    if not os.path.exists(DATA_FILE):
-        st.error("파일 없음")
-        return []
+    if not os.path.exists(DATA_FILE): return []
     with open(DATA_FILE, "r", encoding="utf-8") as f:
         return [line.strip().split("|") for line in f if "|" in line]
 
@@ -65,62 +64,62 @@ if "current_idx" not in st.session_state:
 if "count" not in st.session_state:
     st.session_state.count = 0
 
-# --- 사이드바 (모바일에서는 메뉴 아이콘으로 숨겨짐) ---
-with st.sidebar:
-    st.header("⚙️ 설정")
-    goal = st.number_input("🎯 오늘 목표", min_value=1, value=20)
-    auto_mode = st.toggle("🤖 자동 넘김")
-    auto_delay = st.slider("⏳ 시간(초)", 3, 15, 5)
-    if st.button("🔄 리셋"):
-        st.session_state.current_idx = 0
-        save_progress(0)
-        st.rerun()
-
 # --- 메인 학습 화면 ---
 if st.session_state.current_idx < len(sentences):
     kind, eng, sound, mean = sentences[st.session_state.current_idx]
     
-    # 1. 텍스트 영역 (카드)
+    # 상단 정보
+    st.progress(st.session_state.current_idx / len(sentences))
+    
+    # 1. 텍스트 카드 (영어 -> 발음 -> 뜻)
     st.markdown(f"""
     <div class="mobile-card">
         <div class="label">English</div>
-        <div class="eng-title">{eng}</div>
-        <div class="sound-sub">[{sound}]</div>
+        <div class="eng-text">{eng}</div>
+        <div class="sound-text">[{sound}]</div>
         <div class="mean-box">
+            <div class="label">Meaning</div>
             <div class="mean-text">{mean}</div>
         </div>
     </div>
     """, unsafe_allow_html=True)
-    
-    # 2. 제어 버튼 (크게 배치)
+
+    # 2. 이미지 영역 (연결 거부 없는 안정적인 이미지 소스)
+    # 문장의 핵심 단어를 추출하여 이미지를 가져옵니다.
+    search_term = eng.replace("(", "").replace(")", "").split()[-1] 
+    image_url = f"https://loremflickr.com/g/600/400/{search_term},people/all?lock={st.session_state.current_idx}"
+    st.image(image_url, use_column_width=True, caption="상황 연상 이미지")
+
+    st.write("")
+
+    # 3. 제어 버튼
+    auto_mode = st.sidebar.toggle("🤖 자동 넘김")
     if not auto_mode:
-        if st.button("다음 문장 👉", use_container_width=True):
+        if st.button("다음 문장으로 👉", use_container_width=True):
             st.session_state.current_idx += 1
             st.session_state.count += 1
             save_progress(st.session_state.current_idx)
             st.rerun()
     else:
-        st.caption(f"⏱ {auto_delay}초 후 자동 넘김...")
-        time.sleep(auto_delay)
+        delay = st.sidebar.slider("간격(초)", 3, 15, 5)
+        st.caption(f"⏱ {delay}초 후 자동으로 다음 문장으로 넘어갑니다.")
+        time.sleep(delay)
         st.session_state.current_idx += 1
         st.session_state.count += 1
         save_progress(st.session_state.current_idx)
         st.rerun()
 
-    # 3. 이미지 영역 (하단 배치, 모바일 최적화 높이)
-    search_query = eng.replace("(", "").replace(")", "").strip()
-    google_img_url = f"https://www.google.com/search?q={search_query}+meaning&tbm=isch&safe=active"
-    
-    st.markdown(f"""
-        <div class="img-container">
-            <iframe src="{google_img_url}" width="100%" height="350" style="border:none;"></iframe>
-        </div>
-    """, unsafe_allow_html=True)
-    
-    # 하단 진행률
-    st.progress(st.session_state.current_idx / len(sentences))
-    st.caption(f"진도: {st.session_state.current_idx}/1000 | 오늘: {st.session_state.count}/{goal}")
+    # 하단 상태창
+    st.sidebar.write(f"오늘 학습: {st.session_state.count}")
+    if st.sidebar.button("🔄 처음부터 다시하기"):
+        st.session_state.current_idx = 0
+        save_progress(0)
+        st.rerun()
 
 else:
     st.balloons()
-    st.success("1,000문장 정복!")
+    st.success("1,000문장 학습 완료!")
+    if st.button("처음부터 다시 시작"):
+        st.session_state.current_idx = 0
+        save_progress(0)
+        st.rerun()
