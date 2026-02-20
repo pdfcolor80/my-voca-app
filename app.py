@@ -5,10 +5,10 @@ import random
 # 파일 경로 설정
 DATA_FILE = "sentences.txt"
 
-# 모바일 및 전체 레이아웃 설정
-st.set_page_config(page_title="영어 패턴 1000 랜덤 모드", layout="centered")
+# 모바일 최적화 설정
+st.set_page_config(page_title="영어 패턴 1000 AI", layout="centered")
 
-# CSS: 가독성 극대화 및 단계별 숨김 기능 제어
+# CSS: 단계별 화면 제어 및 가독성 최적화
 st.markdown("""
     <style>
     .main { background-color: #f8f9fa; }
@@ -19,36 +19,31 @@ st.markdown("""
         text-align: center;
         box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         margin-bottom: 20px;
-        min-height: 450px;
+        min-height: 480px;
         display: flex;
         flex-direction: column;
         justify-content: center;
     }
     .eng-text { 
         color: #D32F2F; 
-        font-size: calc(1.8rem + 1.5vw); 
+        font-size: calc(1.7rem + 1.2vw); 
         font-weight: bold; 
         line-height: 1.2; 
-        min-height: 4em;
+        min-height: 4.5em;
         display: flex;
         align-items: center;
         justify-content: center;
         word-break: keep-all;
-        visibility: visible; /* 기본적으로 보임 */
     }
     .sound-text { 
         color: #388E3C; 
-        font-size: 1.4rem; 
+        font-size: 1.3rem; 
         margin-top: 5px; 
         font-weight: 500; 
         opacity: 0.8;
         min-height: 1.5em;
-        visibility: visible; /* 기본적으로 보임 */
     }
-    /* 6~8회차에서만 사용될 숨김 클래스 */
-    .hidden-content { 
-        visibility: hidden !important; 
-    }
+    .hidden-content { visibility: hidden !important; }
     .mean-box { 
         padding: 20px; 
         border-radius: 20px; 
@@ -56,13 +51,14 @@ st.markdown("""
         background-color: #E3F2FD; 
         border: 1px solid #BBDEFB;
     }
-    .mean-text { color: #1565C0; font-size: 2.0rem; font-weight: bold; }
+    .mean-text { color: #1565C0; font-size: 1.9rem; font-weight: bold; }
     .status-info { 
-        color: #FFFFFF; font-weight: bold; margin-top: 20px; font-size: 1.2rem;
+        color: #FFFFFF; font-weight: bold; margin-top: 20px; font-size: 1.1rem;
         padding: 15px; border-radius: 15px; text-align: center;
+        transition: background-color 0.5s ease;
     }
     .stButton>button { 
-        width: 100%; height: 5rem; border-radius: 25px; font-weight: bold; font-size: 1.6rem !important; 
+        width: 100%; height: 5rem; border-radius: 25px; font-weight: bold; font-size: 1.5rem !important; 
     }
     </style>
     """, unsafe_allow_html=True)
@@ -74,101 +70,101 @@ def load_sentences():
 
 sentences = load_sentences()
 
-# 세션 상태 초기화
 if "current_idx" not in st.session_state:
     if sentences:
         st.session_state.current_idx = random.randint(0, len(sentences) - 1)
 if "drive_mode" not in st.session_state:
     st.session_state.drive_mode = False
 
-# 사이드바 설정
 with st.sidebar:
-    st.header("⚙️ 학습 설정")
+    st.header("⚙️ 설정")
     st.session_state.drive_mode = st.toggle("🚗 운전 모드 (자동 넘기기)", value=st.session_state.drive_mode)
     if st.button("🎲 다른 문장 랜덤 추출"):
         st.session_state.current_idx = random.randint(0, len(sentences) - 1)
         st.rerun()
 
-# --- 메인 학습 화면 ---
 if sentences:
     idx = st.session_state.current_idx
     kind, eng, sound, mean = sentences[idx]
     
     st.markdown(f"""
     <div class="study-card">
-        <div style="color:#adb5bd; font-weight:bold;">{kind}</div>
+        <div style="color:#adb5bd; font-weight:bold; font-size:0.9rem;">{kind}</div>
         <div id="display-eng" class="eng-text">{eng}</div>
         <div id="display-sound" class="sound-text">[{sound}]</div>
         <div class="mean-box">
             <div class="mean-text">{mean}</div>
         </div>
-        <div id="status-box" class="status-info" style="background-color:#0288D1;">🔵 기본 학습: 보고 읽기 (1/8)</div>
+        <div id="status-box" class="status-info" style="background-color:#FF9800;">🐌 1단계: 초저속 연음 정복 (1/13)</div>
     </div>
     """, unsafe_allow_html=True)
 
-    # 🔊 JavaScript: 8회 반복 및 5회 후 숨김 로직 수정
     is_drive = "true" if st.session_state.drive_mode else "false"
     clean_eng = eng.replace('"', '').replace("'", "")
     
     st.components.v1.html(f"""
         <script>
-        function shadowSpeaking() {{
-            const engElement = window.parent.document.getElementById('display-eng');
-            const soundElement = window.parent.document.getElementById('display-sound');
-            const statusElement = window.parent.document.getElementById('status-box');
+        function startShadowing() {{
+            const engEl = window.parent.document.getElementById('display-eng');
+            const soundEl = window.parent.document.getElementById('display-sound');
+            const statusEl = window.parent.document.getElementById('status-box');
             
-            // 초기 상태: 영어와 발음이 반드시 보이도록 설정
-            engElement.classList.remove('hidden-content');
-            soundElement.classList.remove('hidden-content');
+            engEl.classList.remove('hidden-content');
+            soundEl.classList.remove('hidden-content');
             
             window.speechSynthesis.cancel();
-            var msg = new SpeechSynthesisUtterance("{clean_eng}");
-            msg.lang = 'en-US';
-            msg.rate = 0.7; // 연음 발음을 위한 느린 속도
             
-            var count = 0;
-            var isDriveMode = {is_drive};
+            let count = 0;
+            const total = 13;
+            const isDrive = {is_drive};
 
-            msg.onend = function() {{
-                count++;
-                if (count < 8) {{
-                    // 6회차(count 가 5일 때)부터 숨김 처리
-                    if (count >= 5) {{
-                        engElement.classList.add('hidden-content');
-                        soundElement.classList.add('hidden-content');
-                        statusElement.innerText = "🟣 심화 학습: 소리만 듣기 (" + (count+1) + "/8)";
-                        statusElement.style.backgroundColor = "#8E24AA";
-                    }} else {{
-                        statusElement.innerText = "🔵 기본 학습: 보고 읽기 (" + (count+1) + "/8)";
-                    }}
-                    
-                    setTimeout(function() {{ 
-                        window.speechSynthesis.speak(msg); 
-                    }}, 2000);
-                }} else {{
-                    if(isDriveMode) {{
-                        statusElement.innerText = "🚗 운전모드: 3초 후 다음 랜덤 문장 이동";
-                        statusElement.style.backgroundColor = "#43A047";
-                        setTimeout(function() {{
-                            window.parent.document.querySelector('button[kind="primary"]').click();
-                        }}, 3000);
-                    }} else {{
-                        statusElement.innerText = "✅ 8회 완료! 버튼을 눌러주세요.";
-                        statusElement.style.backgroundColor = "#43A047";
-                    }}
+            function speak() {{
+                let msg = new SpeechSynthesisUtterance("{clean_eng}");
+                msg.lang = 'en-US';
+                
+                // [1단계: 1~5회] 초저속 (0.5배속)
+                if (count < 5) {{
+                    msg.rate = 0.5;
+                    statusEl.innerText = "🐌 1단계: 초저속 연음 정복 (" + (count+1) + "/13)";
+                    statusEl.style.backgroundColor = "#FF9800";
+                }} 
+                // [2단계: 6~10회] 기본속도 (0.8배속)
+                else if (count < 10) {{
+                    msg.rate = 0.8;
+                    statusEl.innerText = "🔵 2단계: 표준 속도 반복 (" + (count+1) + "/13)";
+                    statusEl.style.backgroundColor = "#0288D1";
+                }} 
+                // [3단계: 11~13회] 가리고 듣기 (0.8배속)
+                else {{
+                    msg.rate = 0.8;
+                    engEl.classList.add('hidden-content');
+                    soundEl.classList.add('hidden-content');
+                    statusEl.innerText = "🟣 3단계: 소리만 집중 (" + (count+1) + "/13)";
+                    statusEl.style.backgroundColor = "#8E24AA";
                 }}
-            }};
-            window.speechSynthesis.speak(msg);
+
+                msg.onend = function() {{
+                    count++;
+                    if (count < total) {{
+                        setTimeout(speak, 2000);
+                    }} else {{
+                        statusEl.innerText = isDrive ? "🚗 3초 후 다음 문장으로..." : "✅ 13회 완료! 버튼을 누르세요.";
+                        statusEl.style.backgroundColor = "#43A047";
+                        if(isDrive) {{
+                            setTimeout(() => {{
+                                window.parent.document.querySelector('button[kind="primary"]').click();
+                            }}, 3000);
+                        }}
+                    }}
+                }};
+                window.speechSynthesis.speak(msg);
+            }}
+            speak();
         }}
-        // 페이지 로드 시 실행
-        setTimeout(shadowSpeaking, 500);
+        setTimeout(startShadowing, 500);
         </script>
     """, height=0)
 
-    # 하단 버튼
     if st.button("다음 랜덤 문장 👉", type="primary"):
         st.session_state.current_idx = random.randint(0, len(sentences) - 1)
         st.rerun()
-
-else:
-    st.error("데이터 파일(sentences.txt)을 확인해주세요.")
