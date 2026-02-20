@@ -5,7 +5,7 @@ import os
 DATA_FILE = "sentences.txt"
 SAVE_FILE = "progress.txt"
 
-# 모바일 최적화 레이아웃
+# 모바일 및 PC 최적화 레이아웃
 st.set_page_config(page_title="영어 패턴 1000", layout="centered")
 
 # CSS: 탭 위치 고정 및 디자인
@@ -38,9 +38,8 @@ st.markdown("""
     }
     .mean-visible { background-color: #E3F2FD; border: 2px solid #2196F3; width: 100%; }
     .mean-text { color: #1565C0; font-size: 1.8rem; font-weight: bold; }
-    .label { color: #adb5bd; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; }
     
-    /* 실제 버튼 스타일 */
+    /* 공통 버튼 스타일 */
     .stButton>button { 
         width: 100%; 
         height: 4.5rem; 
@@ -79,7 +78,7 @@ if "current_idx" not in st.session_state:
 if "show_answer" not in st.session_state:
     st.session_state.show_answer = False
 
-# --- 메인 학습 화면 ---
+# --- 메인 화면 로직 ---
 if sentences and st.session_state.current_idx < len(sentences):
     kind, eng, sound, mean = sentences[st.session_state.current_idx]
     
@@ -89,7 +88,7 @@ if sentences and st.session_state.current_idx < len(sentences):
     if not st.session_state.show_answer:
         st.markdown(f"""
         <div class="study-card">
-            <div class="label">{kind}</div>
+            <div style="color:#adb5bd; font-weight:bold; font-size:0.8rem;">{kind}</div>
             <div class="eng-text">{eng}</div>
             <div class="sound-text">[{sound}]</div>
             <div class="mean-box" style="border: 2px dashed #eee;">
@@ -98,25 +97,31 @@ if sentences and st.session_state.current_idx < len(sentences):
         </div>
         """, unsafe_allow_html=True)
         
-        # [뜻 확인] 버튼 클릭 시 JavaScript로 즉시 소리 재생 후 Streamlit에 신호 전달
-        if st.button("💡 뜻 확인 & 소리 재생", type="secondary", use_container_width=True):
-            # 브라우저 TTS 엔진 직접 호출
-            st.components.v1.html(f"""
-                <script>
-                var msg = new SpeechSynthesisUtterance("{eng.replace("'", "")}");
-                msg.lang = 'en-US';
-                msg.rate = 0.9;
-                window.speechSynthesis.cancel(); 
-                window.speechSynthesis.speak(msg);
-                </script>
-            """, height=0)
+        # 버튼을 누르면 '소리를 먼저 재생하고' 화면을 바꿉니다.
+        if st.button("💡 뜻 확인 & 소리 듣기"):
+            # 자바스크립트를 사용해 소리를 직접 실행
+            js = f"""
+            <script>
+                function speak() {{
+                    window.speechSynthesis.cancel();
+                    var msg = new SpeechSynthesisUtterance("{eng.replace('"', '').replace("'", "")}");
+                    msg.lang = 'en-US';
+                    msg.rate = 0.9;
+                    window.speechSynthesis.speak(msg);
+                }}
+                speak();
+            </script>
+            """
+            st.components.v1.html(js, height=0)
+            
+            # 상태 변경
             st.session_state.show_answer = True
             st.rerun()
             
     else:
         st.markdown(f"""
         <div class="study-card">
-            <div class="label">{kind}</div>
+            <div style="color:#adb5bd; font-weight:bold; font-size:0.8rem;">{kind}</div>
             <div class="eng-text">{eng}</div>
             <div class="sound-text">[{sound}]</div>
             <div class="mean-box mean-visible">
@@ -125,7 +130,7 @@ if sentences and st.session_state.current_idx < len(sentences):
         </div>
         """, unsafe_allow_html=True)
         
-        if st.button("다음 문장으로 👉", type="primary", use_container_width=True):
+        if st.button("다음 문장으로 👉"):
             st.session_state.current_idx += 1
             st.session_state.show_answer = False
             save_progress(st.session_state.current_idx)
@@ -135,12 +140,6 @@ else:
     st.balloons()
     st.success("🎉 모든 문장을 완료했습니다!")
     if st.button("처음부터 다시 시작"):
-        st.session_state.current_idx = 0
-        save_progress(0)
-        st.rerun()
-
-with st.sidebar:
-    if st.button("🔄 기록 초기화"):
         st.session_state.current_idx = 0
         save_progress(0)
         st.rerun()
