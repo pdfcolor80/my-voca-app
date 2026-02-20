@@ -93,13 +93,14 @@ if st.session_state.current_idx < len(sentences):
     </div>
     """, unsafe_allow_html=True)
 
-    # 2. 정확한 이미지 로직 (문장 전체 키워드 사용 및 캐시 우회)
-    # 검색 정확도를 높이기 위해 문장에서 특수문자 제거 후 키워드 생성
-    search_query = eng.replace("(", "").replace(")", "").replace("'", "")
-    # Unsplash 소스 이미지를 사용하여 상황에 더 근접한 사진을 가져옵니다.
-    image_url = f"https://source.unsplash.com/800x450/?{search_query.replace(' ', ',')}&sig={st.session_state.current_idx}"
+    # 2. 이미지 출력 로직 (가장 안정적인 웹 이미지 소스 사용)
+    # 영어 문장의 첫 단어와 주요 키워드를 조합하여 검색 신뢰도를 높임
+    clean_query = eng.replace("(", "").replace(")", "").replace("'", "").strip()
+    # 문장마다 고유한 이미지가 나오도록 seed 값을 문장 인덱스로 설정
+    image_url = f"https://loremflickr.com/800/450/{clean_query.split()[0]},people/all?lock={st.session_state.current_idx}"
     
-    st.image(image_url, caption=f"Current Situation: {mean}", use_container_width=True)
+    # 이미지 표시
+    st.image(image_url, caption=f"상황 연상 이미지: {mean}", use_container_width=True)
 
     st.divider()
 
