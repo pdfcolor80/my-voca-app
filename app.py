@@ -9,15 +9,12 @@ SAVE_FILE = "progress.txt"
 # 모바일 최적화 레이아웃
 st.set_page_config(page_title="영어 패턴 1000", layout="centered")
 
-# CSS: 탭 위치 고정 및 모바일 최적화 스타일
+# CSS 및 JavaScript (음성 출력을 위한 스크립트 포함)
 st.markdown("""
     <style>
     .main { background-color: #f8f9fa; }
-    
-    /* 전체 컨테이너 여백 조정 */
     .block-container { padding-top: 2rem; padding-bottom: 1rem; }
 
-    /* 카드 컨테이너: 높이를 일정하게 고정하여 버튼 밀림 방지 */
     .study-card {
         background-color: #ffffff;
         padding: 30px 20px;
@@ -26,7 +23,7 @@ st.markdown("""
         text-align: center;
         box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         margin-bottom: 15px;
-        min-height: 320px; /* 카드 높이 고정 */
+        min-height: 320px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -35,12 +32,11 @@ st.markdown("""
     .eng-text { color: #D32F2F; font-size: 2.4rem; font-weight: bold; line-height: 1.2; }
     .sound-text { color: #2E7D32; font-size: 1.2rem; margin-top: 8px; font-weight: 500; }
     
-    /* 뜻 영역: 공간은 차지하되 안 보일 때는 투명하게 처리하여 위치 유지 */
     .mean-box { 
         padding: 15px; 
         border-radius: 15px; 
         margin-top: 15px;
-        min-height: 100px; /* 뜻 상자 높이 고정 */
+        min-height: 100px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -51,13 +47,11 @@ st.markdown("""
         width: 100%;
     }
     .mean-text { color: #1565C0; font-size: 1.8rem; font-weight: bold; }
-    
     .label { color: #adb5bd; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; margin-bottom: 5px; }
     
-    /* 버튼 스타일: 화면 하단에 항상 같은 크기로 고정 */
     .stButton>button { 
         width: 100%; 
-        height: 4.5rem; /* 버튼 높이 충분히 확보 */
+        height: 4.5rem; 
         font-size: 1.4rem !important; 
         border-radius: 20px; 
         font-weight: bold;
@@ -65,6 +59,19 @@ st.markdown("""
     }
     </style>
     """, unsafe_allow_html=True)
+
+# 음성 출력을 위한 자바스크립트 함수
+def speak(text):
+    js_code = f"""
+        <script>
+        var msg = new SpeechSynthesisUtterance();
+        msg.text = "{text}";
+        msg.lang = "en-US";
+        msg.rate = 0.9;
+        window.speechSynthesis.speak(msg);
+        </script>
+    """
+    st.components.v1.html(js_code, height=0)
 
 def load_sentences():
     if not os.path.exists(DATA_FILE): return []
@@ -96,11 +103,9 @@ if "count" not in st.session_state:
 if st.session_state.current_idx < len(sentences):
     kind, eng, sound, mean = sentences[st.session_state.current_idx]
     
-    # 상단 진행바
     st.progress(st.session_state.current_idx / len(sentences))
     st.caption(f"진도: {st.session_state.current_idx}/1000 | 오늘 학습: {st.session_state.count}")
 
-    # 카드 섹션 (뜻이 없을 때도 공간을 차지하게 함)
     if not st.session_state.show_answer:
         st.markdown(f"""
         <div class="study-card">
@@ -113,9 +118,9 @@ if st.session_state.current_idx < len(sentences):
         </div>
         """, unsafe_allow_html=True)
         
-        # [뜻 확인하기] 버튼
-        if st.button("💡 뜻 확인하기", type="secondary"):
+        if st.button("💡 뜻 확인 (소리 재생)", type="secondary"):
             st.session_state.show_answer = True
+            speak(eng) # 영어 읽어주기
             st.rerun()
     else:
         st.markdown(f"""
@@ -129,7 +134,6 @@ if st.session_state.current_idx < len(sentences):
         </div>
         """, unsafe_allow_html=True)
         
-        # [다음 문장으로] 버튼 (위 버튼과 동일한 위치)
         if st.button("다음 문장으로 👉", type="primary"):
             st.session_state.current_idx += 1
             st.session_state.count += 1
@@ -137,7 +141,6 @@ if st.session_state.current_idx < len(sentences):
             save_progress(st.session_state.current_idx)
             st.rerun()
 
-    # 사이드바
     with st.sidebar:
         st.header("⚙️ 관리")
         if st.button("🔄 학습 기록 초기화"):
