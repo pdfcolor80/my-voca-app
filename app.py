@@ -1,143 +1,122 @@
 import streamlit as st
 import os
+import json
+import random
 
 # 파일 경로 설정
 DATA_FILE = "sentences.txt"
-SAVE_FILE = "progress.txt"
+PROGRESS_FILE = "study_data.json"
 
-# 모바일 최적화 설정
-st.set_page_config(page_title="영어 패턴 1000", layout="centered")
+st.set_page_config(page_title="영어 패턴 1000 운전모드", layout="centered")
 
-# CSS: 단계별 화면 제어 및 한 줄 최적화
+# CSS: 일반 모드와 운전 모드 대응 디자인
 st.markdown("""
     <style>
-    .main { background-color: #f8f9fa; }
+    .main { background-color: #1a1a1a; } /* 운전 시 눈부심 방지 다크모드 배경 */
     .study-card {
         background-color: #ffffff;
         padding: 30px 15px;
         border-radius: 30px;
-        border: 1px solid #e9ecef;
         text-align: center;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         margin-bottom: 20px;
-        min-height: 420px;
+        min-height: 450px;
         display: flex;
         flex-direction: column;
         justify-content: center;
     }
-    
-    /* 영어 및 발음 텍스트 스타일 */
     .eng-text { 
         color: #D32F2F; 
-        font-size: calc(1.6rem + 1.2vw); 
+        font-size: calc(2rem + 1.5vw); /* 운전 중 잘 보이게 더 크게 */
         font-weight: bold; 
         line-height: 1.2; 
-        margin-bottom: 10px;
-        word-break: keep-all;
-        min-height: 3.5em;
+        min-height: 4em;
         display: flex;
         align-items: center;
         justify-content: center;
+        word-break: keep-all;
     }
-    
-    .sound-text { 
-        color: #388E3C; 
-        font-size: 1.3rem; 
-        margin-top: 5px; 
-        font-weight: 500; 
-        opacity: 0.8;
-        min-height: 1.5em;
-    }
-    
-    /* 6~8회차에서 숨길 요소들 */
-    .hidden-content {
-        visibility: hidden;
-    }
-    
+    .sound-text { color: #388E3C; font-size: 1.5rem; margin-top: 5px; font-weight: 500; opacity: 0.8; }
+    .hidden-content { visibility: hidden; }
     .mean-box { 
         padding: 20px; 
         border-radius: 20px; 
         margin-top: 25px;
         background-color: #E3F2FD; 
         border: 1px solid #BBDEFB;
-        width: 100%;
     }
-    .mean-text { color: #1565C0; font-size: 1.9rem; font-weight: bold; }
-    
-    .label { color: #adb5bd; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
-    
-    .stButton>button { 
-        width: 100%; 
-        height: 4.8rem; 
-        font-size: 1.5rem !important; 
-        border-radius: 25px; 
-        font-weight: bold;
-        background: linear-gradient(135deg, #424242 0%, #212121 100%);
-        color: white;
-        border: none;
-    }
-    
-    /* 하단 상태 바 */
+    .mean-text { color: #1565C0; font-size: 2.2rem; font-weight: bold; }
     .status-info { 
-        color: #FFFFFF; 
-        font-weight: bold; 
-        margin-top: 20px; 
-        font-size: 1.1rem;
-        background-color: #0288D1;
-        padding: 12px;
-        border-radius: 15px;
-        transition: all 0.3s ease;
+        color: #FFFFFF; font-weight: bold; margin-top: 20px; font-size: 1.2rem;
+        padding: 15px; border-radius: 15px; text-align: center;
     }
+    /* 버튼들 */
+    .stButton>button { width: 100%; height: 5rem; border-radius: 25px; font-weight: bold; font-size: 1.5rem !important; }
     </style>
     """, unsafe_allow_html=True)
 
+# 데이터 함수들
 def load_sentences():
     if not os.path.exists(DATA_FILE): return []
-    valid_sentences = []
     with open(DATA_FILE, "r", encoding="utf-8") as f:
-        for line in f:
-            parts = line.strip().split("|")
-            if len(parts) >= 4: valid_sentences.append(parts[:4])
-    return valid_sentences
+        return [line.strip().split("|") for line in f if len(line.strip().split("|")) >= 4]
 
-def save_progress(index):
-    with open(SAVE_FILE, "w", encoding="utf-8") as f:
-        f.write(str(index))
+def load_study_data():
+    if os.path.exists(PROGRESS_FILE):
+        with open(PROGRESS_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return {}
 
-def load_progress():
-    if os.path.exists(SAVE_FILE):
-        try:
-            with open(SAVE_FILE, "r", encoding="utf-8") as f:
-                content = f.read().strip()
-                return int(content) if content else 0
-        except: return 0
-    return 0
+def save_study_data(data):
+    with open(PROGRESS_FILE, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_all_ascii=False, indent=4)
+
+def get_next_sentence(sentences, study_data):
+    unseen = [i for i in range(len(sentences)) if str(i) not in study_data]
+    if unseen: return unseen[0]
+    sorted_items = sorted(study_data.items(), key=lambda x: x[1])
+    candidates = [int(k) for k, v in sorted_items[:min(20, len(sorted_items))]]
+    return random.choice(candidates)
 
 sentences = load_sentences()
+study_data = load_study_data()
 
+# 세션 상태 초기화
 if "current_idx" not in st.session_state:
-    st.session_state.current_idx = load_progress()
+    st.session_state.current_idx = get_next_sentence(sentences, study_data)
+if "drive_mode" not in st.session_state:
+    st.session_state.drive_mode = False
 
-# --- 메인 학습 화면 ---
-if sentences and st.session_state.current_idx < len(sentences):
-    kind, eng, sound, mean = sentences[st.session_state.current_idx]
+# 사이드바 설정
+with st.sidebar:
+    st.header("⚙️ 설정")
+    st.session_state.drive_mode = st.toggle("🚗 운전 모드 (자동 넘기기)", value=st.session_state.drive_mode)
+    st.write("운전 모드에서는 8번 반복 후 3초 뒤 다음 문장으로 자동 이동합니다.")
+    if st.button("🔄 기록 초기화"):
+        if os.path.exists(PROGRESS_FILE): os.remove(PROGRESS_FILE)
+        st.rerun()
+
+# --- 메인 화면 ---
+if sentences:
+    idx = st.session_state.current_idx
+    kind, eng, sound, mean = sentences[idx]
     
-    st.progress(st.session_state.current_idx / len(sentences))
+    st.progress(idx / len(sentences))
     
-    # UI 구성 (ID 부여로 자바스크립트 제어)
     st.markdown(f"""
     <div class="study-card">
-        <div class="label">{kind}</div>
+        <div style="color:#adb5bd; font-weight:bold;">{kind}</div>
         <div id="display-eng" class="eng-text">{eng}</div>
         <div id="display-sound" class="sound-text">[{sound}]</div>
         <div class="mean-box">
             <div class="mean-text">{mean}</div>
         </div>
-        <div id="status-box" class="status-info">🔵 기본 학습: 보고 따라하기 (1/8)</div>
+        <div id="status-box" class="status-info" style="background-color:#0288D1;">🔵 학습 시작</div>
     </div>
     """, unsafe_allow_html=True)
 
-    # 🔊 0.7배속 + 총 8회 반복 + 6회차부터 영어/발음 숨김
+    # 🔊 자동 넘기기 로직이 포함된 자바스크립트
+    is_drive = "true" if st.session_state.drive_mode else "false"
     clean_eng = eng.replace('"', '').replace("'", "")
     
     st.components.v1.html(f"""
@@ -153,55 +132,59 @@ if sentences and st.session_state.current_idx < len(sentences):
             msg.rate = 0.7; 
             
             var count = 0;
+            var isDriveMode = {is_drive};
+
             msg.onend = function() {{
                 count++;
                 if (count < 8) {{
-                    // 6회차(인덱스 5)부터 영어와 발음 숨김
                     if (count === 5) {{
                         engElement.classList.add('hidden-content');
                         soundElement.classList.add('hidden-content');
-                        statusElement.innerText = "🟣 심화 학습: 소리만 듣고 쉐도잉 (" + (count+1) + "/8)";
+                        statusElement.innerText = "🟣 심화 학습 (" + (count+1) + "/8)";
                         statusElement.style.backgroundColor = "#8E24AA";
                     }} else if (count < 5) {{
-                        statusElement.innerText = "🔵 기본 학습: 보고 따라하기 (" + (count+1) + "/8)";
-                    }} else {{
-                        statusElement.innerText = "🟣 심화 학습: 소리만 듣고 쉐도잉 (" + (count+1) + "/8)";
+                        statusElement.innerText = "🔵 기본 학습 (" + (count+1) + "/8)";
                     }}
-                    
-                    setTimeout(function() {{
-                        window.speechSynthesis.speak(msg);
-                    }}, 2000);
+                    setTimeout(function() {{ window.speechSynthesis.speak(msg); }}, 2000);
                 }} else {{
-                    statusElement.innerText = "✅ 8회 완료! 다음 문장으로 넘어가세요.";
+                    statusElement.innerText = isDriveMode ? "🚗 운전모드: 3초 후 다음 문장 이동" : "✅ 완료! 난이도를 선택하세요.";
                     statusElement.style.backgroundColor = "#43A047";
+                    
+                    if(isDriveMode) {{
+                        setTimeout(function() {{
+                            // Streamlit의 hidden button을 클릭하여 다음 문장으로 이동
+                            window.parent.document.querySelector('button[kind="primary"]').click();
+                        }}, 3000);
+                    }}
                 }}
             }};
-            
-            // 초기화
-            engElement.classList.remove('hidden-content');
-            soundElement.classList.remove('hidden-content');
             window.speechSynthesis.speak(msg);
         }}
         shadowSpeaking();
         </script>
     """, height=0)
 
-    if st.button("다음 문장으로 👉"):
-        st.session_state.current_idx += 1
-        save_progress(st.session_state.current_idx)
-        st.rerun()
-
-else:
-    st.balloons()
-    st.success("🎉 1,000문장 정복 완료!")
-    if st.button("처음부터 다시 시작"):
-        st.session_state.current_idx = 0
-        save_progress(0)
-        st.rerun()
-
-with st.sidebar:
-    st.write(f"진행도: {st.session_state.current_idx + 1} / {len(sentences)}")
-    if st.button("🔄 기록 초기화"):
-        st.session_state.current_idx = 0
-        save_progress(0)
-        st.rerun()
+    # 하단 컨트롤
+    if st.session_state.drive_mode:
+        # 운전 모드일 때 자동으로 클릭될 보이지 않는 버튼
+        if st.button("Next (Auto)", type="primary", key="auto_next"):
+            # 운전 모드에서는 자동으로 '쉬움' 점수를 주고 넘어감
+            study_data[str(idx)] = study_data.get(str(idx), 0) + 1
+            save_study_data(study_data)
+            st.session_state.current_idx = get_next_sentence(sentences, study_data)
+            st.rerun()
+    else:
+        # 일반 모드: 난이도 선택 버튼
+        col1, col2 = st.columns(2)
+        with col1:
+            if st.button("🔴 어려워요"):
+                study_data[str(idx)] = study_data.get(str(idx), 0) - 1
+                save_study_data(study_data)
+                st.session_state.current_idx = get_next_sentence(sentences, study_data)
+                st.rerun()
+        with col2:
+            if st.button("🟢 쉬워요"):
+                study_data[str(idx)] = study_data.get(str(idx), 0) + 1
+                save_study_data(study_data)
+                st.session_state.current_idx = get_next_sentence(sentences, study_data)
+                st.rerun()
