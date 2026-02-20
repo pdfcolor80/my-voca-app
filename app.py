@@ -8,15 +8,15 @@ SAVE_FILE = "progress.txt"
 # 모바일 최적화 설정
 st.set_page_config(page_title="영어 패턴 1000", layout="centered")
 
-# CSS: 연음 학습에 집중할 수 있는 깔끔한 디자인
+# CSS: 영어 한 줄 출력 및 디자인 최적화
 st.markdown("""
     <style>
     .main { background-color: #f8f9fa; }
     .study-card {
         background-color: #ffffff;
-        padding: 40px 20px;
+        padding: 40px 15px;
         border-radius: 30px;
-        border: 2px solid #e9ecef;
+        border: 1px solid #e9ecef;
         text-align: center;
         box-shadow: 0 8px 20px rgba(0,0,0,0.05);
         margin-bottom: 20px;
@@ -24,9 +24,22 @@ st.markdown("""
         display: flex;
         flex-direction: column;
         justify-content: center;
+        overflow: hidden; /* 영역 밖으로 나가는 것 방지 */
     }
-    .eng-text { color: #D32F2F; font-size: 2.6rem; font-weight: bold; line-height: 1.3; margin-bottom: 10px; }
-    .sound-text { color: #388E3C; font-size: 1.5rem; margin-top: 5px; font-weight: 500; opacity: 0.8; }
+    
+    /* 영어 한 줄 유지 및 크기 최적화 */
+    .eng-text { 
+        color: #D32F2F; 
+        font-size: 2.1rem; /* 한 줄에 최대한 들어가도록 크기 소폭 조정 */
+        font-weight: bold; 
+        line-height: 1.1; 
+        margin-bottom: 10px;
+        white-space: nowrap; /* 줄바꿈 방지 */
+        overflow: hidden;
+        text-overflow: ellipsis; /* 너무 길면 끝에 ... 표시 */
+    }
+    
+    .sound-text { color: #388E3C; font-size: 1.3rem; margin-top: 5px; font-weight: 500; opacity: 0.8; }
     
     .mean-box { 
         padding: 20px; 
@@ -36,11 +49,10 @@ st.markdown("""
         border: 1px solid #BBDEFB;
         width: 100%;
     }
-    .mean-text { color: #1565C0; font-size: 2.2rem; font-weight: bold; }
+    .mean-text { color: #1565C0; font-size: 2.0rem; font-weight: bold; }
     
     .label { color: #adb5bd; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
     
-    /* 하단 고정 버튼 스타일 */
     .stButton>button { 
         width: 100%; 
         height: 4.8rem; 
@@ -50,16 +62,15 @@ st.markdown("""
         background: linear-gradient(135deg, #424242 0%, #212121 100%);
         color: white;
         border: none;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
     
     .shadow-info { 
         color: #FF6D00; 
         font-weight: bold; 
         margin-top: 15px; 
-        font-size: 1.1rem;
+        font-size: 1.0rem;
         background-color: #FFF3E0;
-        padding: 10px;
+        padding: 8px;
         border-radius: 10px;
     }
     </style>
@@ -100,17 +111,17 @@ if sentences and st.session_state.current_idx < len(sentences):
     
     st.markdown(f"""
     <div class="study-card">
-        <div class="label">Pattern: {kind}</div>
+        <div class="label">{kind}</div>
         <div class="eng-text">{eng}</div>
         <div class="sound-text">[{sound}]</div>
         <div class="mean-box">
             <div class="mean-text">{mean}</div>
         </div>
-        <div class="shadow-info">📢 천천히 듣고 (0.7배속) 5회 따라하세요</div>
+        <div class="shadow-info">📢 0.7배속 연음 듣고 5회 따라하기</div>
     </div>
     """, unsafe_allow_html=True)
 
-    # 🔊 연음 학습용 자바스크립트 (속도 낮춤, 대기 시간 늘림)
+    # 🔊 0.7배속 + 5회 반복 + 2초 대기 JavaScript
     clean_eng = eng.replace('"', '').replace("'", "")
     
     st.components.v1.html(f"""
@@ -119,14 +130,12 @@ if sentences and st.session_state.current_idx < len(sentences):
             window.speechSynthesis.cancel();
             var msg = new SpeechSynthesisUtterance("{clean_eng}");
             msg.lang = 'en-US';
-            msg.rate = 0.7; // 연음이 잘 들리도록 느리게 설정
-            msg.pitch = 1.0;
+            msg.rate = 0.7; 
             
             var count = 0;
             msg.onend = function() {{
                 count++;
                 if (count < 5) {{
-                    // 내가 충분히 말할 수 있도록 2초(2000ms) 대기
                     setTimeout(function() {{
                         window.speechSynthesis.speak(msg);
                     }}, 2000);
@@ -145,14 +154,14 @@ if sentences and st.session_state.current_idx < len(sentences):
 
 else:
     st.balloons()
-    st.success("🎉 모든 문장을 완료했습니다!")
+    st.success("🎉 1,000문장 정복 완료!")
     if st.button("처음부터 다시 시작"):
         st.session_state.current_idx = 0
         save_progress(0)
         st.rerun()
 
 with st.sidebar:
-    st.write(f"현재 위치: {st.session_state.current_idx + 1} / {len(sentences)}")
+    st.write(f"진행도: {st.session_state.current_idx + 1} / {len(sentences)}")
     if st.button("🔄 기록 초기화"):
         st.session_state.current_idx = 0
         save_progress(0)
