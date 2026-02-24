@@ -6,55 +6,74 @@ import random
 DATA_FILE = "sentences.txt"
 IMAGE_DIR = "images" 
 
-st.set_page_config(page_title="영어 이미지 연상 학습", layout="centered")
+st.set_page_config(page_title="영어 이미지 연상", layout="centered")
 
-# --- CSS: 스마트폰 가독성 및 UI 최적화 ---
+# --- CSS: 스마트폰 한 화면(No Scroll) 최적화 ---
 st.markdown("""
     <style>
+    /* 전체 배경 및 여백 제거 */
     .main { background-color: #fdfdfd; }
+    .block-container { padding-top: 1rem; padding-bottom: 1rem; }
+    
     .study-card {
         background-color: #ffffff;
-        padding: 20px 15px;
+        padding: 15px;
         border-radius: 20px;
         text-align: center;
         box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        margin-bottom: 15px;
-        min-height: 500px;
+        border: 1px solid #eee;
+        /* 화면 높이에 맞게 유연하게 조절 */
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
-        border: 1px solid #eee;
+        justify-content: space-between;
+        min-height: 80vh; 
     }
     
-    .image-container {
+    /* 이미지 크기 고정 및 최적화 */
+    .image-box {
         width: 100%;
-        height: 200px;
+        height: 180px; 
         background-color: #f9f9f9;
         border-radius: 15px;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
         display: flex;
         align-items: center;
         justify-content: center;
         overflow: hidden;
     }
+    .image-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
     
-    .eng-text-container { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; margin-bottom: 10px; }
-    .word-box { display: flex; align-items: baseline; }
-    .char-normal { color: #333; font-size: 1.6rem; font-weight: 500; }
-    .char-accent { color: #E53935; font-size: 1.9rem; font-weight: 800; text-decoration: underline; }
+    /* 텍스트 크기 조절 (한 화면에 들어오도록) */
+    .eng-text-container { 
+        display: flex; flex-wrap: wrap; align-items: center; justify-content: center; 
+        gap: 5px; margin-bottom: 5px; 
+    }
+    .char-normal { color: #333; font-size: 1.4rem; font-weight: 500; }
+    .char-accent { color: #E53935; font-size: 1.7rem; font-weight: 800; text-decoration: underline; }
     
-    .sound-text { color: #666; font-size: 1rem; margin-bottom: 10px; font-style: italic; }
-    .hidden-content { display: none !important; }
+    .sound-text { color: #888; font-size: 0.9rem; margin-bottom: 10px; font-style: italic; }
     
-    .mean-box { margin-top: auto; padding: 15px; border-top: 1px solid #f0f0f0; background-color: #f8faff; border-radius: 15px; }
-    .mean-text { color: #1a73e8; font-size: 1.5rem; font-weight: bold; }
+    .mean-box { 
+        padding: 12px; 
+        background-color: #f8faff; 
+        border-radius: 15px;
+        margin-bottom: 10px;
+    }
+    .mean-text { color: #1a73e8; font-size: 1.3rem; font-weight: bold; }
     
-    .status-info { margin-top: 15px; font-size: 1rem; color: #d32f2f; font-weight: bold; }
+    .status-info { font-size: 0.9rem; color: #d32f2f; font-weight: bold; margin-bottom: 10px; }
     
+    /* 하단 버튼 고정 */
     .stButton>button { 
-        width: 100%; height: 4.5rem; border-radius: 12px; font-weight: bold; font-size: 1.2rem !important;
+        width: 100%; height: 4rem; border-radius: 12px; font-weight: bold; font-size: 1.1rem !important;
         background-color: #333 !important; color: white !important; 
     }
+    
+    .hidden-content { display: none !important; }
     </style>
     """, unsafe_allow_html=True)
 
@@ -81,11 +100,12 @@ def load_sentences():
 
 all_sentences = load_sentences()
 
+# 사이드바 설정 (모바일에서는 접혀있음)
 with st.sidebar:
-    st.header("🎯 학습 메뉴")
-    study_mode = st.radio("학습 단계", ["1단계: 핵심 숙어 마스터", "2단계: 패턴 영어 완성"])
+    st.header("🎯 설정")
+    study_mode = st.radio("단계", ["1단계: 숙어", "2단계: 패턴"])
     st.session_state.drive_mode = st.toggle("🚗 운전 모드", value=st.session_state.get('drive_mode', False))
-    target_cat = "숙어" if "1단계" in study_mode else "패턴"
+    target_cat = "숙어" if "숙어" in study_mode else "패턴"
     filtered_data = [s for s in all_sentences if s[0] == target_cat]
 
 if filtered_data:
@@ -99,72 +119,62 @@ if filtered_data:
     img_filename = eng.lower().replace(" ", "_").replace("'", "") + ".jpg"
     img_path = os.path.join(IMAGE_DIR, img_filename)
     
+    # 카드 레이아웃 시작
     st.markdown('<div class="study-card">', unsafe_allow_html=True)
     
+    # 1. 이미지 영역
     if os.path.exists(img_path):
         st.image(img_path, use_container_width=True)
     else:
-        st.markdown(f'<div class="image-container" style="color:#ccc;">이미지 준비 중<br>({img_filename})</div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="image-box" style="color:#ccc; font-size:0.8rem;">이미지 준비 중<br>({img_filename})</div>', unsafe_allow_html=True)
 
+    # 2. 영어/발음/뜻/상태 영역
     st.markdown(f"""
-        <div id="display-eng" class="eng-text-container">{get_accented_html(eng)}</div>
-        <div id="display-sound" class="sound-text">[{sound}]</div>
-        <div class="mean-box"><div class="mean-text">{mean}</div></div>
-        <div id="status-box" class="status-info">시작하려면 아래 버튼 클릭</div>
-    </div>
+        <div>
+            <div id="display-eng" class="eng-text-container">{get_accented_html(eng)}</div>
+            <div id="display-sound" class="sound-text">[{sound}]</div>
+            <div class="mean-box"><div class="mean-text">{mean}</div></div>
+            <div id="status-box" class="status-info">준비 완료</div>
+        </div>
     """, unsafe_allow_html=True)
+    
+    # 카드 레이아웃 끝
+    st.markdown('</div>', unsafe_allow_html=True)
 
+    # JS 로직 (중괄호 에러 수정 완료)
     is_drive = "true" if st.session_state.drive_mode else "false"
     clean_eng = eng.replace('"', '').replace("'", "")
     
-    # ★ JS 내부의 중괄호 {}를 {{}}로 수정하여 SyntaxError 해결
     st.components.v1.html(f"""
         <script>
         function start() {{
             const engEl = window.parent.document.getElementById('display-eng');
             const soundEl = window.parent.document.getElementById('display-sound');
             const statusEl = window.parent.document.getElementById('status-box');
-            
             engEl.classList.remove('hidden-content');
             soundEl.classList.remove('hidden-content');
-            
             window.speechSynthesis.cancel();
             let count = 0;
             const isDrive = {is_drive};
-
             function speak() {{
                 let msg = new SpeechSynthesisUtterance("{clean_eng}");
                 msg.lang = 'en-US';
-                
-                if (count < 5) {{
-                    msg.rate = 0.5;
-                    statusEl.innerText = "Step 1: 느리게 (" + (count+1) + "/13)";
-                }} else if (count < 10) {{
-                    msg.rate = 0.8;
-                    statusEl.innerText = "Step 2: 정상 반복 (" + (count+1) + "/13)";
-                }} else {{
-                    msg.rate = 0.8;
-                    engEl.classList.add('hidden-content');
-                    soundEl.classList.add('hidden-content');
-                    statusEl.innerText = "Step 3: 가리고 말하기 (" + (count+1) + "/13)";
+                if (count < 5) {{ msg.rate = 0.5; statusEl.innerText = "Step 1: 느리게 (" + (count+1) + "/13)"; }}
+                else if (count < 10) {{ msg.rate = 0.8; statusEl.innerText = "Step 2: 반복 (" + (count+1) + "/13)"; }}
+                else {{ 
+                    msg.rate = 0.8; engEl.classList.add('hidden-content'); soundEl.classList.add('hidden-content'); 
+                    statusEl.innerText = "Step 3: 쉐도잉 (" + (count+1) + "/13)"; 
                 }}
-
                 msg.onend = function() {{
                     count++;
-                    if (count < 13) {{
-                        setTimeout(speak, 1500);
-                    }} else {{
-                        statusEl.innerText = isDrive ? "🚗 다음 문장 이동..." : "✅ 학습 완료";
+                    if (count < 13) {{ setTimeout(speak, 1200); }}
+                    else {{
+                        statusEl.innerText = isDrive ? "🚗 다음으로..." : "✅ 완료";
                         if(isDrive) {{
                             setTimeout(() => {{
                                 const buttons = window.parent.document.querySelectorAll('button');
-                                for (let btn of buttons) {{
-                                    if (btn.innerText.includes("다음")) {{
-                                        btn.click();
-                                        break;
-                                    }}
-                                }}
-                            }}, 3000);
+                                for (let btn of buttons) {{ if (btn.innerText.includes("다음")) {{ btn.click(); break; }} }}
+                            }}, 2000);
                         }}
                     }}
                 }};
@@ -172,15 +182,13 @@ if filtered_data:
             }}
             speak();
         }}
-        
         window.parent.document.querySelectorAll('button').forEach(btn => {{
-            if (btn.innerText.includes("다음")) {{
-                btn.onclick = () => {{ setTimeout(start, 500); }};
-            }}
+            if (btn.innerText.includes("다음")) {{ btn.onclick = () => {{ setTimeout(start, 500); }}; }}
         }});
         </script>
     """, height=0)
 
-    if st.button("다음 랜덤 문장 👉 (학습 시작)", type="primary"):
+    # 3. 하단 버튼
+    if st.button("다음 랜덤 문장 👉", type="primary"):
         st.session_state.current_idx = random.randint(0, len(filtered_data) - 1)
         st.rerun()
