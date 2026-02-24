@@ -8,57 +8,38 @@ DATA_FILE = "sentences.txt"
 # 페이지 설정
 st.set_page_config(page_title="현실 영어 쉐도잉", layout="centered")
 
-# --- CSS: 여백 최소화 및 한 줄 버튼 디자인 ---
+# --- CSS: 디자인 및 레이아웃 최적화 ---
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
-    
     * { font-family: 'Noto Sans KR', sans-serif !important; }
     header { visibility: hidden; height: 0px !important; }
     [data-testid="stHeader"] { display: none !important; }
-    
-    /* 상단 여백 극단적 제거 */
-    .main .block-container { 
-        padding-top: 10px !important; 
-        margin-top: -60px !important; 
-    }
+    .main .block-container { padding-top: 10px !important; margin-top: -60px !important; }
 
-    /* 상황 박스 슬림화 */
     .context-box {
-        background: #1e1e1e;
-        color: white;
-        border-radius: 12px;
-        padding: 8px 12px;
-        margin-bottom: 5px;
-        text-align: center;
-        font-size: 0.9rem;
+        background: #1e1e1e; color: white; border-radius: 12px;
+        padding: 8px 12px; margin-bottom: 10px; text-align: center; font-size: 0.9rem;
     }
 
-    /* 한 줄 버튼 스타일: 간격 좁히고 크기 최적화 */
-    div.stButton > button {
-        width: 100% !important;
-        background-color: #ffffff !important;
-        border: 1px solid #ddd !important;
-        border-radius: 10px !important;
-        padding: 6px 10px !important;
-        margin-bottom: -18px !important; /* 버튼 간격 밀착 */
-        text-align: center !important;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
+    /* 보기 레이아웃: 문장 버튼과 발음 버튼 한 줄 배치 */
+    .option-row {
+        display: flex; align-items: center; gap: 5px; margin-bottom: 8px;
     }
     
-    div.stButton > button:active {
-        background-color: #f0f7ff !important;
-        border-color: #007BFF !important;
+    /* 실제 정답 체크용 버튼 스타일 */
+    div.stButton > button {
+        width: 100% !important; background-color: #ffffff !important;
+        border: 1px solid #ddd !important; border-radius: 10px !important;
+        padding: 10px !important; font-size: 0.95rem !important;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
+        height: 50px !important;
     }
 
-    /* 다음 버튼 전용 스타일 */
+    /* 다음 문제 버튼 전용 */
     .next-area div.stButton > button {
-        background-color: #E53935 !important;
-        color: white !important;
-        height: 48px !important;
-        border-radius: 24px !important;
-        margin-top: 20px !important;
-        font-weight: 800 !important;
+        background-color: #E53935 !important; color: white !important;
+        height: 55px !important; border-radius: 28px !important; font-weight: 800 !important;
     }
     </style>
     """, unsafe_allow_html=True)
@@ -70,35 +51,23 @@ def load_data():
         with open(DATA_FILE, "r", encoding="utf-8") as f:
             for line in f:
                 p = line.strip().split("|")
-                if len(p) >= 4: all_rows.append(p)
+                if len(p) >= 5: all_rows.append(p)
     return all_rows
 
 all_data = load_data()
 
 def init_quiz(cat):
-    # 1. 정답 후보군 (패턴 제외)
-    quiz_pool = [r for r in all_data if r[0] != "패턴"] if cat == "💡 전체보기" else [r for r in all_data if r[0] == cat]
-    if not quiz_pool: quiz_pool = [r for r in all_data if r[0] != "패턴"]
-    
-    # 정답 결정
+    quiz_pool = [r for r in all_data if r[0] not in ["패턴", "숙어", "단어"]] if cat == "💡 전체보기" else [r for r in all_data if r[0] == cat]
+    if not quiz_pool: quiz_pool = [r for r in all_data if r[0] not in ["패턴", "숙어", "단어"]]
     st.session_state.quiz_data = random.choice(quiz_pool)
     correct_eng = st.session_state.quiz_data[1]
-    
-    # 2. 오답 보기 풀: 무조건 '숙어' 카테고리에서만 추출 (패턴 영어 배제)
-    distractor_pool = [r for r in all_data if r[0] == "숙어" and r[1] != correct_eng]
-    
-    # 만약 숙어 데이터가 부족할 경우를 대비한 안전장치
-    if len(distractor_pool) < 5:
-        distractor_pool = [r for r in all_data if r[0] != "패턴" and r[1] != correct_eng]
-
-    # 보기 6개 구성 (정답 1 + 숙어 오답 5)
+    distractor_pool = [r for r in all_data if r[0] == "단어" and r[1] != correct_eng]
+    if len(distractor_pool) < 5: distractor_pool = [r for r in all_data if r[1] != correct_eng]
     st.session_state.forest_items = random.sample(distractor_pool, 5) + [st.session_state.quiz_data]
     random.shuffle(st.session_state.forest_items)
-    
     st.session_state.phase = "forest"
 
-# 카테고리 선택
-categories = sorted(list(set([r[0] for r in all_data if r[0] not in ["패턴", "숙어"]])))
+categories = sorted(list(set([r[0] for r in all_data if r[0] not in ["패턴", "숙어", "단어"]])))
 categories = ["💡 전체보기"] + categories
 selected_cat = st.selectbox("", categories, label_visibility="collapsed")
 
@@ -106,25 +75,7 @@ if "quiz_data" not in st.session_state or st.session_state.get("last_cat") != se
     st.session_state.last_cat = selected_cat
     init_quiz(selected_cat)
 
-@st.dialog("📚 단어 복습")
-def show_word_popup():
-    # 팝업도 숙어나 패턴에서 랜덤하게
-    words = [r for r in all_data if r[0] in ["숙어", "패턴"]]
-    w = random.choice(words) if words else all_data[0]
-    st.markdown(f"<h3 style='text-align:center; color:#007BFF; margin-bottom:5px;'>{w[1]}</h3>", unsafe_allow_html=True)
-    st.markdown(f"<p style='text-align:center; font-size:1.1rem; color:#444;'><b>{w[3]}</b></p>", unsafe_allow_html=True)
-    st.info(f"발음: {w[2]}")
-    if st.button("다음 문제 시작!", use_container_width=True):
-        init_quiz(selected_cat)
-        st.rerun()
-
-@st.dialog("💡 오답")
-def show_wrong(item):
-    st.write(f"**{item[1]}**")
-    st.write(f"뜻: {item[3]}")
-    if st.button("다시 시도"): st.rerun()
-
-# --- 화면 출력 ---
+# --- 메인 화면 ---
 curr = st.session_state.quiz_data
 cat_name, target_eng, target_sound, target_mean, target_context = curr[:5]
 
@@ -132,23 +83,52 @@ st.markdown(f'<div class="context-box"><b>{cat_name}</b><br>{target_context} ({t
 
 if st.session_state.phase == "forest":
     for i, item in enumerate(st.session_state.forest_items):
-        # 버튼에 영어 문장과 발음을 같이 표시
-        label = f"{item[1]}  /  {item[2]}"
-        if st.button(label, key=f"btn_{i}"):
-            if item[1] == target_eng:
-                st.session_state.phase = "solved"
-            else:
-                show_wrong(item)
-            st.rerun()
+        col1, col2 = st.columns([0.85, 0.15])
+        
+        with col1:
+            # 텍스트 버튼 (정답 체크용)
+            if st.button(f"{item[1]} / {item[2]}", key=f"ans_{i}"):
+                if item[1] == target_eng:
+                    st.session_state.phase = "solved"
+                    st.rerun()
+                else:
+                    # 😈 비웃음 + 얄미운 경고창
+                    st.components.v1.html(f"""
+                        <script>
+                        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                        function beep(f, d, s) {{
+                            const o = ctx.createOscillator(); const g = ctx.createGain();
+                            o.type = 'sawtooth'; o.frequency.value = f;
+                            g.gain.setValueAtTime(0.1, ctx.currentTime);
+                            o.connect(g); g.connect(ctx.destination);
+                            o.start(ctx.currentTime + s); o.stop(ctx.currentTime + s + d);
+                        }}
+                        beep(880, 0.1, 0); beep(1100, 0.2, 0.15);
+                        alert("풉! 🤣\\n[{item[1]}]은 '{item[3]}'이라는 뜻이에요.\\n정신 차리세요! 😜");
+                        </script>
+                    """, height=0)
+
+        with col2:
+            # 개별 발음 버튼 (🔊 아이콘)
+            if st.button("🔊", key=f"spk_{i}"):
+                st.components.v1.html(f"""
+                    <script>
+                    window.speechSynthesis.cancel();
+                    let ut = new SpeechSynthesisUtterance("{item[1].replace("'","")}");
+                    ut.lang = 'en-US'; ut.rate = 0.9;
+                    window.speechSynthesis.speak(ut);
+                    </script>
+                """, height=0)
 
 elif st.session_state.phase == "solved":
+    st.balloons()
     st.markdown(f"""
         <div style="text-align:center;">
             <h2 style="color:#007BFF; margin-bottom:0;">{target_eng}</h2>
-            <p style="font-size:1.2rem; color:#E53935; font-weight:700; margin-top:5px;">{target_sound}</p>
+            <p style="font-size:1.2rem; color:#E53935; font-weight:700;">{target_sound}</p>
             <h4 style="color:#444;">{target_mean}</h4>
-            <hr style="margin:10px 0;">
-            <p id="status" style="font-weight:800; color:#333;">🔊 쉐도잉 5회 반복 중...</p>
+            <hr>
+            <p style="font-weight:800; color:#333;">🔊 자동 반복 쉐도잉 중...</p>
         </div>
     """, unsafe_allow_html=True)
 
@@ -168,5 +148,12 @@ elif st.session_state.phase == "solved":
 
     st.markdown('<div class="next-area">', unsafe_allow_html=True)
     if st.button("다음 문제 👉", key="next"):
-        show_word_popup()
+        review_pool = [r for r in all_data if r[0] == "단어"]
+        if review_pool:
+            w = random.choice(review_pool)
+            st.components.v1.html(f"""
+                <script>alert("📚 단어 복습!\\n\\n{w[1]} ({w[2]})\\n뜻: {w[3]}"); window.parent.location.reload();</script>
+            """, height=0)
+            init_quiz(selected_cat)
+            st.rerun()
     st.markdown('</div>', unsafe_allow_html=True)
